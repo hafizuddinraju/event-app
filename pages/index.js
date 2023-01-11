@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import ContactUs from '../components/ContactUs/ContactUs'
 import Footer from '../components/Footer/Footer'
 
 import Header from '../components/Header/Header'
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
       <main>
         <Header></Header>
+        <ContactUs />
         <Footer />
       </main>
     </>
