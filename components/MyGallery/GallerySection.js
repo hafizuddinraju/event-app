@@ -1,4 +1,6 @@
 import React from 'react';
+import { BsArrowsFullscreen } from "react-icons/bs";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const GallerySection = () => {
     const Data= [
@@ -79,7 +81,7 @@ const GallerySection = () => {
          <div className='px-4 py-16 max-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
             <div className=' mb-6 text-center lg:justify-center lg:flex-row md:mb-8'>
                 <h2 className='text-3xl font-bold'>OUR GALLERY</h2>
-                <h4>Some of our project  discussion,management and meeting image</h4>
+                <h4 className='text-lg font-xl'>Some of our project  discussion,management and meeting image</h4>
             </div>
             <div className='grid gap-6 row-gap-5 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'> 
                 {Data.map(({id,title,desc,cover})=>
@@ -89,10 +91,20 @@ const GallerySection = () => {
                         <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
                             <p className='mb-4 text-lg font-bold text-gray-100'>{title}</p>
                             <p className='text-sm tracking-wide text-gray-300'>{desc}</p>
+                            <span className=' text-white'>
+                            <BsArrowsFullscreen className='mt-5 ml-20'/>
+                            </span>
                         </div>
                     </div>
                 </a>
                 )}
+            </div>
+            <div className='justify-center items-center text-center'>
+                <button className='btn border-none bg-gradient-to-r from-emerald-500 to-lime-500'>See All
+                <span className="group-hover:rotate-90 duration-300">
+                <MdOutlineKeyboardArrowRight size={25} className='ml-1'/>
+                </span>
+                </button>
             </div>
         </div>
     );
