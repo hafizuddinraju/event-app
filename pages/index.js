@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Header from '../components/Header/Header'
+import GallerySection from '../components/MyGallery/GallerySection'
 
 
 
@@ -15,7 +16,7 @@ export default function Home() {
       </Head>
       <main>
         <Header></Header>
-        
+        <GallerySection></GallerySection>
       </main>
     </>
   )
