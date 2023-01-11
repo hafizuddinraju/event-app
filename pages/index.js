@@ -4,6 +4,7 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import GallerySection from '../components/MyGallery/GallerySection'
 import Topbar from '../components/Navbar/Topbar'
+import About from '../components/About/About'
 
 
 
@@ -20,6 +21,7 @@ export default function Home() {
       <main>
         <Topbar></Topbar>
         <Header></Header>
+        <About></About>
         <GallerySection/>
         <Footer />
         
