@@ -83,7 +83,7 @@ const GallerySection = () => {
             <h2 className='text-3xl font-bold'>OUR GALLERY</h2>
             <h4 className='text-lg font-xl'>Some of our project  discussion,management and meeting image</h4>
         </div>
-        <div className='grid gap-6 row-gap-5 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'> 
+        <div className='grid mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'> 
             {Data.map(({id,title,desc,cover})=>
             <a key={id} href="/" aria-label="View Item">
                 <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
