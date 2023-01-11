@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 import { FaEnvelope, FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (

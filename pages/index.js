@@ -5,6 +5,7 @@ import Header from '../components/Header/Header'
 import GallerySection from '../components/MyGallery/GallerySection'
 import Topbar from '../components/Navbar/Topbar'
 import About from '../components/About/About'
+import ContactUs from '../components/ContactUs/ContactUs'
 
 
 
@@ -22,9 +23,10 @@ export default function Home() {
         <Topbar></Topbar>
         <Header></Header>
         <About></About>
-        <GallerySection/>
+        <GallerySection />
+        <ContactUs />
         <Footer />
-        
+
       </main>
     </>
   )
