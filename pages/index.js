@@ -7,6 +7,7 @@ import Header from '../components/Header/Header'
 import GallerySection from '../components/MyGallery/GallerySection'
 import Topbar from '../components/Navbar/Topbar'
 import Testimonial from '../components/Testimonial/Testimonial'
+import Category from '../components/Categories/Category'
 
 
 
@@ -24,6 +25,7 @@ export default function Home() {
       <main>
         <Topbar></Topbar>
         <Header></Header>
+        <Category></Category>
         <About></About>
         <GallerySection />
         <Testimonial></Testimonial>
