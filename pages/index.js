@@ -5,6 +5,7 @@ import Header from '../components/Header/Header'
 
 
 
+
 export default function Home() {
   return (
     <>
@@ -17,6 +18,7 @@ export default function Home() {
       <main>
         <Header></Header>
         <Footer />
+        
       </main>
     </>
   )
