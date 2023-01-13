@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import CategoryCard from './CategoryCard';
 
@@ -9,19 +10,19 @@ const Category = () => {
                     "id": 1,
                     "img": "https://i.ibb.co/T82Xw25/wedding-theme.jpg",
                     "title": "Wedding Theme",
-                    "description": "This is a description for event 1"
+                    "description": "Our marriage event management team allows users to plan and organize various aspects of a wedding, such as guest lists, budget tracking, and event scheduling."
                     },
                     {
                     "id": 2,
                     "img": "https://i.ibb.co/qNsYRg6/birthday-plan.jpg",
                     "title": "Birthday Plans",
-                    "description": "This is a description for event 2"
+                    "description": "Our birthday event management Process is an user-friendly and easy-to-use  that allows you to plan and organize all aspects of your birthday event."
                     },
                     {
                     "id": 3,
-                    "img": "https://i.ibb.co/RPv1p8m/valentine-s-theme.jpg",
-                    "title": "Valentine's Theme",
-                    "description": "This is a description for event 3"
+                    "img": "https://i.ibb.co/RH2KZjp/Sports-event-2.jpg",
+                    "title": "Sports",
+                    "description": "Welcome to our Sports Event Management website! Our team is dedicated to providing a seamless and efficient experience for managing your sports events."
                     }
                 ]
 
@@ -37,6 +38,9 @@ const Category = () => {
                     events={event}
                     ></CategoryCard> )
                 }
+            </div>
+            <div className='flex justify-center mb-20 tooltip' data-tip='Tap to explore more events'>
+                <Link href='/' className='btn text-xl normal-case bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more...</Link>
             </div>
         </div>
     );
