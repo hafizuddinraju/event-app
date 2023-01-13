@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className=''>
             <div className='py-7 bg-[#14172A] text-base-100'>
                 <div className="container mx-auto">
-                    <div className="grid lg:grid-cols-4 gap-4 items-baseline justify-center lg:justify-none">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 lg:px-0 gap-6 items-baseline justify-between ">
                         <div>
                             <div>
                                 <h4 className="text-xl capitalize mb-4">contact info</h4>
@@ -20,7 +20,6 @@ const Footer = () => {
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <FaPhone size={20} />
-                                        <span>+8801234567891</span>
                                         <span>+8801234567891</span>
                                     </div>
                                 </div>
@@ -39,16 +38,16 @@ const Footer = () => {
                             <h4 className="text-2xl capitalize mb-4">event venues</h4>
                             <ul>
                                 <li>
-                                    hotel akterauzzaman
+                                    InterContinental Dhaka
                                 </li>
                                 <li>
-                                    hotel akterauzzaman
+                                    International Convention City Bashundhara (ICCB)
                                 </li>
                                 <li>
-                                    hotel akterauzzaman
+                                    Bangabandhu International Conference Center
                                 </li>
                                 <li>
-                                    hotel akterauzzaman
+                                    Pan Pacific Sonargaon Dhaka Hotel
                                 </li>
                             </ul>
                         </div>
