@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 import styles from '../../styles/CategoryCard.module.css';
 
 const CategoryCard = ({events}) => {
@@ -22,7 +23,7 @@ const CategoryCard = ({events}) => {
                         <button className={styles.easing_btn}
                         onMouseEnter={() => setHover(true)}
                         onMouseLeave={() => setHover(false)}>
-                        Go
+                        Go <span className='inline-block align-middle'><FaArrowRight></FaArrowRight></span>
                         {hover && <div className="absolute bottom-0 right-0 bg-white text-black p-2 rounded-md">Tap to see the details.</div>}
                         </button>
                     </div>
