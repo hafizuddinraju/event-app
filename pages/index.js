@@ -8,6 +8,8 @@ import GallerySection from '../components/MyGallery/GallerySection'
 import Topbar from '../components/Navbar/Topbar'
 import Testimonial from '../components/Testimonial/Testimonial'
 import HappyClients from '../components/HappyClients/HappyClients'
+import Category from '../components/Categories/Category'
+
 
 
 
@@ -25,6 +27,7 @@ export default function Home() {
       <main>
         <Topbar></Topbar>
         <Header></Header>
+        <Category></Category>
         <About></About>
         <GallerySection />
         <HappyClients></HappyClients>

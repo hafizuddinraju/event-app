@@ -78,21 +78,21 @@ const GallerySection = () => {
         },
     ]
     return (
-        <div className='px-4 py-16 max-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+        <div className='px-4 py-16 max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-20'>
         <div className=' mb-6 text-center lg:justify-center lg:flex-row md:mb-8'>
             <h2 className='text-3xl font-bold'>OUR GALLERY</h2>
             <h4 className='text-lg font-xl'>Some of our project  discussion,management and meeting image</h4>
         </div>
-        <div className='grid gap-6 row-gap-5 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'> 
+        <div className='grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'> 
             {Data.map(({id,title,desc,cover})=>
             <a key={id} href="/" aria-label="View Item">
-                <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
+                <div className="relative overflow-hidden transition rounded duration-200 transform shadow-lg hover:-translate-y-2 hover:shadow-2xl">
                     <img src={cover} alt="" className='object-cover w-full h-56 md:h-64 xl:h-80'/>
                     <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
                         <p className='mb-4 text-lg font-bold text-gray-100'>{title}</p>
                         <p className='text-sm tracking-wide text-gray-300'>{desc}</p>
                         <span className=' text-white'>
-                        <BsArrowsFullscreen className='mt-5 ml-20'/>
+                        <BsArrowsFullscreen className='mt-8 ml-28'/>
                         </span>
                     </div>
                 </div>

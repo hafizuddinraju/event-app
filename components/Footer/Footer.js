@@ -3,13 +3,13 @@ import { FaEnvelope, FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaTwitter
 const Footer = () => {
     return (
         <footer className=''>
-            <div className='py-4 bg-[#14172A] text-base-100 '>
+            <div className='py-7 bg-[#14172A] text-base-100'>
                 <div className="container mx-auto">
-                    <div className="grid lg:grid-cols-4 gap-4 items-baseline">
+                    <div className="grid lg:grid-cols-4 gap-4 items-baseline justify-center lg:justify-none">
                         <div>
                             <div>
-                                <h4 className="text-2xl capitalize mb-4">contact info</h4>
-                                <div className='space-y-3'>
+                                <h4 className="text-xl capitalize mb-4">contact info</h4>
+                                <div className='space-y-3 text-sm lg:text-md'>
                                     <div className="flex items-center gap-3">
                                         <FaMapMarkerAlt size={20} />
                                         <span>mirsarai, chittagong</span>
