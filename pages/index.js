@@ -7,6 +7,7 @@ import Header from '../components/Header/Header'
 import GallerySection from '../components/MyGallery/GallerySection'
 import Topbar from '../components/Navbar/Topbar'
 import Testimonial from '../components/Testimonial/Testimonial'
+import HappyClients from '../components/HappyClients/HappyClients'
 
 
 
@@ -26,6 +27,7 @@ export default function Home() {
         <Header></Header>
         <About></About>
         <GallerySection />
+        <HappyClients></HappyClients>
         <Testimonial></Testimonial>
         <ContactUs />
         <Footer />
