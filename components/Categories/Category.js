@@ -15,6 +15,10 @@ const Category = () => {
         }
     })
 
+    if(isLoading){
+        return <div>Loading...</div>
+    }
+
     return (
         <div className='m-10'>
             <div className='text-center my-20'>
