@@ -16,14 +16,11 @@ const Navbar = () => {
   useEffect(()=>{
     if(router.route == '/'){
       if(textColor){
-
         setTextColor( 'gray'||'white')
       }
       else{
         setTextColor('white')
-
       }
-      
     }
     else{
       setTextColor('black')
@@ -33,14 +30,8 @@ const Navbar = () => {
   },[router.route, color])
   
   const handleSignout = ()=>{
-    
      signOut();
-    
-    
   }
- 
-  
-
 
   const handleNav = () => {
     setNav(!nav);
@@ -56,9 +47,11 @@ const Navbar = () => {
         setColor('transparent');
         setTextColor('#ffffff');
       }
+      
     };
     window.addEventListener('scroll', changeColor);
   }, []);
+
   const menu = <>
         <li className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
             <Link
@@ -158,11 +151,8 @@ const Navbar = () => {
       <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
       <label htmlFor="my-drawer" className="sm:block md:hidden drawer-button"><AiOutlineMenu size={20} style={{ color: `${textColor}` }} /></label>
         <Link href='/'>
-          <h1 style={{ color: `${textColor}` }} className='font-bold text-4xl'>
-            
-
+          <h1 className='font-bold text-4xl'>
            <span className='text-sky-500'>Event</span>Mart
-            
           </h1>
         </Link>
         <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
@@ -172,9 +162,9 @@ const Navbar = () => {
         {/* Mobile Button */}
         <div onClick={handleNav} className='block sm:hidden z-10'>
           {nav ? (
-            <AiOutlineClose className='text-white' size={20} style={{ color: `${textColor}` }} />
+            <AiOutlineClose className='text-white' size={20}/>
           ) : (
-            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
+            <AiOutlineMenu size={20}  />
           )}
         </div>
         {/* Mobile Menu */}

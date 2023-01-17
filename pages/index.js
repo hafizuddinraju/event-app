@@ -10,11 +10,6 @@ import Testimonial from '../components/Testimonial/Testimonial'
 import HappyClients from '../components/HappyClients/HappyClients'
 import Category from '../components/Categories/Category'
 
-
-
-
-
-
 export default function Home() {
   return (
     <>
