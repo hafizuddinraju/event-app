@@ -13,7 +13,7 @@ const SliderItem = ({data}) => {
                   <h1 className=' text-base md:text-2xl lg:text-4xl font-bold text-white'>
                   Competently disseminate  <br />
                   dynamic communities   <br />
-                  whereas economically sound data.
+                  whereas economically sounds data.
                   </h1>
               </div>
               <div className="absolute flex my-6 md:mt-24 justify-end transform -translate-y-1/2 w-4/5 md:w-2/5 left-10 md:left-32 lg:left-80 top-40 md:top-1/3">
