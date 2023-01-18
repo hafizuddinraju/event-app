@@ -1,11 +1,6 @@
 import React from 'react';
 import SliderItem from './SliderItem';
-import p1 from '../../assets/images/p1.jpeg'
-import p2 from '../../assets/images/p2.jpeg'
-import p3 from '../../assets/images/p3.jpeg'
-import p4 from '../../assets/images/p4.jpeg'
-import p5 from '../../assets/images/p5.jpeg'
-import p6 from '../../assets/images/p6.jpeg'
+
 
 const Slider = () => {
     const bannerData = [
@@ -49,7 +44,7 @@ const Slider = () => {
     return (
         <div className="carousel w-full">
         {
-          bannerData.map(data => <SliderItem key={data.id} data={data}></SliderItem>)
+          bannerData?.map(data => <SliderItem key={data.id} data={data}></SliderItem>)
         }
       </div>
     );

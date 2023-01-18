@@ -148,14 +148,14 @@ const Navbar = () => {
       className='fixed left-0 top-0 w-full  z-10  ease-in duration-300'
     >
       
-      <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
-      <label htmlFor="my-drawer" className="sm:block md:hidden drawer-button"><AiOutlineMenu size={20} style={{ color: `${textColor}` }} /></label>
+      <div className='max-w-[1240px] m-auto flex justify-between items-center pt-4 px-4 pb-1 text-white'>
+      
         <Link href='/'>
 
-          <h1  className='font-bold text-4xl'>
+          <h1  className='font-bold text-4xl flex items-center'>
             
-
-           <span className='text-sky-500'>Event</span><span style={{ color: `${textColor}` }} >Mart</span> 
+           <img className='w-11 mt-3' src="https://i.ibb.co/khpBckc/f67.png" alt="" />
+           <span className='text-sky-500 ml-4 hidden md:block lg:block'>Event</span><span className='hidden md:block lg:block' style={{ color: `${textColor}` }} >Mart</span> 
             
 
           
@@ -170,7 +170,7 @@ const Navbar = () => {
           {nav ? (
             <AiOutlineClose className='text-white' size={20}/>
           ) : (
-            <AiOutlineMenu size={20}  />
+            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
           )}
         </div>
         {/* Mobile Menu */}
