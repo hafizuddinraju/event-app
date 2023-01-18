@@ -151,8 +151,14 @@ const Navbar = () => {
       <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
       <label htmlFor="my-drawer" className="sm:block md:hidden drawer-button"><AiOutlineMenu size={20} style={{ color: `${textColor}` }} /></label>
         <Link href='/'>
-          <h1 className='font-bold text-4xl'>
-           <span className='text-sky-500'>Event</span>Mart
+
+          <h1  className='font-bold text-4xl'>
+            
+
+           <span className='text-sky-500'>Event</span><span style={{ color: `${textColor}` }} >Mart</span> 
+            
+
+          
           </h1>
         </Link>
         <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
