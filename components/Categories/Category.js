@@ -26,7 +26,7 @@ const Category = () => {
             </div>
             <div className='flex flex-wrap justify-around my-10'>
                 {
-                    allCategories?.slice(0, 3).map(event => <CategoryCard
+                   allCategories.length > 0  && allCategories?.slice(0, 3).map(event => <CategoryCard
                     key={event._id}
                     events={event}
                     ></CategoryCard> )
