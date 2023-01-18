@@ -4,14 +4,18 @@ import { FaArrowRight } from 'react-icons/fa';
 import styles from '../../styles/CategoryCard.module.css';
 
 const CategoryCard = ({events}) => {
-    const [readMore, setReadMore] = useState(200);
+    const [fullDescription, setFullDescription] = useState(false);
 
 
     const { _id, img, cate_name, description } = events;
     const [hover, setHover] = useState(false);
 
     const handleReadMore = () =>{
-        setReadMore(description.length);
+        setFullDescription(true);
+    }
+
+    const handleReadLess = () =>{
+        setFullDescription(false);
     }
 
     return (
@@ -23,20 +27,29 @@ const CategoryCard = ({events}) => {
                         <div className={styles.easing_title}>{cate_name}</div>
                         <div className=' text-justify '>
                             <p className={styles.easing_description}>
-                            {description?.length > readMore ? (
+                            {description?.length > 200 && !fullDescription ? (
                       <small>
                         {" "}
-                        {description.slice(0, readMore) + "..."}{" "}
+                        {description.slice(0, 200) + "..."}{" "}
                         <button
                           onClick={handleReadMore}
                           className="text-sky-700"
                         //   href={`/categories/${_id}`}
                         >
-                          Read More
+                          read More
                         </button>
                       </small>
                     ) : (
-                    description
+                        <small>
+                        {description}
+                        {" "}
+                        <button
+                            onClick={handleReadLess}
+                            className="text-sky-700"
+                        >
+                            see Less
+                        </button>
+                    </small>
                     )}
                             </p>
                         </div>
