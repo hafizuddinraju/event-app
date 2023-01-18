@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div className='my-8'>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
                     <div>
                         <div>
@@ -20,9 +20,9 @@ const About = () => {
                     </div>
                     <div className='ml-6'>
                         <h1 className="text-5xl font-bold">About US</h1>
-                        <p className="py-6">Bizzabo is an tourism focused service. <br />
-                            Paradise provide various types of services with minimal cost. <br />
-                            Such as Flight Reservation Booking, Tour Visa, Hotel Booking, <br />
+                        <p className="py-6">Event App is an event organizing service. <br />
+                            Event App provide various types of services with minimal cost. <br />
+                            Such as Marriage event organizing, Birthday party organizing, Sports event organizing, <br />
                             Delivery service, Passport Consultancy and many more. </p>
                     </div>
                 </div>
