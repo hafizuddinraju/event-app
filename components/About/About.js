@@ -23,7 +23,7 @@ const About = () => {
                         <p className="py-6">Event App is an event organizing service. <br />
                             Event App provide various types of services with minimal cost. <br />
                             Such as Marriage event organizing, Birthday party organizing, Sports event organizing, <br />
-                            Delivery service, Passport Consultancy and many more. </p>
+                            Delivery services, Passport Consultancy and many more. </p>
                     </div>
                 </div>
             </div>
