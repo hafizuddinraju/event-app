@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { Router, useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
+import { AuthContext } from '../../context/AuthProvider';
 // import{useSession, signOut} from 'next-auth/react'
 
 
@@ -10,6 +12,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [color, setColor] = useState('transparent');
   const [textColor, setTextColor] = useState('white');
+   const {user,logOut} = useContext(AuthContext)
 //   const {data:session} = useSession();
 //   console.log(session)
   const router = useRouter();
@@ -30,7 +33,8 @@ const Navbar = () => {
   },[router.route, color])
   
   const handleSignout = ()=>{
-     signOut();
+    logOut();
+    router.push("/");
   }
 
   const handleNav = () => {
@@ -104,8 +108,8 @@ const Navbar = () => {
            Contact
           </Link>
       </li>
-      {/* {
-        session?.user?
+      {
+        user?
         <>
          <li  className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
           <Link
@@ -131,7 +135,7 @@ const Navbar = () => {
         :
         ' '
       }
-       */}
+      
      
 
       

@@ -5,12 +5,14 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEnvelope, FaEye } from "react-icons/fa";
+import { FcGoogle } from 'react-icons/fc';
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
 
 const Login = () => {
     const [pShow, setPShow] = useState(false)
     const { register, handleSubmit } = useForm()
-    const { signIn } = useContext(AuthContext)
+    const { signIn,googleLogin } = useContext(AuthContext)
     const router = useRouter()
 
     //show password 
@@ -21,11 +23,24 @@ const Login = () => {
     const handleLoginForm = data => {
         signIn(data.email, data.password)
             .then(result => {
+                const user = result.user;
+                console.log(user)
                 router.push('/')
             })
             .catch(err => {
                 console.log(err);
             })
+    }
+
+    const googleLoginUser = ()=>{
+        googleLogin()
+        .then(result =>{
+            router.push("/")
+
+        })
+        .catch(error =>{
+            toast.success(error, {autoClose:500})
+        })
     }
     return (
         <div className="mt-32">
@@ -47,6 +62,7 @@ const Login = () => {
                                 <span className="bg-base-100"><FaEye size={20} onClick={togglePassVisibility} className="text-gray-400 cursor-pointer hover:text-[#0EA5E9] absolute right-4 top-1/2 -translate-y-2/4" /></span>
                             </div>
                             <button type="submit" className="btn bg-[#0EA5E9] border-none hover:bg-[#0EA5E9]">Login</button>
+                            <button onClick={googleLoginUser} type="submit" className="btn  border text-gray-800 bg-gray-50 border-sky-500 hover:bg-white">Sign In with <FcGoogle className="ml-4 text-2xl"></FcGoogle></button>
                             <div>
                                 <p className="text-sm capitalize text-center">new to eventMart? <Link href='/signup' className="text-[#0EA5E9]">sign up</Link> </p>
                             </div>
