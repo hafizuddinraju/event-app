@@ -6,6 +6,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { getPhotoGallery } from "../../lib/helperGallery";
+import Spinner from "../Spinner/Spinner";
 
 const GallerySection = () => {
   const [hover, setHover] = useState(false);
@@ -18,7 +19,7 @@ const GallerySection = () => {
 })
 
 if(isLoading){
-  return <div>Loading....</div>
+  return <Spinner></Spinner>
 }
   return (
     <>
@@ -55,7 +56,7 @@ if(isLoading){
           ))}
         </div>
         <div className='flex justify-center mb-20 tooltip' data-tip='Tap to explore more events'>
-                <Link href='/' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more...</Link>
+                <Link href='/' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>
             </div>
       </div>
     </>

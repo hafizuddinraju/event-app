@@ -23,6 +23,7 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
     "react-icons-kit": "^2.0.0",
+    "react-loader-spinner": "^5.3.4",
     "react-photo-view": "^1.2.3",
     "react-router-dom": "^6.6.2",
     "react-scroll": "^1.8.9",
