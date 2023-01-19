@@ -6,6 +6,8 @@ import { eye } from 'react-icons-kit/feather/eye'
 import Icon from 'react-icons-kit';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 const Signup = () => {
 
@@ -17,8 +19,7 @@ const Signup = () => {
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(eyeOff);
 
-    // const location = useLocation();
-    // const navigate = useNavigate()
+    const router = useRouter()
 
 
     const handleToggle = () => {
@@ -37,15 +38,13 @@ const Signup = () => {
         setSignUpError('');
         createUser(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
-                toast('User Created Successfully');
-                const userInfo = {
-                    displayName: data.name
-                }
+                const userInfo = { displayName: data?.name }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email)
+                        // saveUser(data.name, data.email)
+                        console.log('update');
+                        toast.success('successfully done', { autoClose: 500 })
+                        router.push('/')
                     })
                     .catch(error => console.error(error))
             })

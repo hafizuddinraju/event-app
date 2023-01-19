@@ -7,15 +7,15 @@ import { getCategory } from '../../lib/helperCategory';
 
 const Category = () => {
 
-    const {data: allCategories = [], refetch, isLoading} = useQuery({
+    const { data: allCategories = [], refetch, isLoading } = useQuery({
         queryKey: ['categories'],
-        queryFn: async () =>{
+        queryFn: async () => {
             const res = await getCategory();
             return res;
         }
     })
 
-    if(isLoading){
+    if (isLoading) {
         return <div>Loading...</div>
     }
 
@@ -27,9 +27,9 @@ const Category = () => {
             <div className='flex flex-wrap justify-around my-10'>
                 {
                     allCategories?.slice(0, 3).map(event => <CategoryCard
-                    key={event.id}
-                    events={event}
-                    ></CategoryCard> )
+                        key={event.id}
+                        events={event}
+                    ></CategoryCard>)
                 }
             </div>
             <div className='flex justify-center mb-20 tooltip' data-tip='Tap to explore more events'>
