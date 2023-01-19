@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import CategoryCard from './CategoryCard';
 import { getCategory } from '../../lib/helperCategory';
+import Spinner from '../Spinner/Spinner';
 
 
 const Category = () => {
@@ -14,7 +15,7 @@ const Category = () => {
         }
     })
     if(isLoading){
-        return <div>Loading...</div>
+        return <Spinner></Spinner>
     }
 
     return (
