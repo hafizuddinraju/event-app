@@ -1,21 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
-import React from 'react';
 import CategoryCard from './CategoryCard';
 import { getCategory } from '../../lib/helperCategory';
 
 
 const Category = () => {
-
-    const { data: allCategories = [], refetch, isLoading } = useQuery({
+   
+    const {data: allCategories = [],error, isError, refetch, isLoading} = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
             const res = await getCategory();
             return res;
         }
     })
-
-    if (isLoading) {
+    if(isLoading){
         return <div>Loading...</div>
     }
 
@@ -26,14 +24,14 @@ const Category = () => {
             </div>
             <div className='flex flex-wrap justify-around my-10'>
                 {
-                    allCategories?.slice(0, 3).map(event => <CategoryCard
-                        key={event.id}
-                        events={event}
-                    ></CategoryCard>)
+                   allCategories.length > 0  && allCategories?.slice(0, 3).map(event => <CategoryCard
+                    key={event._id}
+                    events={event}
+                    ></CategoryCard> )
                 }
             </div>
-            <div className='flex justify-center mb-20 tooltip' data-tip='Tap to explore more events'>
-                <Link href='/' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more...</Link>
+            <div className='flex justify-center mb-20 ' >
+                <Link data-tip='Tap to explore more events' href='/allcategories' className='btn tooltip text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>
             </div>
         </div>
     );
