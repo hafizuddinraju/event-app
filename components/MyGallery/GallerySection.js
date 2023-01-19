@@ -30,9 +30,9 @@ if(isLoading){
           </h4>
         </div>
         <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
-          {allPhotos?.map(({ id, title, desc, cover }) => (
+          {allPhotos?.map(({ _id, title, desc, cover }) => (
             <div
-              key={id}
+              key={_id}
               className="relative overflow-hidden transition rounded duration-200 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
             >
               <img
