@@ -8,13 +8,11 @@ const Category = () => {
    
     const {data: allCategories = [],error, isError, refetch, isLoading} = useQuery({
         queryKey: ['categories'],
-        queryFn: async () =>{
+        queryFn: async () => {
             const res = await getCategory();
             return res;
         }
     })
-    
-   
     if(isLoading){
         return <div>Loading...</div>
     }
