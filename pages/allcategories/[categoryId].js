@@ -13,11 +13,11 @@ const ref = createRef();
 const categoryId = () => {
   const {user} = useContext(AuthContext)
     const router = useRouter()
-    const data = router.asPath.slice(15,200)
-    if(!data){
+    const id = router.query.categoryId;
+    if(!id){
       return <Spinner></Spinner>
     }
-    console.log(data)
+    console.log(id)
     const [modal, setModal] = useState({});
     const [categoryData, setCategoryData] = useState([])
     if(!categoryData){
@@ -25,12 +25,12 @@ const categoryId = () => {
 
     }
     useEffect(()=>{
-      getSingleCategory(data).then(res => {
+      getSingleCategory(id).then(res => {
         console.log(res);
         setCategoryData(res)
       })
   
-    },[data])
+    },[id])
 
     
     const {cate_name,img,description, price,quantity} = categoryData;
