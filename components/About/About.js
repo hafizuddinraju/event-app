@@ -20,10 +20,12 @@ const About = () => {
                     </div>
                     <div className='ml-6'>
                         <h1 className="text-5xl font-bold">About US</h1>
-                        <p className="py-6">Event App is an event organizing service. <br />
-                            Event App provide various types of services with minimal cost. <br />
-                            Such as Marriage event organizing, Birthday party organizing, Sports event organizing, <br />
-                            Delivery services, Passport Consultancy and many more. </p>
+                        <div className=" w-80 text-justify">
+                            <p className="py-6 ">Event App is an event organizing service.
+                                Event App provide various types of services with minimal cost.
+                                Such as Marriage event organizing, Birthday party organizing, Sports event organizing, Engagement Party organizing, Wedding theme organizing and many more.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
