@@ -2,7 +2,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { MdOutlineReport, MdVerified } from "react-icons/md";
 import { useRouter } from 'next/router';
-import { createRef, useCallback, useEffect, useState } from 'react';
+import { createRef, useEffect, useState } from 'react';
 import Spinner from '../../components/Spinner/Spinner';
 import { getSingleCategory } from '../../lib/helperCategory';
 import { useContext } from 'react';

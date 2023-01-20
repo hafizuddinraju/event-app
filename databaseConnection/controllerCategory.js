@@ -17,7 +17,7 @@ export const getSingleCategory = async (req, res) => {
       
       if(categoryId){
         const cate = await category.findById(categoryId);
-        console.log(cate)
+        
         res.status(200).json(cate);
       }
       res.status(404).json({ error: "Category not Selected" });
