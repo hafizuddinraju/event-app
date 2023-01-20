@@ -10,17 +10,17 @@ import Spinner from "../Spinner/Spinner";
 
 const GallerySection = () => {
   const [hover, setHover] = useState(false);
-  const {data: allPhotos = [],error, isError, refetch, isLoading} = useQuery({
+  const { data: allPhotos = [], error, isError, refetch, isLoading } = useQuery({
     queryKey: ['photos'],
-    queryFn: async () =>{
-        const res = await getPhotoGallery();
-        return res;
+    queryFn: async () => {
+      const res = await getPhotoGallery();
+      return res;
     }
-})
+  })
 
-if(isLoading){
-  return <Spinner></Spinner>
-}
+  if (isLoading) {
+    return <Spinner></Spinner>
+  }
   return (
     <>
       <div className="px-4 py-16 max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-20">
@@ -56,8 +56,8 @@ if(isLoading){
           ))}
         </div>
         <div className='flex justify-center mb-20 tooltip' data-tip='Tap to explore more events'>
-                <Link href='/' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>
-            </div>
+          <Link href='/' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>
+        </div>
       </div>
     </>
   );
