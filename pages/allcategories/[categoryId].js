@@ -71,7 +71,7 @@ const categoryId = () => {
                   >
                     Price: {price}
                   </div>
-                  <Pdf targetRef={ref} filename="info.pdf" x={.5} y={.5} scale={0.8}>
+                  <Pdf targetRef={ref} filename="Event_info.pdf" x={.5} y={.5} scale={0.8}>
                         {({ toPdf })=>
                         <button onClick={toPdf} className='btn btn-sm md:py-0 my-3 text-black font-semibold bg-sky-400 hover:bg-sky-700'>Download PDF</button>}
 
