@@ -12,7 +12,8 @@ import { AuthContext } from "../context/AuthProvider";
 const Login = () => {
     const [pShow, setPShow] = useState(false)
     const { register, handleSubmit } = useForm()
-    const { signIn,googleLogin } = useContext(AuthContext)
+
+    const { signIn, googleLogin } = useContext(AuthContext)
     const router = useRouter()
 
     //show password 
@@ -32,26 +33,26 @@ const Login = () => {
             })
     }
 
-    const googleLoginUser = ()=>{
+    const googleLoginUser = () => {
         googleLogin()
-        .then(result =>{
-            router.push("/")
+            .then(result => {
+                router.push("/")
 
-        })
-        .catch(error =>{
-            toast.success(error, {autoClose:500})
-        })
+            })
+            .catch(error => {
+                toast.success(error, { autoClose: 500 })
+            })
     }
     return (
         <div className="mt-32">
             <Head>Login</Head>
             <div className="container mx-auto">
-                <div className="flex items-center gap-4">
-                    <div className="w-6/12">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
+                    <div className="">
                         <img src="https://i.ibb.co/9Wty6PY/Mobile-login-bro-1.png" alt="" />
                     </div>
-                    <div className="w-6/12 ">
-                        <form onSubmit={handleSubmit(handleLoginForm)} className="flex flex-col justify-center space-y-3 w-2/3 mx-auto bg-base-100 shadow-lg p-6 ">
+                    <div className="w-9/12 mx-auto lg:w-full">
+                        <form onSubmit={handleSubmit(handleLoginForm)} className="flex flex-col justify-center space-y-3 lg:w-2/3 mx-auto bg-base-100 shadow-lg p-6 ">
                             <h4 className="text-center text-3xl uppercase py-4 font-semibold">login</h4>
                             <div className="relative">
                                 <input {...register('email', { required: 'email required' })} type="text" placeholder="Email" className="input focus:outline-none w-full input-bordered focus:border focus:border-cyan-300" />
