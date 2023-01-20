@@ -20,16 +20,20 @@ const categoryId = () => {
     console.log(data)
     const [modal, setModal] = useState({});
     const [categoryData, setCategoryData] = useState([])
-    useEffect(()=>{
-      getSingleCategory(data).then(res => setCategoryData(res))
-  
-    },[data])
-
     if(!categoryData){
       return <Spinner></Spinner>
 
     }
-    const {cate_name,img,description, price,quantity} = categoryData
+    useEffect(()=>{
+      getSingleCategory(data).then(res => {
+        console.log(res);
+        setCategoryData(res)
+      })
+  
+    },[data])
+
+    
+    const {cate_name,img,description, price,quantity} = categoryData;
     console.log(categoryData);
     
     return (
