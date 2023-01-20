@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Signup = () => {
 
@@ -107,8 +108,12 @@ const Signup = () => {
                             <input className='btn btn-info w-full mt-6 text-white' value="Sign Up" type="submit" />
                             {/* {signUpError && <p className='text-red-600'> {signUpError}</p>} */}
                         </form>
+                        <div>
+                                <p className="text-sm pt-4 capitalize text-center">Already have an account? <Link href='/login' className="text-[#0EA5E9] ">Login</Link> </p>
+                            </div>
 
                     </div>
+                    
                 </div>
             </div>
         </div>

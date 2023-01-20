@@ -108,6 +108,16 @@ const Navbar = () => {
            Contact
           </Link>
       </li>
+          <li className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
+          <Link
+            href="/signup"
+            aria-label="contact"
+            title="signup"
+            className=''
+          >
+           Signup
+          </Link>
+      </li>
       {
         user?
         <>
