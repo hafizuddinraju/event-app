@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye'
 import Icon from 'react-icons-kit';
@@ -41,7 +41,7 @@ const Signup = () => {
                 const userInfo = { displayName: data?.name }
                 updateUser(userInfo)
                     .then(() => {
-                        // saveUser(data.name, data.email)
+                        saveUser(data.name, data.email)
                         console.log('update');
                         toast.success('successfully done', { autoClose: 500 })
                         router.push('/')
@@ -51,8 +51,16 @@ const Signup = () => {
             .catch(error => setSignUpError(error))
     }
 
+    const saveUser = (name, email) => {
+        const userData = { name, email }
+        console.log(userData);
+        
+    }
+
+
+
     return (
-        <div className='lg:flex md:flex-row flex-col mt-24 mx-40'>
+        <div className='lg:flex md:flex-row flex-col justify-between mt-24 mx-40'>
             <div>
                 <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>
