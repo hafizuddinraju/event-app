@@ -19,7 +19,7 @@ const categoryId = () => {
     }
     console.log(data)
     const [modal, setModal] = useState({});
-    const [categoryData, setCategoryData] = useState({})
+    const [categoryData, setCategoryData] = useState([])
     useEffect(()=>{
       getSingleCategory(data).then(res => setCategoryData(res))
   
