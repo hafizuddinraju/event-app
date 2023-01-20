@@ -28,7 +28,6 @@ export default function Home() {
         <HappyClients></HappyClients>
         <Testimonial></Testimonial>
         <ContactUs />
-        <Footer />
       </main>
     </>
   )

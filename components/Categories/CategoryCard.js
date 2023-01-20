@@ -43,12 +43,14 @@ const CategoryCard = ({events}) => {
                         </div>
                     </div>
                     <div className="px-6 py-4">
+                        <Link href={`/allcategories/${_id}`}>
                         <button className={`${styles.easing_btn} transition-all duration-1000`}
                         onMouseEnter={() => setHover(true)}
                         onMouseLeave={() => setHover(false)}>
                         Go <span className='inline-block align-middle'><FaArrowRight></FaArrowRight></span>
                         {hover && <div className="absolute bottom-0 right-0 transition duration-1000 bg-white text-black p-2 rounded-md">Tap to see the details.</div>}
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>
