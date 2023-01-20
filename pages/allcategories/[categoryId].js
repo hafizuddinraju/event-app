@@ -24,6 +24,11 @@ const categoryId = () => {
       getSingleCategory(data).then(res => setCategoryData(res))
   
     },[data])
+
+    if(!categoryData){
+      return <Spinner></Spinner>
+
+    }
     const {cate_name,img,description, price,quantity} = categoryData
     console.log(categoryData);
     
