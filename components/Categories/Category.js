@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import CategoryCard from './CategoryCard';
 import { getCategory } from '../../lib/helperCategory';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../../components/Spinner/Spinner';
 
 
 const Category = () => {
