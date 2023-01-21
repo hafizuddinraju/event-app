@@ -20,7 +20,7 @@ export const getSingleCategory = async (req, res) => {
         
         res.status(200).json(cate);
       }
-      res.status(404).json({ error: "Category not Selected" });
+      // res.status(404).json({ error: "Category not Selected" });
     } catch (error) {
       res.status(404).json({ error: "Cannot get the Category...!" });
     }
