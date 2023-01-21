@@ -4,30 +4,38 @@ import { MdOutlineReport, MdVerified } from "react-icons/md";
 import { useRouter } from 'next/router';
 import { createRef, useEffect, useState } from 'react';
 import Spinner from '../../components/Spinner/Spinner';
-import { getSingleCategory } from '../../lib/helperCategory';
+import { getCategory, getSingleCategory } from '../../lib/helperCategory';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Pdf from "react-to-pdf";
+import Modal from '../../components/Modal/Modal';
+
 
 const ref = createRef();
 const categoryId = () => {
+  
   const {user} = useContext(AuthContext)
+  const [modal, setModal] = useState({});
+  const [categoryData, setCategoryData] = useState({})
     const router = useRouter()
     const id = router.query.categoryId;
-    if(!id){
-      return <Spinner></Spinner>
-    }
-    console.log(id)
-    const [modal, setModal] = useState({});
-    const [categoryData, setCategoryData] = useState({})
     
-    useEffect(()=>{
-      getSingleCategory(id).then(res => {
-        console.log(res);
-        setCategoryData(res)
-      })
+    console.log(id)  
+    
+
+      useEffect(()=>{
+        
   
-    },[id])
+          getSingleCategory(id).then(res => {
+            
+           setCategoryData(res)
+          })
+        
+    
+      },[id])
+      if(!id){
+        return <Spinner></Spinner>
+      }
 
     if(!categoryData){
       return <Spinner></Spinner>
@@ -36,6 +44,7 @@ const categoryId = () => {
     
     
     return (
+      <>
         <div ref={ref}>
         <div className="p-5 mx-auto sm:p-10 md:p-16 mt-20 text-gray-100">
           <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
@@ -57,20 +66,20 @@ const categoryId = () => {
                   {categoryData?.cate_name}
                 </div>
                 
-                {/* <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center">
                   <div
                     rel="noopener noreferrer"
                     className="text-xs text-gray-400  font-semibold hover:underline"
                   >
-                    Rooms: {room}
+                    {/* Rooms: {room} */}
                   </div>
                   <div
                     rel="noopener noreferrer"
                     className="text-xs text-gray-400 hover:underline"
                   >
-                    Bathroom: {bathroom}
+                    {/* Bathroom: {bathroom} */}
                   </div>
-                </div> */}
+                </div>
   
                 <div className="flex justify-between items-center">
                   <div
@@ -87,20 +96,20 @@ const categoryId = () => {
                 </div>
               </div>
               <div className="text-gray-100 text-justify">{categoryData?.description}</div>
-              {/* <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center">
                 <div
                   rel="noopener noreferrer"
                   className="text-xs  text-gray-400 font-semibold hover:underline"
                 >
-                  phone: {phone}
+                  {/* phone: {phone} */}
                 </div>
                 <MdOutlineReport
-                  onClick={() => handleReportSubmit(rm?.data)}
+                  // onClick={() => handleReportSubmit(rm?.data)}
                   title="report product"
                   className="text-2xl text-red-600"
                 ></MdOutlineReport>
                 
-              </div> */}
+              </div>
               <div className="text-center">
                 {categoryData?.quantity === 0 ? (
                   <label className="inline-flex disabled:opacity-75 items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-600 hover:bg-gray-700 focus:shadow-outline focus:outline-none">
@@ -112,7 +121,7 @@ const categoryId = () => {
                       user? "booking-modal" : ''
                     }
                     className="inline-flex items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-sky-500 hover:bg-sky-600 focus:shadow-outline focus:outline-none"
-                    // onClick={() => setModal(roomData)}
+                    onClick={() => setModal(categoryData)}
                   >
                     Book Now
                   </label>
@@ -120,16 +129,18 @@ const categoryId = () => {
               </div>
             </div>
           </div>
-          {/* {modal && (
+          {modal && (
             <Modal
               modal={modal}
               setModal={setModal}
               
             ></Modal>
-          )} */}
+          )}
         </div>
       </div>
+      </>
     );
 };
+
 
 export default categoryId;
