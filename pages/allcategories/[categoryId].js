@@ -21,18 +21,27 @@ const categoryId = () => {
     const id = router.query.categoryId;
     
     console.log(id)  
-    
+    useEffect(()=>{
+      if(id){
 
-      useEffect(()=>{
+        getSingleCategory(id).then(res =>{
+          setCategoryData(res)
+        })
+      } 
+
+    },[id])
+      
+
+      // useEffect(()=>{
         
   
-          getSingleCategory(id).then(res => {
+      //     getSingleCategory(id).then(res => {
             
-           setCategoryData(res)
-          })
+      //      setCategoryData(res)
+      //     })
         
     
-      },[id])
+      // },[id])
       if(!id){
         return <Spinner></Spinner>
       }
