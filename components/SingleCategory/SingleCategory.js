@@ -4,47 +4,39 @@ import { MdOutlineReport, MdVerified } from "react-icons/md";
 import { useRouter } from 'next/router';
 import { createRef, useEffect, useState } from 'react';
 import Spinner from '../../components/Spinner/Spinner';
-import { getCategory, getSingleCategory } from '../../lib/helperCategory';
+
 import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthProvider';
+import{getSingleCategory} from '../../lib/helperCategory'
 import Pdf from "react-to-pdf";
 import Modal from '../../components/Modal/Modal';
+import { AuthContext } from '../../context/AuthProvider';
+
+
 
 
 const ref = createRef();
-const categoryId = () => {
+const SingleCategory = () => {
   
   const {user} = useContext(AuthContext)
+  const router = useRouter()
   const [modal, setModal] = useState({});
   const [categoryData, setCategoryData] = useState({})
-    const router = useRouter()
     const id = router.query.categoryId;
     
-    console.log(id)  
     useEffect(()=>{
-      if(id){
-
-        getSingleCategory(id).then(res =>{
-          setCategoryData(res)
-        })
-      } 
-
-    },[id])
+        
+       getSingleCategory(id).then(res =>{
+        console.log(res);
+        setCategoryData(res)
+        
+       })
+       .catch(error=>{
+        console.log(error)
+       })
       
 
-      // useEffect(()=>{
-        
-  
-      //     getSingleCategory(id).then(res => {
-            
-      //      setCategoryData(res)
-      //     })
-        
-    
-      // },[id])
-      if(!id){
-        return <Spinner></Spinner>
-      }
+    },[router.query.categoryId])
+      
 
     if(!categoryData){
       return <Spinner></Spinner>
@@ -152,4 +144,5 @@ const categoryId = () => {
 };
 
 
-export default categoryId;
+
+export default SingleCategory;
