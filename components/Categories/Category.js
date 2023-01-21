@@ -32,7 +32,7 @@ const Category = () => {
                 }
             </div>
             <div className='flex justify-center mb-20 ' >
-                <Link data-tip='Tap to explore more events' href='/allcategories' className='btn tooltip text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>
+                <Link data-tip='Tap to explore more events' href='/categories' className='btn tooltip text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>
             </div>
         </div>
     );

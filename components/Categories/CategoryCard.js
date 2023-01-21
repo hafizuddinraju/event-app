@@ -43,7 +43,7 @@ const CategoryCard = ({events}) => {
                         </div>
                     </div>
                     <div className="px-6 py-4">
-                        <Link href={`/allcategories/${_id}`}>
+                        <Link href={`/categories/${_id}`}>
                         <button className={`${styles.easing_btn} transition-all duration-1000`}
                         onMouseEnter={() => setHover(true)}
                         onMouseLeave={() => setHover(false)}>
