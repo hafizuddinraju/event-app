@@ -8,6 +8,6 @@ const categorySchema = new Schema ({
     description: String
 })
 
-const category = models.categories || model("categories", categorySchema);
+const categories = models.categories || model("categories", categorySchema);
 
-export default category;
+export default categories;
