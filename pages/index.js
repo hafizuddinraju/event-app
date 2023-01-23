@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Footer from '../components/Footer/Footer'
-
+import HowToReachUs from '../components/howToReachUs/HowToReachUs'
 import About from '../components/About/About'
 import ContactUs from '../components/ContactUs/ContactUs'
 import Header from '../components/Header/Header'
@@ -22,6 +22,7 @@ export default function Home() {
       <main>
         <Topbar></Topbar>
         <Header></Header>
+        <HowToReachUs></HowToReachUs>
         <Category></Category>
         <About></About>
         <GallerySection />
