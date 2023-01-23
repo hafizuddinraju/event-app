@@ -14,9 +14,9 @@ const HowToReachUs = () => {
                         <p className='text-lg font-semibold'>Postal Address</p>
                     </div>
                     <div className='text-center'>
-                        <p className='text-sm font-semibold'>EventMart Agency</p>
-                        <p className='text-sm font-semibold'>Kazi Nazrul Islam Avenue</p>
-                        <p className='text-sm font-semibold'>N.L.I. Tower, 54</p>
+                        <p className='text-sm font-semibold text-gray-600'>EventMart Agency</p>
+                        <p className='text-sm font-semibold text-gray-600'>Kazi Nazrul Islam Avenue</p>
+                        <p className='text-sm font-semibold text-gray-600'>N.L.I. Tower, 54</p>
                     </div>
                 </div>
                 <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
@@ -27,9 +27,9 @@ const HowToReachUs = () => {
                         <p className='text-lg font-semibold'>Phone & Email</p>
                     </div>
                     <div className='text-center'>
-                        <p className='text-sm font-semibold'>Phone: +8801777799893</p>
-                        <p className='text-sm font-semibold'>Fax: 1-34-54-333</p>
-                        <p className='text-sm font-semibold'>Email: event.mart@gmail.com</p>
+                        <p className='text-sm font-semibold text-gray-600'>Phone: +8801777799893</p>
+                        <p className='text-sm font-semibold text-gray-600'>Fax: 1-34-54-333</p>
+                        <p className='text-sm font-semibold text-gray-600'>Email: event.mart@gmail.com</p>
                     </div>
                 </div>
                 <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
@@ -40,9 +40,9 @@ const HowToReachUs = () => {
                         <p className='text-lg font-semibold'>Open hours</p>
                     </div>
                     <div className='text-center'>
-                        <p className='text-sm font-semibold'>Monday to Friday</p>
-                        <p className='text-sm font-semibold'>8.00 am to 5.00 pm</p>
-                        <p className='text-sm font-semibold'>Weekend closed</p>
+                        <p className='text-sm font-semibold text-gray-600'>Monday to Friday</p>
+                        <p className='text-sm font-semibold text-gray-600'>8.00 am to 5.00 pm</p>
+                        <p className='text-sm font-semibold text-gray-600'>Weekend closed</p>
                     </div>
                 </div>
                 <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
@@ -53,9 +53,9 @@ const HowToReachUs = () => {
                         <p className='text-lg font-semibold'>Sessions</p>
                     </div>
                     <div className='text-center'>
-                        <p className='text-sm font-semibold'>Morning, 8.00am - 12.00pm</p>
-                        <p className='text-sm font-semibold'>Afternoon, 1.00pm - 5.00pm</p>
-                        <p className='text-sm font-semibold'>Full day, 8.00am - 5.00pm</p>
+                        <p className='text-sm font-semibold text-gray-600'>Morning, 8.00am - 12.00pm</p>
+                        <p className='text-sm font-semibold text-gray-600'>Afternoon, 1.00pm - 5.00pm</p>
+                        <p className='text-sm font-semibold text-gray-600'>Full day, 8.00am - 5.00pm</p>
                     </div>
                 </div>
             </div>
