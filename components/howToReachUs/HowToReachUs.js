@@ -6,7 +6,7 @@ const HowToReachUs = () => {
     return (
         <div className='my-20'>
             <div className='flex flex-wrap justify-around'>
-                <div className='h-56 w-56 p-5 bg-sky-100 border rounded-lg cursor-pointer'>
+                <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
                     <div className='flex justify-center align-middle'>
                         <FaLocationArrow className='h-10 w-10 text-sky-400 hover:text-pink-400'></FaLocationArrow>
                     </div>
@@ -19,7 +19,7 @@ const HowToReachUs = () => {
                         <p className='text-sm font-semibold'>N.L.I. Tower, 54</p>
                     </div>
                 </div>
-                <div className='h-56 w-56 p-5 bg-sky-100 border rounded-lg cursor-pointer'>
+                <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
                     <div className='flex justify-center align-middle'>
                         <MdOutlineEmail className='h-10 w-10 text-sky-400 hover:text-pink-400'></MdOutlineEmail>
                     </div>
@@ -32,7 +32,7 @@ const HowToReachUs = () => {
                         <p className='text-sm font-semibold'>Email: event.mart@gmail.com</p>
                     </div>
                 </div>
-                <div className='h-56 w-56 p-5 bg-sky-100 border rounded-lg cursor-pointer'>
+                <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
                     <div className='flex justify-center align-middle'>
                         <MdOutlineEventAvailable className='h-10 w-10 text-sky-400 hover:text-pink-400'></MdOutlineEventAvailable>
                     </div>
@@ -45,7 +45,7 @@ const HowToReachUs = () => {
                         <p className='text-sm font-semibold'>Weekend closed</p>
                     </div>
                 </div>
-                <div className='h-56 w-56 p-5 bg-sky-100 border rounded-lg cursor-pointer'>
+                <div className='h-56 w-56 p-5 bg-sky-50 border rounded-lg cursor-pointer'>
                     <div className='flex justify-center align-middle'>
                         <FaHandshake className='h-10 w-10 text-sky-400 hover:text-pink-400'></FaHandshake>
                     </div>
