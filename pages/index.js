@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Footer from '../components/Footer/Footer'
 import About from '../components/About/About'
 import ContactUs from '../components/ContactUs/ContactUs'
 import Header from '../components/Header/Header'
@@ -9,6 +8,7 @@ import Testimonial from '../components/Testimonial/Testimonial'
 import HappyClients from '../components/HappyClients/HappyClients'
 import Category from '../components/Categories/Category'
 import Features from '../components/features/Features'
+import ReachUs from '../components/ReachUs/ReachUs'
 
 export default function Home() {
   return (
@@ -28,6 +28,7 @@ export default function Home() {
         <GallerySection />
         <HappyClients></HappyClients>
         <Testimonial></Testimonial>
+        <ReachUs></ReachUs>
         <ContactUs />
       </main>
     </>
