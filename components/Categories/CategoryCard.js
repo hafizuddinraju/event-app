@@ -11,7 +11,7 @@ const CategoryCard = ({events}) => {
     const [hover, setHover] = useState(false);
 
     const handleReadMore = () =>{
-        setReadMore(description.length);
+        setReadMore(1000);
     }
 
     const handleShowLess = () =>{
@@ -29,13 +29,13 @@ const CategoryCard = ({events}) => {
                             {description?.length > readMore ? (
                       <small className='transition duration-1000'>
                         {" "}
-                        {description.slice(0, readMore) + "..."}{" "}
+                        {description.slice(0, 200) + "..."}{" "}
                         <button
                           onClick={handleReadMore}
                           className="text-sky-700"
                         //   href={`/categories/${_id}`}
                         >
-                          Read More
+                          read More
                         </button>
                       </small>
                     ) : <>{description} <button className='text-red-500 underline font-bold' onClick={handleShowLess}>show less</button></>}
