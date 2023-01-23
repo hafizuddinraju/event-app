@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Footer from '../components/Footer/Footer'
-import HowToReachUs from '../components/howToReachUs/HowToReachUs'
 import About from '../components/About/About'
 import ContactUs from '../components/ContactUs/ContactUs'
 import Header from '../components/Header/Header'
@@ -8,8 +7,7 @@ import GallerySection from '../components/MyGallery/GallerySection'
 import Topbar from '../components/Navbar/Topbar'
 import Testimonial from '../components/Testimonial/Testimonial'
 import HappyClients from '../components/HappyClients/HappyClients'
-import Category from '../components/Categories/Category';
-import Features from '../components/features/Features'
+import Category from '../components/Categories/Category'
 
 export default function Home() {
   return (
