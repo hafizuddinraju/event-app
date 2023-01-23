@@ -2,7 +2,7 @@ import React from 'react';
 import { FaHandshake, FaLocationArrow } from 'react-icons/fa';
 import { MdOutlineEmail, MdOutlineEventAvailable } from 'react-icons/md';
 
-const HowToReachUs = () => {
+const ReachUs = () => {
     return (
         <div className='my-20'>
             <div className='flex flex-wrap justify-around'>
@@ -63,4 +63,4 @@ const HowToReachUs = () => {
     );
 };
 
-export default HowToReachUs;
+export default ReachUs;
