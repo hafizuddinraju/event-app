@@ -9,6 +9,7 @@ import Topbar from '../components/Navbar/Topbar'
 import Testimonial from '../components/Testimonial/Testimonial'
 import HappyClients from '../components/HappyClients/HappyClients'
 import Category from '../components/Categories/Category';
+import Features from '../components/features/Features'
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
       <main>
         <Topbar></Topbar>
         <Header></Header>
-        <HowToReachUs></HowToReachUs>
+        <Features></Features>
         <Category></Category>
         <About></About>
         <GallerySection />
