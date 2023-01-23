@@ -8,7 +8,7 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState("")
     const [loading, setLoading] = useState(true)
-
+    const [openModal , setOpenModal] = useState(true) ;
     console.log(user, 'log');
 
     const createUser = (email, password) => {
@@ -50,7 +50,9 @@ const AuthProvider = ({ children }) => {
         updateUser,
         logOut,
         user,
-        loading
+        loading,
+        openModal,
+        setOpenModal
     }
     return (
         <AuthContext.Provider value={authInfo}>

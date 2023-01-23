@@ -9,8 +9,13 @@ import HappyClients from '../components/HappyClients/HappyClients'
 import Category from '../components/Categories/Category'
 import Features from '../components/features/Features'
 import ReachUs from '../components/ReachUs/ReachUs'
+import AdvertisePopUp from '../components/AdvertisePopUp/AdvertisePopUp'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthProvider'
+import Speaker from '../components/Speaker/Speaker'
 
 export default function Home() {
+  const {openModal} = useContext(AuthContext);
   return (
     <>
       <Head>
@@ -19,7 +24,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      {
+        openModal ?  <AdvertisePopUp></AdvertisePopUp> :  <main>
+     
         <Topbar></Topbar>
         <Header></Header>
         <Features></Features>
@@ -28,9 +35,14 @@ export default function Home() {
         <GallerySection />
         <HappyClients></HappyClients>
         <Testimonial></Testimonial>
+        <Speaker></Speaker>
         <ReachUs></ReachUs>
         <ContactUs />
+        
       </main>
+
+      }
+    
     </>
   )
 }
