@@ -9,6 +9,7 @@ import Testimonial from '../components/Testimonial/Testimonial'
 import HappyClients from '../components/HappyClients/HappyClients'
 import Category from '../components/Categories/Category'
 import Features from '../components/features/Features'
+import HowToReachUs from '../components/howToReachUs/howToReachUs'
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <GallerySection />
         <HappyClients></HappyClients>
         <Testimonial></Testimonial>
+        <HowToReachUs></HowToReachUs>
         <ContactUs />
       </main>
     </>
