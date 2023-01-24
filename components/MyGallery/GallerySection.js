@@ -18,6 +18,7 @@ const GallerySection = () => {
     }
   })
 
+
   if (isLoading) {
     return <Spinner></Spinner>
   }
@@ -31,6 +32,7 @@ const GallerySection = () => {
           </h4>
         </div>
         <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
+
           {allPhotos?.map(({ _id, title, desc, cover }) => (
             <div
               key={_id}
