@@ -1,15 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import React, { useState } from "react";
-import { BsArrowsFullscreen } from "react-icons/bs";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { getPhotoGallery } from "../../lib/helperGallery";
 import Spinner from "../Spinner/Spinner";
 
 const GallerySection = () => {
-  const [hover, setHover] = useState(false);
+
   const { data: allPhotos = [], error, isError, refetch, isLoading } = useQuery({
     queryKey: ['photos'],
     queryFn: async () => {
@@ -28,7 +25,7 @@ const GallerySection = () => {
         <div className=" mb-6 text-center lg:justify-center lg:flex-row md:mb-8">
           <h2 className="text-3xl font-bold">OUR GALLERY</h2>
           <h4 className="text-lg font-xl">
-            Some of our project discussion,management and meeting image
+            Some of our projects discussion,management and meeting image
           </h4>
         </div>
         <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
