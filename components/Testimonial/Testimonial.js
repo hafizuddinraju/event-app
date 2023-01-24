@@ -47,21 +47,35 @@ const Testimonial = () => {
 
 
     return (
-        <section className='my-20 py-20 bg-[#f1f1f1] '>
-                <div className='my-10'>
-                    <h2 className="text-5xl  font-bold text-center">
+        <section className='my-20  py-20 bg-[#f1f1f1] '>
+               <div className='mx-5'>
+               <div className='my-10'>
+                    <h2 className=" text-4xl md:text-5xl  font-bold text-center">
                     Testimonials
                     </h2>
                     <p className='text-center mt-4 '>HAPPY CLIENTS ABOUT US</p>
                 </div>
                 <Swiper
         modules={[Pagination ,Navigation, Autoplay]}
-        slidesPerView={3}
-        spaceBetween={30}
+        breakpoints={{
+            360:{
+                slidesPerView:1,
+                spaceBetween:30
+            },
+            768:{
+                slidesPerView:2,
+                spaceBetween:30
+            },
+            991:{
+                slidesPerView:3,
+                spaceBetween:30
+            },
+        }}
         autoplay={{
             delay:1500
         }}
         navigation
+        loop={true}
         pagination={{
           clickable: true,
         }}
@@ -73,6 +87,7 @@ const Testimonial = () => {
         </SwiperSlide>)}
        
       </Swiper>
+               </div>
         </section>
     );
 };

@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { Router, useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
+import { AuthContext } from '../../context/AuthProvider';
 // import{useSession, signOut} from 'next-auth/react'
 
 
@@ -10,6 +12,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [color, setColor] = useState('transparent');
   const [textColor, setTextColor] = useState('white');
+   const {user,logOut} = useContext(AuthContext)
 //   const {data:session} = useSession();
 //   console.log(session)
   const router = useRouter();
@@ -30,7 +33,8 @@ const Navbar = () => {
   },[router.route, color])
   
   const handleSignout = ()=>{
-     signOut();
+    logOut();
+    router.push("/");
   }
 
   const handleNav = () => {
@@ -104,8 +108,18 @@ const Navbar = () => {
            Contact
           </Link>
       </li>
-      {/* {
-        session?.user?
+          <li className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
+          <Link
+            href="/signup"
+            aria-label="contact"
+            title="signup"
+            className=''
+          >
+           Signup
+          </Link>
+      </li>
+      {
+        user?
         <>
          <li  className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
           <Link
@@ -131,7 +145,7 @@ const Navbar = () => {
         :
         ' '
       }
-       */}
+      
      
 
       
@@ -148,14 +162,14 @@ const Navbar = () => {
       className='fixed left-0 top-0 w-full  z-10  ease-in duration-300'
     >
       
-      <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
-      <label htmlFor="my-drawer" className="sm:block md:hidden drawer-button"><AiOutlineMenu size={20} style={{ color: `${textColor}` }} /></label>
+      <div className='max-w-[1240px] m-auto flex justify-between items-center pt-4 px-4 pb-1 text-white'>
+      
         <Link href='/'>
 
-          <h1  className='font-bold text-4xl'>
+          <h1  className='font-bold text-4xl flex items-center'>
             
-
-           <span className='text-sky-500'>Event</span><span style={{ color: `${textColor}` }} >Mart</span> 
+           <img className='w-11 mt-3' src="https://i.ibb.co/khpBckc/f67.png" alt="" />
+           <span className='text-sky-500 ml-4 hidden md:block lg:block'>Event</span><span className='hidden md:block lg:block' style={{ color: `${textColor}` }} >Mart</span> 
             
 
           
@@ -170,7 +184,7 @@ const Navbar = () => {
           {nav ? (
             <AiOutlineClose className='text-white' size={20}/>
           ) : (
-            <AiOutlineMenu size={20}  />
+            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
           )}
         </div>
         {/* Mobile Menu */}

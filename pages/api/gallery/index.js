@@ -1,5 +1,5 @@
+import { getPhotoGallery } from "../../../databaseConnection/controllerGallery";
 
-import { getPhotoGallery } from "../../../connect/controllerGallery";
 import connectMongo from "../../../databaseConnection/database";
 
 

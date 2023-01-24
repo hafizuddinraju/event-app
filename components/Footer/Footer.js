@@ -81,6 +81,13 @@ const Footer = () => {
                                 <li> <Link href='/'>terms & conditions</Link> </li>
                                 <li> <Link href='/'>FAQs</Link> </li>
                             </ul>
+                            <div className='mt-4'>
+                                <div className="flex items-center gap-6">
+                                    <img src="https://i.ibb.co/khpBckc/f67.png" alt="" className='h-16 w-16' />
+                                    <h4 className="text-2xl font-bold"> <span className='text-[#0EA5E9]'>Event</span>Mart</h4>
+                                </div>
+                                <p className='text-sm mt-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sequi numquam soluta itaque. Repellat libero officia doloremque</p>
+                            </div>
                         </div>
                     </div>
                 </div>
