@@ -24,9 +24,9 @@ const Speaker = () => {
     return (
         <section className='py-10'>
             <div className='max-w-screen-xl mx-auto '>
-            <h1 className='text-5xl text-center my-10'><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
+            <h1 className='text-4xl md:text-5xl text-center my-10'><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
             {/* speaker container */}
-            <div className='grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'> 
+            <div className='grid justify-center grid-cols-1 mx-5 md:grid-cols-2 lg:grid-cols-3 gap-5'> 
             {
                speakerInfo.length > 0 && speakerInfo?.map((value , idx)=><SpeakerCard key={idx} data={value}></SpeakerCard>) 
             }
@@ -44,7 +44,7 @@ function SpeakerCard ({data}){
     return (
        <>
          {/* card */}
-         <div className='border-2 w-96 rounded-md shadow-md  hover:top-2'>
+         <div className='border-2  rounded-md shadow-md  hover:top-2'>
         <figure>
         <img className='w-full h-64 object-fill' src={image} alt="image" />
         </figure>
