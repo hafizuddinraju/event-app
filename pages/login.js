@@ -51,7 +51,7 @@ const Login = () => {
         console.log(info)
         updateUser(email, info)
         .then(res =>{
-            console.log(res);
+            // console.log(res);
         })
         .catch(error =>{
             console.log(error)

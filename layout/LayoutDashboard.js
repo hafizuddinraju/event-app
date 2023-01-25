@@ -4,10 +4,33 @@ import { MdDashboard } from 'react-icons/md';
 import { IoIosArrowDown } from 'react-icons/io';
 import styles from '../styles/dashboard.module.css'
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
+import Spinner from "../components/Spinner/Spinner";
+import { useQuery } from "@tanstack/react-query";
+import { getUsers } from "../lib/helperUser";
 
 const LayoutDashboard = ({children}) => {
     const [toggle, setToggle]= useState(false);
+    const {user} = useContext(AuthContext);
     
+    const {
+      data: alluser = [],
+      refetch,
+      isLoading,
+    } = useQuery({
+      queryKey: ["users"],
+      queryFn: async () => {
+        const res = await getUsers();
+        return res;
+      },
+    });
+
+    if(isLoading){
+      return <Spinner></Spinner>
+    }
+    
+    const dataFilter = alluser?.filter(data=> data.email === user.email)
     
 
 
@@ -54,7 +77,9 @@ const LayoutDashboard = ({children}) => {
 
       <div className={styles.main_container}>
         <div className={toggle ? `${styles.navcontainer} ${styles.navclose}`: styles.navcontainer}>
-          <nav className={styles.nav}>
+          {
+            dataFilter[0]?.role == 'Admin'?
+            <nav className={styles.nav}>
             <div className={styles.nav_upper_options}>
             <Link href="/dashboard">
               <div className={`${styles.nav_option} ${styles.option1}`}>
@@ -143,6 +168,54 @@ const LayoutDashboard = ({children}) => {
               </div>
             </div>
           </nav>
+          :
+          ''
+
+          }
+
+          {
+            dataFilter[0]?.role == 'User'?
+            <nav className={styles.nav}>
+            <div className={styles.nav_upper_options}>
+            <Link href="/dashboard">
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+              <MdDashboard className="text-3xl"></MdDashboard>
+                
+                <h3> Dashboard</h3>
+                
+              </div>
+              </Link>
+              <Link href='dashboard/myOrders'>
+              <div className={`${styles.option2} ${styles.nav_option}`}>
+                
+                <img
+                  src="https://i.ibb.co/w6TmPMM/9.png"
+                  className={styles.nav_img}
+                  alt="articles"
+                />
+                <h3 className="text-white hover:text-gray-800"> MyOrders</h3>
+                
+              </div>
+              </Link>
+
+              <div className={`${styles.nav_option} ${styles.option3}`}>
+                <img
+                  src="https://i.ibb.co/1ZNpvYK/5.png"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-800">Payment</h3>
+              </div>
+
+
+              
+            </div>
+          </nav>
+          :
+          ''
+
+          }
+          
         </div>
         <div className={styles.main}>
           <div className={styles.searchbar2}>
