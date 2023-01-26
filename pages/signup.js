@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useLocation } from 'react-router-dom';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye'
+import { FcGoogle } from 'react-icons/fc';
 import Icon from 'react-icons-kit';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
@@ -53,6 +53,17 @@ const Signup = () => {
             .catch(error => setSignUpError(error))
     }
 
+    const googleLoginUser = () => {
+        googleLogin()
+            .then(result => {
+                router.push("/")
+
+            })
+            .catch(error => {
+                toast.success(error, { autoClose: 500 })
+            })
+    }
+
     const saveUser = (name, email) => {
         const userData = { name, email, role:'User' }
         addUser(userData)
@@ -68,12 +79,12 @@ const Signup = () => {
 
 
     return (
-        <div className='lg:flex md:flex-row flex-col justify-between mt-24 mx-40'>
+        <div className='lg:flex md:flex-row flex-col lg:justify-evenly mt-24 mx-auto'>
             <div>
                 <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>
             <div>
-                <div className='flex justify-center items-center rounded-lg'>
+                <div className='flex justify-center items-center rounded-lg '>
                     <div className='w-96 p-7 shadow-2xl'>
                         <h1 className='text-2xl text-center font-bold'>Sign Up</h1>
                         <form onSubmit={handleSubmit(handleSignUp)}>
@@ -113,14 +124,13 @@ const Signup = () => {
                                 {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
                             </div>
                             <input className='btn btn-info w-full mt-6 text-white' value="Sign Up" type="submit" />
-                            {/* {signUpError && <p className='text-red-600'> {signUpError}</p>} */}
+                            {signUpError && <p className='text-red-600'> {signUpError}</p>}
+                            <button onClick={googleLoginUser} type="submit" className="btn w-full mt-2 border text-gray-800 bg-gray-50 border-sky-500 hover:bg-white">Sign In with <FcGoogle className="ml-4 text-2xl"></FcGoogle></button>
                         </form>
                         <div>
-                                <p className="text-sm pt-4 capitalize text-center">Already have an account? <Link href='/login' className="text-[#0EA5E9] ">Login</Link> </p>
-                            </div>
-
+                            <p className="text-sm pt-4 capitalize text-center">Already have an account? <Link href='/login' className="text-[#0EA5E9] ">Login</Link> </p>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
