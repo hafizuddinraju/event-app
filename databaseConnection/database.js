@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectMongo = async () => {
     try {
-        const {connection} = await mongoose.connect('mongodb+srv://event-app:ABYOTlyPASzqEEdt@cluster0.fxdma7b.mongodb.net/?retryWrites=true&w')
+        const {connection} = await mongoose.connect(process.env.MONGO_URI)
         if (connection.readyState == 1 ) {
             console.log('click');
             return Promise.resolve(true)
