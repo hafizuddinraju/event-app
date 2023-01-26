@@ -8,16 +8,16 @@ const Features = () => {
     return (
         <div className='my-20'>
             <div className='text-center'>
-                <p className='text-3xl font-bold'>
+                <p className='text-lg sm:text-3xl font-bold'>
                     <span className='text-sky-500'>Hello! </span>
                     Your Event Management Agency is here.
                 </p>
             </div>
-            <div className='text-center text-lg mx-10 sm:mx-20 md:mx-48 my-5'>
+            <div className='hidden sm:block text-center text-lg mx-10 sm:mx-20 md:mx-48 my-5'>
                 <p>The goal of our event management agency is to ensure that the event runs smoothly and is a success for all involved. We work closely with clients to understand their needs and goals, and then use our expertise to plan and execute an event that meets those needs and exceeds expectations.</p>
             </div>
             <div className='flex flex-wrap justify-around mt-10'>
-                <div className='h-44 w-44 p-5 hover:border hover:border-sky-300'>
+                <div className='h-44 w-44 p-5 hover:border hover:border-sky-300 mb-3 shadow-md sm:shadow-none'>
                     <div className='flex justify-center align-middle mb-5'>
                         <BsHouse className='h-10 w-10 text-sky-400 hover:text-pink-400'></BsHouse>
                     </div>
@@ -25,7 +25,7 @@ const Features = () => {
                         <p className='text-lg font-semibold'>Find out Your desired venue</p>
                     </div>
                 </div>
-                <div className='h-44 w-44 p-5 hover:border hover:border-sky-300'>
+                <div className='h-44 w-44 p-5 hover:border hover:border-sky-300 mb-3 shadow-md sm:shadow-none'>
                     <div className='flex justify-center align-middle'>
                         <MdOutlineConnectWithoutContact className='h-10 w-10 text-sky-400 hover:text-pink-400 mb-5'></MdOutlineConnectWithoutContact>
                     </div>
@@ -33,7 +33,7 @@ const Features = () => {
                         <p className='text-lg font-semibold'>Connect your vendor</p>
                     </div>
                 </div>
-                <div className='h-44 w-44 p-5 hover:border hover:border-sky-300'>
+                <div className='h-44 w-44 p-5 hover:border hover:border-sky-300 mb-3 shadow-md sm:shadow-none'>
                     <div className='flex justify-center align-middle'>
                         <FaHandsHelping className='h-10 w-10 text-sky-400 hover:text-pink-400 mb-5'></FaHandsHelping>
                     </div>
@@ -41,7 +41,7 @@ const Features = () => {
                         <p className='text-lg font-semibold'>Let us organize your event</p>
                     </div>
                 </div>
-                <div className='h-44 w-44 p-3 hover:border hover:border-sky-300'>
+                <div className='h-44 w-44 p-3 hover:border hover:border-sky-300 mb-3 shadow-md sm:shadow-none'>
                     <div className='flex justify-center align-middle'>
                         <FaHeart className='h-10 w-10 text-sky-400 hover:text-pink-400 mb-5'></FaHeart>
                     </div>

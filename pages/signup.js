@@ -9,12 +9,13 @@ import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { addUser } from '../lib/helperUser';
 
 const Signup = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState("")
-    const { createUser, updateUser, googleLogin } = useContext(AuthContext)
+    const { createUser, updateUser ,logOut} = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
     const [createUserEmail, setCreateUserEmail] = useState('')
     const [type, setType] = useState('password');
@@ -42,10 +43,10 @@ const Signup = () => {
                 const userInfo = { displayName: data?.name }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email)
-                        console.log('update');
+                        saveUser(data.name, data.email);
                         toast.success('successfully done', { autoClose: 500 })
-                        router.push('/')
+                        logOut();
+                        router.push('/login')
                     })
                     .catch(error => console.error(error))
             })
@@ -64,9 +65,15 @@ const Signup = () => {
     }
 
     const saveUser = (name, email) => {
-        const userData = { name, email }
-        console.log(userData);
-
+        const userData = { name, email, role:'User' }
+        addUser(userData)
+        .then(res =>{
+            // console.log(res);
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+        
     }
 
 

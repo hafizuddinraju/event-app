@@ -1,15 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import React, { useState } from "react";
-import { BsArrowsFullscreen } from "react-icons/bs";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { getPhotoGallery } from "../../lib/helperGallery";
 import Spinner from "../Spinner/Spinner";
 
 const GallerySection = () => {
-  const [hover, setHover] = useState(false);
+
   const { data: allPhotos = [], error, isError, refetch, isLoading } = useQuery({
     queryKey: ['photos'],
     queryFn: async () => {
@@ -17,6 +14,8 @@ const GallerySection = () => {
       return res;
     }
   })
+  console.log(allPhotos)
+
 
   if (isLoading) {
     return <Spinner></Spinner>
@@ -27,11 +26,13 @@ const GallerySection = () => {
         <div className=" mb-6 text-center lg:justify-center lg:flex-row md:mb-8">
           <h2 className="text-3xl font-bold">OUR GALLERY</h2>
           <h4 className="text-lg font-xl">
-            Some of our project discussion,management and meeting image
+            Some of our projects discussion,management and meeting image
           </h4>
         </div>
         <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
-          {allPhotos?.map(({ _id, title, desc, cover }) => (
+
+          {
+          allPhotos.length > 0  && allPhotos?.slice(0, 3).map(({ _id, title, desc, cover }) => 
             <div
               key={_id}
               className="relative overflow-hidden transition rounded duration-200 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
@@ -53,7 +54,7 @@ const GallerySection = () => {
                 <p className="text-sm tracking-wide text-gray-300">{desc}</p>
               </div>
             </div>
-          ))}
+          )}
         </div>
         <div className='flex justify-center mb-20 tooltip' data-tip='Tap to explore more events'>
           <Link href='/' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more</Link>

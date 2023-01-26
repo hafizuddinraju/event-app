@@ -43,7 +43,7 @@ const AdvertisePopUp = () => {
            setTimeout(
             function open (event){
               setOpenModal(true)
-            },1000
+            },5000
            )
         })
     },[])
@@ -64,7 +64,7 @@ const AdvertisePopUp = () => {
      
        {
         openModal ?  <div className='h-[100vh] flex justify-center items-center w-full '>
-            <div style={bg} className='w-full shadow-blue-500 hover:bg-orange-800 border-red-700 shadow-2xl rounded-xl  h-[60vh] pb-10 md:w-9/12 mx-2'>
+            <div style={bg} className='w-full shadow-blue-500 hover:bg-orange-800 border-red-700 shadow-2xl rounded-xl h-[80vh] md:h-[60vh] pb-10 md:w-9/12 mx-2'>
             <div className='text-right'>
             <button  onClick={handleMovePopUp}  title="close" className='text-6xl hover:text-red-700 w-8 h-8 text-black rounded-full mr-5 '>
                     &times;
@@ -74,25 +74,25 @@ const AdvertisePopUp = () => {
                 <p className="text-4xl text-center font-bold mb-10">Take This Opportunity</p>
                 
             </div>
-                <div className='border-gray-500 animate-bounce bg-blue-200 py-3 px-5 rounded-xl border-4 mx-auto grid justify-center  grid-cols-7 w-7/12 '>
+                <div className='border-gray-500 animate-bounce bg-blue-200 py-3 px-5 rounded-xl border-4 mx-auto grid justify-center  grid-cols-7 w-full  md:w-7/12 '>
                 <div >
                     <p className='text-4xl md:text-6xl font-bold'>{days}</p>
-                    <p className='text-3xl font-bold'><small>Days</small></p>
+                    <p className='text-2xl font-bold'><small>Days</small></p>
                 </div>
-                    <span className='text-5xl'>:</span>
+                    <span className=' text-3xl md:text-5xl'>:</span>
                 <div >
                     <p className='text-4xl md:text-6xl font-bold'>{hours}</p>
-                    <p className='text-3xl font-bold'><small>Hours</small></p>
+                    <p className='text-2xl font-bold'><small>Hours</small></p>
                 </div>
                     <span className='text-5xl'>:</span>
                 <div >
                     <p className='text-4xl md:text-6xl font-bold'>{minutes}</p>
-                    <p className='text-3xl font-bold'><small>Minutes</small></p>
+                    <p className='text-2xl font-bold'><small>Minutes</small></p>
                 </div>
                     <span className='text-5xl'>:</span>
                 <div >
                     <p className='text-4xl md:text-6xl font-bold'>{seconds}</p>
-                    <p className='text-3xl font-bold'><small>Second</small></p>
+                    <p className='text-2xl font-bold'><small>Second</small></p>
                 </div>
                   
                

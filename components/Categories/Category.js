@@ -27,6 +27,7 @@ const Category = () => {
                 {
                    allCategories.length > 0  && allCategories?.slice(0, 3).map(event => <CategoryCard
                     key={event._id}
+
                     events={event}
                     ></CategoryCard> )
                 }
