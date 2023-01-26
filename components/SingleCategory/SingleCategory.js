@@ -10,6 +10,7 @@ import { getSingleCategory } from '../../lib/helperCategory'
 import Pdf from "react-to-pdf";
 import Modal from '../../components/Modal/Modal';
 import { AuthContext } from '../../context/AuthProvider';
+import { getEvent } from '../../lib/helperSubCategory';
 
 
 
@@ -20,14 +21,14 @@ const SingleCategory = () => {
   const { user } = useContext(AuthContext)
   const router = useRouter()
   const [modal, setModal] = useState({});
-  const [categoryData, setCategoryData] = useState({})
-  const id = router.query.categoryId;
+  const [eventData, setEventData] = useState({})
+  const id = router.query.eventId;
 
   useEffect(() => {
 
-    getSingleCategory(id).then(res => {
+    getEvent(id).then(res => {
       console.log(res);
-      setCategoryData(res)
+      setEventData(res)
 
     })
       .catch(error => {
@@ -35,24 +36,24 @@ const SingleCategory = () => {
       })
 
 
-  }, [router.query.categoryId])
+  }, [router.query.eventId])
 
 
-  if (!categoryData) {
+  if (!eventData) {
     return <Spinner></Spinner>
 
   }
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  '>
-        <div ref={ref}>
+      <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-10 md:mx-20 '>
+        <div ref={ref} className='col-span-2'>
           <div className="p-5 mx-auto sm:p-10 md:p-16 mt-20 text-gray-100">
             <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
               <PhotoProvider>
-                <PhotoView src={categoryData?.img}>
+                <PhotoView src={eventData?.image_url}>
                   <img
-                    src={categoryData?.img}
+                    src={eventData?.image_url}
                     alt=""
                     className="w-full rounded-md h-60 sm:h-96 bg-gray-500"
                   />
@@ -64,7 +65,7 @@ const SingleCategory = () => {
                     rel="noopener noreferrer"
                     className=" text-center text-2xl font-semibold sm:text-3xl"
                   >
-                    {categoryData?.cate_name}
+                    {eventData?.name}
                   </div>
 
                   <div className="flex justify-between items-center">
@@ -87,7 +88,7 @@ const SingleCategory = () => {
                       rel="noopener noreferrer"
                       className="text-xl  text-green-500 hover:underline"
                     >
-                      {/* Price: {price} */}
+                      Price: {eventData?.price}
                     </div>
                     <Pdf targetRef={ref} filename="Event_info.pdf" x={.5} y={.5} scale={0.8}>
                       {({ toPdf }) =>
@@ -96,7 +97,7 @@ const SingleCategory = () => {
                     </Pdf>
                   </div>
                 </div>
-                <div className="text-gray-100 text-justify">{categoryData?.description}</div>
+                <div className="text-gray-100 text-justify">{eventData?.description}</div>
                 <div className="flex justify-between items-center">
                   <div
                     rel="noopener noreferrer"
@@ -112,7 +113,7 @@ const SingleCategory = () => {
 
                 </div>
                 <div className="text-center">
-                  {categoryData?.quantity === 0 ? (
+                  {eventData?.quantity === 0 ? (
                     <label className="inline-flex disabled:opacity-75 items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-600 hover:bg-gray-700 focus:shadow-outline focus:outline-none">
                       Stock out
                     </label>
@@ -122,7 +123,7 @@ const SingleCategory = () => {
                         user ? "booking-modal" : ''
                       }
                       className="inline-flex items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-sky-500 hover:bg-sky-600 focus:shadow-outline focus:outline-none"
-                      onClick={() => setModal(categoryData)}
+                      onClick={() => setModal(eventData)}
                     >
                       Book Now
                     </label>
