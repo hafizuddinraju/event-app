@@ -8,6 +8,7 @@ import { FaEnvelope, FaEye } from "react-icons/fa";
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
+import { updateUser } from "../lib/helperUser";
 
 const Login = () => {
     const [pShow, setPShow] = useState(false)
@@ -35,12 +36,27 @@ const Login = () => {
     const googleLoginUser = () => {
         googleLogin()
             .then(result => {
+                
+                saveUser(result.user.displayName, result.user.email)
                 router.push("/")
 
             })
             .catch(error => {
                 toast.success(error, { autoClose: 500 })
             })
+    }
+
+    const saveUser = (name, email)=>{
+        const info ={name, email, role:'User'};
+        console.log(info)
+        updateUser(email, info)
+        .then(res =>{
+            // console.log(res);
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+
     }
     return (
         <div className="mt-32">
