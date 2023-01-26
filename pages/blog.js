@@ -20,7 +20,7 @@ const blog = () => {
            <h3 className="text-5xl font-semibold text-yellow-500">LATEST BLOGS</h3>
            <div className="flex text-center justify-center mt-12">
             <a className="mr-10 text-lg font-lg text-gray-200" to='/'>Home</a>
-            <a className="text-lg font-lg text-gray-200" to='/'>Our Blog</a>
+            <a className="text-lg font-lg text-gray-200" to='/'>Our Blogs</a>
            </div>
            </div>
           </div>
