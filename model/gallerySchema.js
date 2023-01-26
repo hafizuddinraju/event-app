@@ -1,12 +1,12 @@
 
 import { model, models, Schema } from "mongoose";
 
-const photoGallerySchema = new Schema ({
+const GallerySchema = new Schema ({
     title:String,
     desc:String,
     cover:String
 })
 
-const photoGallery = models.allPhotos || model("allPhotos", photoGallerySchema);
+const photoGallery = models.allPhotos || model("allPhotos", GallerySchema);
 
 export default photoGallery;
