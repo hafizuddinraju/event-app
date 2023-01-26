@@ -1,6 +1,7 @@
+import LeftSide from "../components/blogs/LeftSide";
+import RightSite from "../components/blogs/RightSite";
 
-import LeftSide from '../components/blog/LeftSide';
-import RightSite from '../components/blog/RightSite';
+
 
 const blog = () => {
   return (

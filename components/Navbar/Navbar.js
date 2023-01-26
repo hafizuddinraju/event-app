@@ -89,7 +89,7 @@ const Navbar = () => {
         </li>
         <li className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
             <Link
-              href="/layout"
+              href="/blog"
               aria-label="blog"
               title="blog"
               className={({isActive})=>isActive?"font-medium tracking-wide text-primary transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"}
