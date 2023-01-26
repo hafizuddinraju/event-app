@@ -5,7 +5,8 @@ import { FaArrowRight } from 'react-icons/fa';
 
 import styles from '../../styles/CategoryCard.module.css';
 const CardDemo = ({ sub }) => {
-    const { name, image_url, description, availability, price, code, _id } = sub
+    console.log(sub);
+    const { name, image_url, description, _id } = sub
 
     const [hover, setHover] = useState(false);
     return (
