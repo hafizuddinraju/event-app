@@ -18,13 +18,13 @@ export default function App({ Component, pageProps }) {
         <AuthProvider>
           <Navbar></Navbar>
           <ToastContainer position="top-center" />
-          {noAuthRequired.includes(router.pathname) ? (
+          {/* {noAuthRequired.includes(router.pathname) ? (
             <Component {...pageProps} />
           ) : (
-            <ProtectRoute>
-              <Component {...pageProps} />
-            </ProtectRoute>
-          )}
+            <ProtectRoute> */}
+          <Component {...pageProps} />
+          {/* </ProtectRoute>
+          )} */}
 
           <Footer></Footer>
         </AuthProvider>
