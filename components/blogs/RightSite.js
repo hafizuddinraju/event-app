@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FaArrowCircleDown } from "react-icons/fa";
+import { Fragment, useState } from "react";
+import Collapsible from "react-collapsible";
 
 const RightSite = () => {
   const [faqs, setFaqs] = useState("Faqs");
@@ -31,56 +31,47 @@ const RightSite = () => {
     },
   ];
   return (
-    <div>
-        <h1 className="font-semibold text-gray-900 -mt-16 text-center mb-10 text-5xl">Recent Post</h1>
-      <div className="relative w-[400px]  bg-[#e3edf7] shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.15),-6px_-6px_10px_-1px_rgba(255,255,255,0.8)] rounded-xl">
-        
-
-        {Faqs.map(({ id, title, desc }) => (
-          <div key={id} className="">
-            <input
-              type="checkbox"
-              id="input"
-              className="absolute peer opacity-0"
-            ></input>
-            <label
-              className="font-bold tracking-[1px] mx-[20px] h-[50px] flex items-center"
-              for="input"
-            >
-              {title}
-            </label>
-            <div className="absolute top-[46px] duration-200 right-[30px] rotate-0 peer-checked:rotate-180">
-              <FaArrowCircleDown/>
-            </div>
-            <div className="max-h-0  overflow-hidden peer-checked:max-h-full">
-              <p className="p-[20px]">{desc}</p>
-            </div>
+    <Fragment>
+    <section >
+          <h2 className="text-3xl text-center mb-4">Frequently Ask</h2>
+      <div >
+        <div className="relative w-[400px]  bg-[#e3edf7] shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.15),-6px_-6px_10px_-1px_rgba(255,255,255,0.8)] rounded-xl">
+          {
+            Faqs.map(({id,title,desc})=>
+              <div key={id} className="p-2 card shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.15),-8px_-8px_12px_-1px_rgba(255,255,255,0.8)] rounded-xl">
+                  <Collapsible
+                  className="collapsible"
+                  trigger={[<i className='fa-solid fa-angle-down'/>,title]}
+                  triggerOpen={[<i className='fa-solid fa-angle-up'/>,title]}
+                  >
+                      <p className="text-[16px]">{desc}</p>
+                  </Collapsible>
+              </div>
+            )
+          }
+        </div>
+          <div className="my-12 mx-5">
+    <a href="/" aria-label="View Item">
+        <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
+          <img
+            className="object-cover w-[400px] h-56 md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+            alt=""
+          />
+          <div className="absolute inset-0 px-6 text-center items-center justify-center py-4 transition-opacity duration-200 bg-black bg-opacity-60 opacity-100">
+            <p className="mb-10 mt-6 text-3xl font-semibold text-gray-100">X-Coder's</p>
+            <p className="mb-4 text-4xl font-semibold text-gray-100">Web Development <br/> Conference</p>
+            
+           <div className="py-4">
+           <button className="btn bg-orange-600 border-none hover:bg-orange-400 ">Booking Ticket</button>
+           </div>
           </div>
-        ))}
-      </div>
-      <div className="my-12">
-      <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-[400px] h-56 md:h-64 xl:h-80"
-              src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-              alt=""
-            />
-            <div className="absolute inset-0 px-6 text-center items-center justify-center py-4 transition-opacity duration-200 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-              <p className="mb-4 text-lg font-bold text-gray-100">Mona Lisa</p>
-              <p className="text-sm tracking-wide text-gray-300">
-                Painted between 1503 and 1517, Da Vinci’s alluring portrait has
-                been dogged by two questions since the day it was made: Who’s
-                the subject and why is she smiling?
-              </p>
-             <div className="py-4">
-             <button className="btn bg-orange-500 hover:from-orange-700 hover:to-orange-400">Booking Ticket</button>
-             </div>
-            </div>
-          </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
+         </div> 
+    </section>
+  </Fragment>
   );
 };
 

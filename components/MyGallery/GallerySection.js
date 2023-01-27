@@ -29,10 +29,10 @@ const GallerySection = () => {
             Some of our projects discussion,management and meeting image
           </h4>
         </div>
-        <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-11">
 
           {
-          allPhotos.length > 0  && allPhotos?.slice(0, 3).map(({ _id, title, desc, cover }) => 
+          allPhotos.length > 0  && allPhotos?.slice(0, 4).map(({ _id, title, desc, cover }) => 
             <div
               key={_id}
               className="relative overflow-hidden transition rounded duration-200 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
