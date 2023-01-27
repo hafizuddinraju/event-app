@@ -3,7 +3,7 @@ import SingleCategory from '../../components/SingleCategory/SingleCategory';
 
 const evID = () => {
     return (
-        <div className=''>
+        <div>
             <SingleCategory></SingleCategory>
         </div>
     );
