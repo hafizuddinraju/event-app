@@ -23,7 +23,7 @@ const blog = () => {
            <div className="flex text-center justify-center mt-12">
             <a className="mr-10 text-lg font-lg hover:scale-105  duration-100 text-gray-200" href='/'>Home</a>
             <a className="mr-10 text-lg font-lg  text-gray-200" href='/'>||</a>
-            <a className="text-lg font-lg hover:scale-105  duration-100 text-gray-200" href='/'>Our Blog</a>
+            <a className="text-lg font-lg hover:scale-105  duration-100 text-gray-200" href='/'>Our Blogs</a>
            </div>
            </div>
           </div>
