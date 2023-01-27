@@ -2,7 +2,7 @@ import React from 'react';
 import { BsHouse } from 'react-icons/bs';
 import { FaHandsHelping, FaHeart } from 'react-icons/fa';
 import { MdOutlineConnectWithoutContact } from 'react-icons/md';
-import styles from './Features.module.css'
+import styles from '../../styles/Features.module.css'
 
 const Features = () => {
     return (

@@ -21,7 +21,7 @@
 }
 
 .easing_imgg {
-    animation: easing-in-out-img 3s ease-in-out;
+    animation: easing-in-out-img 1s ease-in-out;
     width: 100%;
     height: 224px;
   }
@@ -38,7 +38,7 @@
   }
 
 .easing_title {
-    animation: easing-in-out-title 5s ease-in-out;
+    animation: easing-in-out-title 2s ease-in-out;
     font-weight: 700;
     font-size: 20px;
     line-height: 28px;
@@ -57,7 +57,7 @@
   }
 
 .easing_description {
-    animation: easing-in-out-description 6s ease-in-out;
+    animation: easing-in-out-description 3s ease-in-out;
     --tw-text-opacity: 1;
     color: rgb(55 65 81 / var(--tw-text-opacity));
     font-size: 20px;
@@ -76,7 +76,7 @@
   }
 
 .easing_btn {
-    animation: easing-in-out-btn 7s ease-in-out;
+    animation: easing-in-out-btn 4s ease-in-out;
     --tw-bg-opacity: 1;
     background-color: rgb(14 165 233 / var(--tw-bg-opacity));
     --tw-text-opacity: 1;
