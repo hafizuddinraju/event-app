@@ -57,7 +57,7 @@
   }
 
 .easing_description {
-    animation: easing-in-out-description 3s ease-in-out;
+    animation: easing-in-out-description 2s ease-in-out;
     --tw-text-opacity: 1;
     color: rgb(55 65 81 / var(--tw-text-opacity));
     font-size: 20px;
@@ -76,7 +76,7 @@
   }
 
 .easing_btn {
-    animation: easing-in-out-btn 4s ease-in-out;
+    animation: easing-in-out-btn 3s ease-in-out;
     --tw-bg-opacity: 1;
     background-color: rgb(14 165 233 / var(--tw-bg-opacity));
     --tw-text-opacity: 1;
