@@ -11,6 +11,8 @@ import Pdf from "react-to-pdf";
 import Modal from '../../components/Modal/Modal';
 import { AuthContext } from '../../context/AuthProvider';
 import { getEvent } from '../../lib/helperSubCategory';
+import ProtectRoute from '../../layout/ProtectRoute';
+import Link from 'next/link';
 
 
 
@@ -113,14 +115,14 @@ const SingleCategory = () => {
 
                 </div>
                 <div className="text-center">
-                  {eventData?.quantity === 0 ? (
+                  {eventData?.availability === '0' ? (
                     <label className="inline-flex disabled:opacity-75 items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-600 hover:bg-gray-700 focus:shadow-outline focus:outline-none">
                       Stock out
                     </label>
                   ) : (
                     <label
                       htmlFor={
-                        user ? "booking-modal" : ''
+                        user ? "booking-modal" : router.push('/login')
                       }
                       className="inline-flex items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-sky-500 hover:bg-sky-600 focus:shadow-outline focus:outline-none"
                       onClick={() => setModal(eventData)}
