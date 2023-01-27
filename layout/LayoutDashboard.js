@@ -90,25 +90,25 @@ const LayoutDashboard = ({children}) => {
               </div>
               </Link>
               <Link href='dashboard/allUser'>
-              <div className={`${styles.option2} ${styles.nav_option}`}>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
                 
                 <img
                   src="https://i.ibb.co/w6TmPMM/9.png"
                   className={styles.nav_img}
                   alt="articles"
                 />
-                <h3 className="text-white hover:text-gray-800"> AllUser</h3>
+                <h3 className="text-white hover:text-gray-100"> AllUser</h3>
                 
               </div>
               </Link>
 
-              <div className={`${styles.nav_option} ${styles.option3}`}>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
                 <img
                   src="https://i.ibb.co/1ZNpvYK/5.png"
                   className={styles.nav_img}
                   alt="report"
                 />
-                <h3 className="text-white hover:text-gray-800">Employees</h3>
+                <h3 className="text-white hover:text-gray-100">Employees</h3>
               </div>
 
               <div className={`${styles.nav_option} ${styles.option4}`}>
@@ -186,25 +186,25 @@ const LayoutDashboard = ({children}) => {
               </div>
               </Link>
               <Link href='dashboard/myOrders'>
-              <div className={`${styles.option2} ${styles.nav_option}`}>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
                 
                 <img
                   src="https://i.ibb.co/w6TmPMM/9.png"
                   className={styles.nav_img}
                   alt="articles"
                 />
-                <h3 className="text-white hover:text-gray-800"> MyOrders</h3>
+                <h3 className="text-white hover:text-gray-100"> MyOrders</h3>
                 
               </div>
               </Link>
 
-              <div className={`${styles.nav_option} ${styles.option3}`}>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
                 <img
                   src="https://i.ibb.co/1ZNpvYK/5.png"
                   className={styles.nav_img}
                   alt="report"
                 />
-                <h3 className="text-white hover:text-gray-800">Payment</h3>
+                <h3 className="text-white hover:text-gray-100">Payment</h3>
               </div>
 
 

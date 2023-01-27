@@ -2,30 +2,36 @@
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-// import { addBooking } from "../../lib/helperBooking";
+import { addBooking } from "../../lib/helperBooking";
+
 
 const Modal = ({ setModal, modal }) => {
+  console.log(modal);
   const {user} =useContext(AuthContext);
   const router = useRouter();
   
-  // const handleBooking = async (event) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const phone = form.phone.value;
+  const handleBooking =  (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const phone = form.phone.value;
 
-  //   const booking = {
-  //     picture: modal?.picture,
-  //     // price: modal?.price,
-  //     phone: phone,
-  //     quantity: 0,
-  //     email: user?.email,
-  //     product_id: modal?._id,
-  //   };
-  //   const res = await addBooking(booking);
-  //   if (res) {
-  //     router.push("/dashboard/booking");
-  //   }
-  // };
+    const booking = {
+      picture: modal?.image_url,
+      price: modal?.price,
+      phone: phone,
+      availability: '0',
+      email: user?.email,
+      product_id: modal?._id,
+    };
+     addBooking(booking).then(res =>{
+      console.log(res)
+      router.push("/dashboard/myOrders");
+     })
+     .catch(error =>{
+      console.log(error);
+     })
+    
+  };
   return (
     <>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -39,7 +45,7 @@ const Modal = ({ setModal, modal }) => {
           </label>
           <h3 className="text-lg font-bold"></h3>
           <form
-            // onSubmit={handleBooking}
+            onSubmit={handleBooking}
             className="grid grid-cols-1 gap-3 mt-10"
           >
             <input
@@ -50,9 +56,16 @@ const Modal = ({ setModal, modal }) => {
             />
 
             <input
-              name="Price"
-              type="number"
-              // defaultValue={modal?.price}
+              name="name"
+              type="text"
+              defaultValue={modal?.name}
+              readOnly
+              className="input w-full text-gray-800 input-bordered"
+            />
+            <input
+              name="name"
+              type="text"
+              defaultValue={modal?.price}
               readOnly
               className="input w-full text-gray-800 input-bordered"
             />
@@ -66,7 +79,7 @@ const Modal = ({ setModal, modal }) => {
             <br />
 
             <input
-              className="btn bg-green-500 hover:bg-green-600 border-none w-full"
+              className="btn bg-sky-500 hover:bg-sky-600 border-none w-full"
               type="submit"
               value="Submit"
             />

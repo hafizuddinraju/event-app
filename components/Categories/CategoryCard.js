@@ -7,7 +7,7 @@ const CategoryCard = ({events}) => {
     const [readMore, setReadMore] = useState(200);
 
 
-    const { _id, img, cate_name, description } = events;
+    const { _id, code, img, cate_name, description } = events;
     const [hover, setHover] = useState(false);
 
     const handleReadMore = () =>{
@@ -43,7 +43,7 @@ const CategoryCard = ({events}) => {
                         </div>
                     </div>
                     <div className="px-6 py-4">
-                        <Link href={`/categories/${_id}`}>
+                        <Link href={`/subcategory/${code}`}>
                         <button className={`${styles.easing_btn} transition-all duration-1000`}
                         onMouseEnter={() => setHover(true)}
                         onMouseLeave={() => setHover(false)}>
