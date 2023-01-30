@@ -19,7 +19,7 @@ const CategoryCard = ({events}) => {
     }
     return (
         <div>
-            <div className={styles.relative}>
+            <div className={`${styles.relative}`}>
                 <img className={styles.easing_imgg} src={img} alt="event"/>
                 <div className='hover:bg-pink-100 transition-all duration-1000'>
                     <div className="px-6 py-4">
