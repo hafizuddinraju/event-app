@@ -1,5 +1,5 @@
 .relative {
-  max-width: 384px;
+  max-width: 80%;
   border-radius: 8px;
   overflow: hidden;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
