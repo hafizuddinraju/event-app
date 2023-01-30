@@ -15,7 +15,7 @@ const Signup = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState("")
-    const { createUser, updateUser ,logOut} = useContext(AuthContext)
+    const { createUser, googleLogin, updateUser ,logOut} = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
     const [createUserEmail, setCreateUserEmail] = useState('')
     const [type, setType] = useState('password');
@@ -85,7 +85,7 @@ const Signup = () => {
             </div>
             <div>
                 <div className='flex justify-center items-center rounded-lg '>
-                    <div className='w-96 p-7 shadow-2xl'>
+                    <div className='w-96 p-7 my-5 shadow-2xl'>
                         <h1 className='text-2xl text-center font-bold'>Sign Up</h1>
                         <form onSubmit={handleSubmit(handleSignUp)}>
                             <div className="form-control w-full max-w-xs">
@@ -125,7 +125,7 @@ const Signup = () => {
                             </div>
                             <input className='btn btn-info w-full mt-6 text-white' value="Sign Up" type="submit" />
                             {signUpError && <p className='text-red-600'> {signUpError}</p>}
-                            <button onClick={googleLoginUser} type="submit" className="btn w-full mt-2 border text-gray-800 bg-gray-50 border-sky-500 hover:bg-white">Sign In with <FcGoogle className="ml-4 text-2xl"></FcGoogle></button>
+                            {/* <button onClick={googleLoginUser} type="submit" className="btn w-full mt-2 border text-gray-800 bg-gray-50 border-sky-500 hover:bg-white">Sign In with <FcGoogle className="ml-4 text-2xl"></FcGoogle></button> */}
                         </form>
                         <div>
                             <p className="text-sm pt-4 capitalize text-center">Already have an account? <Link href='/login' className="text-[#0EA5E9] ">Login</Link> </p>

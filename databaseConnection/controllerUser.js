@@ -57,10 +57,10 @@ export const putUser = async(req, res)=> {
 // delete : http://localhost:3000/api/users/1
 export async function deleteUser(req, res) {
   try {
-    const { userId } = req.query;
+    const { emailId } = req.query;
 
-    if (userId) {
-      const user = await userInfo.findByIdAndDelete(userId);
+    if (emailId) {
+      const user = await userInfo.findByIdAndDelete(emailId);
       return res.status(200).json(user);
     }
 
