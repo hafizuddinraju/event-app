@@ -19,11 +19,11 @@ const Category = () => {
     }
 
     return (
-        <div className='m-10'>
+        <div className=' max-w-screen-xl mx-auto'>
             <div className='text-center my-20'>
                 <h3 className='font-bold text-3xl'>Events for You</h3>
             </div>
-            <div className='flex flex-wrap justify-around my-10'>
+            <div className='grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-3 place-items-center justify-center '>
                 {
                    allCategories.length > 0  && allCategories?.slice(0, 3).map(event => <CategoryCard
                     key={event._id}
