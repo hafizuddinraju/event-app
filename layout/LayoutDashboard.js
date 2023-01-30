@@ -101,15 +101,16 @@ const LayoutDashboard = ({children}) => {
                 
               </div>
               </Link>
-
+              <Link href='/dashboard/addEvent'>
               <div className={`${styles.nav_option} ${styles.option1}`}>
                 <img
                   src="https://i.ibb.co/1ZNpvYK/5.png"
                   className={styles.nav_img}
                   alt="report"
                 />
-                <h3 className="text-white hover:text-gray-100">Employees</h3>
+                <h3 className="text-white hover:text-gray-100">Add Event</h3>
               </div>
+              </Link>
 
               <div className={`${styles.nav_option} ${styles.option4}`}>
                 <img

@@ -3,8 +3,9 @@ import { IoSettingsSharp } from 'react-icons/io5';
 import { AiFillDelete } from 'react-icons/ai';
 import LayoutDashboard from '../../layout/LayoutDashboard';
 import { useQuery } from '@tanstack/react-query';
-import { getUsers } from '../../lib/helperUser';
+import { deleteUser, getUsers, updateUser } from '../../lib/helperUser';
 import Spinner from '../../components/Spinner/Spinner';
+import { toast } from 'react-toastify';
 const Attendance = () => {
     const {
         data: alluser = [],
@@ -17,11 +18,39 @@ const Attendance = () => {
           return res;
         },
       });
+
+      const deleteUserData = (id)=>{
+        deleteUser(id).then(res =>{
+            toast.success('User Delete Successful', {autoClose:500})
+            refetch();
+        })
+        .catch(error =>{
+            toast.error(error, {autoClose:1000})
+        })
+
+      }
+
+      const UpdateToAdmin =(email)=>{
+        const info = {role: 'Admin'}
+        updateUser(email, info)
+        .then(res =>{
+            refetch();
+            toast.success('Add to Admin', {autoClose:500})
+        })
+        .catch(error =>{
+            toast.error(error, {autoClose:1000});
+        })
+
+      }
   
       if(isLoading){
         return <Spinner></Spinner>
       }
     return (
+        <>
+       
+        <title>All User</title>
+      
         <LayoutDashboard>
         <div className='flex justify-between items-center'>
             <h2 className=' text-[#102048] text-3xl font-bold py-2 px-3 '>AllUser</h2>
@@ -79,7 +108,7 @@ const Attendance = () => {
                         <td className="px-6 py-4">
                             {user?.email}
                         </td>
-                        <td className="px-6 py-4">
+                        <td onClick={()=>UpdateToAdmin(user?.email)} className="px-6 py-4">
                             {
                                 user?.role == 'User'?
                                 <div className='bg-gray-500 cursor-pointer  text-white w-1/2 text-center rounded-lg'>{user?.role}</div>
@@ -90,7 +119,7 @@ const Attendance = () => {
                         
                         </td>
                         <td className="px-6 py-4">
-                            <AiFillDelete className='text-3xl text-center text-[#ea0606]'></AiFillDelete>
+                            <AiFillDelete onClick={() => deleteUserData(user?._id)} className='text-3xl text-center text-[#ea0606]'></AiFillDelete>
                         </td>
                     </tr>
 
@@ -114,6 +143,7 @@ const Attendance = () => {
           </div>
             
         </LayoutDashboard>
+        </>
     );
 };
 

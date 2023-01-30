@@ -8,6 +8,8 @@ import ProtectRoute from "../../layout/ProtectRoute";
 
 const DashboardItem = () => {
     return (
+      <>
+      <title>Dashboard</title>
       <ProtectRoute>
         <LayoutDashboard>
         
@@ -16,6 +18,7 @@ const DashboardItem = () => {
             
         </LayoutDashboard>
         </ProtectRoute>
+        </>
     );
 };
 
