@@ -8,8 +8,8 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState("")
     const [loading, setLoading] = useState(true)
-    const [openModal , setOpenModal] = useState(true) ;
-    console.log(user, 'log');
+    const [openModal, setOpenModal] = useState(true);
+    // console.log(user, 'log');
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+
     const authInfo = {
         createUser,
         googleLogin,
@@ -52,7 +53,7 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         openModal,
-        setOpenModal
+        setOpenModal,
     }
     return (
         <AuthContext.Provider value={authInfo}>
