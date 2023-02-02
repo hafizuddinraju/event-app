@@ -7,7 +7,7 @@ const GalleryCard = ({_id,cover,desc,title}) => {
        
              <div
               key={_id}
-              className="relative overflow-hidden transition rounded duration-200 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
+              className="relative overflow-hidden transition-all rounded  duration-1000 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
             >
               <img
                 src={cover}
