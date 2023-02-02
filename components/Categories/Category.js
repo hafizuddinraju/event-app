@@ -6,15 +6,15 @@ import Spinner from '../../components/Spinner/Spinner';
 
 
 const Category = () => {
-   
-    const {data: allCategories = [],error, isError, refetch, isLoading} = useQuery({
+
+    const { data: allCategories = [], error, isError, refetch, isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
             const res = await getCategory();
             return res;
         }
     })
-    if(isLoading){
+    if (isLoading) {
         return <Spinner></Spinner>
     }
 
@@ -25,11 +25,11 @@ const Category = () => {
             </div>
             <div className='grid grid-cols-1 gap-8 w-full md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center '>
                 {
-                   allCategories.length > 0  && allCategories?.slice(0, 4).map(event => <CategoryCard
-                    key={event._id}
+                    allCategories.length > 0 && allCategories?.slice(0, 4).map(event => <CategoryCard
+                        key={event._id}
 
-                    events={event}
-                    ></CategoryCard> )
+                        events={event}
+                    ></CategoryCard>)
                 }
             </div>
             <div className='flex justify-center mb-20 ' >
