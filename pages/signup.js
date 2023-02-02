@@ -15,7 +15,7 @@ const Signup = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState("")
-    const { createUser, googleLogin, updateUser ,logOut} = useContext(AuthContext)
+    const { createUser, googleLogin, updateUser, logOut } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
     const [createUserEmail, setCreateUserEmail] = useState('')
     const [type, setType] = useState('password');
@@ -65,21 +65,20 @@ const Signup = () => {
     }
 
     const saveUser = (name, email) => {
-        const userData = { name, email, role:'User' }
+        const userData = { name, email, role: 'User' }
         addUser(userData)
-        .then(res =>{
-            // console.log(res);
-        })
-        .catch(error =>{
-            console.log(error)
-        })
-        
+            .then(res => {
+                // console.log(res);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
 
 
-
     return (
-        <div className='lg:flex md:flex-row flex-col lg:justify-evenly mt-24 mx-auto'>
+        <div  className='lg:flex md:flex-row flex-col lg:justify-evenly mt-24 mx-auto'>
             <div>
                 <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>

@@ -36,7 +36,7 @@ const Login = () => {
     const googleLoginUser = () => {
         googleLogin()
             .then(result => {
-                
+
                 saveUser(result.user.displayName, result.user.email)
                 router.push("/")
 
@@ -46,16 +46,16 @@ const Login = () => {
             })
     }
 
-    const saveUser = (name, email)=>{
-        const info ={name, email, role:'User'};
+    const saveUser = (name, email) => {
+        const info = { name, email, role: 'User' };
         console.log(info)
         updateUser(email, info)
-        .then(res =>{
-            // console.log(res);
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(res => {
+                // console.log(res);
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
     }
     return (
