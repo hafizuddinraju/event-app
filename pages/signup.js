@@ -78,7 +78,7 @@ const Signup = () => {
 
 
     return (
-        <div id="google_translate_element" className='lg:flex md:flex-row flex-col lg:justify-evenly mt-24 mx-auto'>
+        <div  className='lg:flex md:flex-row flex-col lg:justify-evenly mt-24 mx-auto'>
             <div>
                 <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>

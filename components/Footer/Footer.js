@@ -86,7 +86,7 @@ const Footer = () => {
                                     <img src="https://i.ibb.co/khpBckc/f67.png" alt="" className='h-16 w-16' />
                                     <h4 className="text-2xl font-bold"> <span className='text-[#0EA5E9]'>Event</span>Mart</h4>
                                 </div>
-                                <p className='text-sm mt-3 text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sequi numquam soluta itaque. Repellat libero officia doloremque</p>
+                                <p id="google_translate_element" className='text-sm mt-3 text-justify'></p>
                             </div>
                         </div>
                     </div>
