@@ -41,7 +41,8 @@
 .easing_imgg {
     animation: easing-in-out-img 1s ease-in-out;
     width: 100%;
-    height: 224px;
+    /* height: 224px; */
+    height: 225px;
   }
   
   @keyframes easing-in-out-img {
