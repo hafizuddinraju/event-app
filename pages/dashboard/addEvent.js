@@ -1,165 +1,198 @@
-import React from 'react';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import LayoutDashboard from '../../layout/LayoutDashboard';
+import { async } from "@firebase/util";
+import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import SmallSpinner from "../../components/Spinner/SmallSpinner";
+import LayoutDashboard from "../../layout/LayoutDashboard";
+import { getCategory } from "../../lib/helperCategory";
+import { addEventData } from "../../lib/helperSubCategory";
+const cors = require("cors");
 
 const addEvent = () => {
-    const router = useRouter();
-    const [formData, setFormData] = useState({
-      code: '',
-      name: '',
-      description: '',
-      availability: '',
-      image_url: '',
-      price: '',
-      imagePreview: ''
-    });
-  
-    const handleChange = e => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value
+  const router = useRouter();
+  const [spinner, setSpinner] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const imgHost = "041fbe58f313eee96990646a213a5d53";
+  console.log(imgHost);
+  const { data: allEvent, isLoading } = useQuery({
+    queryKey: ["allEvent"],
+    queryFn: async () => {
+      const res = await getCategory();
+
+      return res;
+    },
+  });
+  console.log(allEvent);
+
+  const handleSubmitEvent = async (data) => {
+   
+      
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const url = `https://api.imgbb.com/1/upload?key=${imgHost}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(async(imgData) => {
+        if (imgData.success) {
+            const eventInfo = {
+                code: data.allEvent,
+                name: data.name,
+                description: data.description,
+                availability: '1',
+                price: data.price,
+                image_url: imgData.data.url,
+              };
+           const res = await addEventData(eventInfo);
+           console.log(res)
+           if(res){
+            setSpinner(false)
+            toast.success('Add Event Successful', {autoClose:500})
+           }
+              
+          
+        }
       });
-      if (e.target.name === "image_url") {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          setFormData({
-            ...formData,
-            imagePreview: e.target.result
-          });
-        };
-        reader.readAsDataURL(e.target.files[0]);
-      }
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      console.log(formData);
-      router.push('/dashboard/addEvent');
-    };
-  
-    return (
-        <>
-        <title>Add Event</title>
-        <LayoutDashboard>
-            <div className='bg-slate-800 border rounded-lg'>
-                <div className='block sm:flex bg-slate-900 border border-slate-900 rounded-lg m-5 sm:m-10 md:m-10 lg:m-20 p-5'>
-                    <div className='my-5 w-full md:w-1/3'>
-                        <div className='text-center mb-5'>
-                            <h1 className="text-white text-xl font-semibold p-2">
-                            Add an Event!
-                            </h1>
-                        </div>
-                        <div>
-                            <p className='text-white text-sm text-justify'>
-                                You can add your desired event simply by filling up the form properly.Use this form to submit your event information for inclusion on your website.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="ml-0 md:ml-10">
-                        <div className="mx-auto my-5">
-                        <form onSubmit={handleSubmit} className="p-5">
-                            <div className='block sm:flex justify-between'>
-                            <div className="form-group">
-                                <label htmlFor="code" className="block text-sm font-normal text-white">Code</label>
-                                <select
-                                id="code"
-                                name="code"
-                                value={formData.code}
-                                onChange={handleChange}
-                                className="w-full mb-2 rounded-lg bg-white p-2 cursor-pointer"
-                                >
-                                <option value="">Select a code</option>
-                                <option value="11">11</option>
-                                <option value="22">22</option>
-                                <option value="44">44</option>
-                                <option value="55">55</option>
-                                <option value="66">66</option>
-                                <option value="77">77</option>
-                                <option value="88">88</option>
-                                <option value="99">99</option>
-                                <option value="101">101</option>
-                                <option value="102">102</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                            <label htmlFor="name" className="block text-sm font-normal text-white">Event type</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                className="w-full mb-2 rounded-lg bg-white p-2 cursor-pointer"
-                            />
-                            </div>
-                            </div>
-                            <div className="form-group">
-                            <label htmlFor="description" className="block text-sm font-normal text-white">Description</label>
-                            <textarea
-                                id="description"
-                                name="description"
-                                value={formData.description}
-                                onChange={handleChange}
-                                className="w-full mb-2 rounded-lg bg-white p-2 cursor-pointer"
-                            />
-                            </div>
-                            <div className="form-group">
-                            <label htmlFor="image_url" className="block text-sm font-normal text-white">Image</label>
-                            <input
-                                type="file"
-                                id="image_url"
-                                name="image_url"
-                                value={formData.image_url}
-                                onChange={handleChange}
-                                className="w-full mb-2 rounded-lg bg-white p-2 cursor-pointer"
-                            />
-                            </div>
-                            {formData.imagePreview && (
-                          <div className="mt-5">
-                            <img src={formData.imagePreview} alt="Preview"className="w-full rounded-lg mb-5" />
-                            </div>
-                            )}
-                            <div className='block sm:flex'>
-                                <div className="form-group mr-5">
-                                <label htmlFor="price" className="block text-sm font-normal text-white">Price</label>
-                                <input
-                                    type="number"
-                                    id="price"
-                                    name="price"
-                                    value={formData.price}
-                                    onChange={handleChange}
-                                    className="w-full mb-2 rounded-lg  bg-white p-2 cursor-pointer"
-                                />
-                                </div>
-                                <div className="form-group">
-                                <label htmlFor="availability" className="block text-sm font-normal text-white">Availability</label>
-                                <select
-                                    id="availability"
-                                    name="availability"
-                                    value={formData.availability}
-                                    onChange={handleChange}
-                                    className="w-full mb-2 rounded-lg bg-white p-2 cursor-pointer"
-                                >
-                                    <option value="">Select availability</option>
-                                    <option value="1">1</option>
-                                    <option value="0">0</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div className="flex justify-end mt-5">
-                                <button type="submit" className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg ml-2 tooltip" data-tip="Click to add the event">
-                                    Add
-                                </button>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
+  };
+  const handleSpinner = () => {
+    setSpinner(true);
+  };
+  return (
+    <>
+      <title>Add Event</title>
+      <LayoutDashboard>
+        <div className="bg-slate-800 border h-screen rounded-lg">
+          <div className="text-white text-center uppercase font-bold text-3xl pt-20">
+            Add Event
+          </div>
+          <div className=" bg-slate-900 border  border-slate-900 rounded-lg mx-20 mt-4 flex justify-between items-center">
+            <img
+              className="w-32 ml-20 hidden md:block lg:block "
+              src="https://i.ibb.co/khpBckc/f67.png"
+              alt=""
+            />
+            <div className="p-10">
+              <form onSubmit={handleSubmit(handleSubmitEvent)}>
+                <div className="flex flex-wrap gap-5">
+                  <div className="form-control w-full md:w-1/3">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Event Name</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Product Name"
+                      {...register("name", {
+                        required: "Name is Required",
+                      })}
+                      className="input input-bordered "
+                    />
+                    {errors.name && (
+                      <p className="text-red-500">{errors.name.message}</p>
+                    )}
+                  </div>
+                  <div className="form-control w-full md:w-1/3 ">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Event Code</span>
+                    </label>
+                    <select
+                      {...register("allEvent")}
+                      className="select input-bordered w-full "
+                    >
+                        <option>Select Code</option>
+                      {allEvent?.map((c) => (
+                        <>
+                        <option key={c._id} value={c.code}>
+                          {c.code}
+                        </option>
+                        </>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-control w-full md:w-1/3 ">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Photo</span>
+                    </label>
+                    <input
+                      type="file"
+                      {...register("image", {
+                        required: "Photo is Required",
+                      })}
+                      className="input input-bordered py-2 w-full "
+                    />
+                    {errors.img && (
+                      <p className="text-red-500">{errors.img.message}</p>
+                    )}
+                  </div>
+                  <div className="form-control w-full md:w-1/3 ">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Price</span>
+                    </label>
+                    <input
+                      type="number"
+                      {...register("price", {
+                        required: "Price is Required",
+                      })}
+                      className="input input-bordered w-full "
+                    />
+                    {errors.price && (
+                      <p className="text-red-500">
+                        {errors.price.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="form-control w-full ml-3 md:w-4/6 ">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text  text-white">
+                        Description
+                      </span>
+                    </label>
+                    <textarea
+                      type="text"
+                      {...register("description", {
+                        required: "Description is Required",
+                      })}
+                      className="input input-bordered h-16 w-full "
+                    />
+                    {errors.description && (
+                      <p className="text-red-500">
+                        {errors.description.message}
+                      </p>
+                    )}
+                  </div>
                 </div>
+
+                <div className=" md:w-1/2 md:mx-auto">
+                  <button
+                    onClick={handleSpinner}
+                    className="btn btn-sm  bg-sky-500 border-none w-full md:w-1/3 mx-auto mt-4"
+                    type="submit"
+                  >
+                    {spinner ? <SmallSpinner></SmallSpinner> : "Add Event"}
+                  </button>
+                </div>
+              </form>
             </div>
-        </LayoutDashboard>
-        </>
-    );
+          </div>
+        </div>
+      </LayoutDashboard>
+    </>
+  );
 };
 
 export default addEvent;

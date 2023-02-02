@@ -38,3 +38,15 @@ export const getEvent = async (req, res) => {
         res.status(404).json({ error: "Cannot get the Category...!" });
     }
 };
+export const postEvent= async(req, res)=> {
+    try {
+      const formData = req.body;
+      if (!formData)
+        return res.status(404).json({ error: "Form Data Not Provided...!" });
+        subCategories.create(formData, function (err, data) {
+        return res.status(200).json(data);
+      });
+    } catch (error) {
+      return res.status(404).json({ error });
+    }
+  }
