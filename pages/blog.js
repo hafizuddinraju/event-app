@@ -1,7 +1,5 @@
-
 import LeftSide from "../components/blogs/LeftSide";
 import RightSite from "../components/blogs/RightSite";
-
 
 
 const blog = () => {

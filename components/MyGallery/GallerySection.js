@@ -15,7 +15,7 @@ const GallerySection = () => {
       return res;
     }
   })
-  console.log(allPhotos)
+  // console.log(allPhotos)
 
 
   if (isLoading) {
