@@ -4,12 +4,12 @@ import styles from '../../styles/Slideritem.module.css'
 const SliderItem = ({data}) => {
     const {image, prev, next,id} = data
     return (
-        <div id={`slide${id}`} className="carousel-item relative w-full">
+        <div id={`slide${id}`} className="carousel-item relative h-[100vh] w-full">
         <div className={styles.carousel_img}>
 
-         <img src={image} className="w-full  rounded-none"  alt=''/>
+         <img src={image} className="w-full h-full rounded-none"  alt=''/>
         </div>
-        <div className="absolute flex justify-end transform -translate-y-1/2 left-10 md:left-32 lg:left-80  top-28 md:top-52 lg:top-72">
+        <div className="absolute flex justify-end transform -translate-y-1/2 left-10 md:left-32 lg:left-80  top-28 md:top-52 lg:top-64">
                   <h1 className=' text-base md:text-2xl lg:text-4xl font-bold text-white'>
                   Competently disseminate  <br />
                   dynamic communities   <br />

@@ -4,19 +4,19 @@ import { FaArrowRight } from 'react-icons/fa';
 import styles from '../../styles/CategoryCard.module.css';
 
 const CategoryCard = ({events}) => {
-    const [readMore, setReadMore] = useState(200);
+    // const [readMore, setReadMore] = useState(200);
 
 
     const { _id, code, img, cate_name, description } = events;
     const [hover, setHover] = useState(false);
 
-    const handleReadMore = () =>{
-        setReadMore(1000);
-    }
+    // const handleReadMore = () =>{
+    //     setReadMore(1000);
+    // }
 
-    const handleShowLess = () =>{
-        setReadMore(200)
-    }
+    // const handleShowLess = () =>{
+    //     setReadMore(200)
+    // }
     return (
         <div>
             <div className={`${styles.relative}`}>
@@ -26,19 +26,19 @@ const CategoryCard = ({events}) => {
                         <div className={styles.easing_title}>{cate_name}</div>
                         <div className=' text-justify '>
                             <p className={`${styles.easing_description} transition-all duration-1000 `}>
-                            {description?.length > readMore ? (
+                            {description?.length ? (
                       <small className='transition duration-1000'>
                         {" "}
-                        {description.slice(0, 200) + "..."}{" "}
+                        {description.slice(0, 100) + "..."}{" "}
                         <button
-                          onClick={handleReadMore}
+                         
                           className="text-sky-700"
                         //   href={`/categories/${_id}`}
                         >
-                          read More
+                         <Link href={`/subcategory/${code}`}>read more</Link>
                         </button>
                       </small>
-                    ) : <>{description} <button className='text-red-500 underline font-bold' onClick={handleShowLess}>show less</button></>}
+                    ) : <>{description} <button className='text-red-500 underline font-bold'>show less</button></>}
                             </p>
                         </div>
                     </div>
