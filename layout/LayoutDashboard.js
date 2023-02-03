@@ -89,7 +89,7 @@ const LayoutDashboard = ({children}) => {
                 
               </div>
               </Link>
-              <Link href='dashboard/allUser'>
+              <Link href='/dashboard/allUser'>
               <div className={`${styles.nav_option} ${styles.option1}`}>
                 
                 <img
@@ -186,7 +186,7 @@ const LayoutDashboard = ({children}) => {
                 
               </div>
               </Link>
-              <Link href='dashboard/myOrders'>
+              <Link href='/dashboard/myOrders'>
               <div className={`${styles.nav_option} ${styles.option1}`}>
                 
                 <img
