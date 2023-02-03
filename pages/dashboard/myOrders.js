@@ -15,7 +15,7 @@ const myOrders = () => {
       .then((res) => {
         console.log(res);
         setOderData(res);
-        setLoading(!loading)
+        setLoading(false)
       })
       .catch((error) => {
         console.log(error);
