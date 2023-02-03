@@ -29,7 +29,7 @@ const Login = () => {
                 router.push('/')
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.message,{autoClose:1000})
             })
     }
 
