@@ -1,24 +1,36 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { IoSettingsSharp } from "react-icons/io5";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider";
 import LayoutDashboard from "../../layout/LayoutDashboard";
-import { getSingleBooking } from "../../lib/helperBooking";
+import { deleteBooking, getSingleBooking } from "../../lib/helperBooking";
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
   const [orderData, setOderData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
         console.log(res);
         setOderData(res);
+        setLoading(!loading)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [user?.email]);
-  console.log(orderData);
+  }, [user?.email,loading]);
+  
+  const handleDelete = async(id)=>{
+    console.log(id)
+    const res =await deleteBooking(id)
+    if(res){
+      setLoading(!loading)
+      toast.success("Delete Successful", {autoClose:500})
+    }
+
+  }
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
@@ -109,7 +121,7 @@ const myOrders = () => {
                         <td className="px-6 py-4">{book?.price}</td>
 
                         <td className="px-6 py-4">
-                          <AiFillDelete className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
+                          <AiFillDelete onClick={()=>handleDelete(book._id)} className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
                         </td>
                       </tr>
                     );
