@@ -13,7 +13,7 @@ const SliderItem = ({data}) => {
               <div className='lg:w-1/2 w-full'>
               <h1 className=' text-base md:text-2xl lg:text-4xl font-bold text-white'>
                   Competently disseminate  <br />
-                  dynamic communities   <br />
+                  Dynamic communities   <br />
                   whereas economically sounds data.
                   </h1>
                   <p className='text-sm my-3 md:text-base lg:text-xl text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
