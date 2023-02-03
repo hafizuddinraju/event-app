@@ -9,7 +9,7 @@ const SliderItem = ({data}) => {
 
          <img src={image} className="w-full h-full rounded-none"  alt=''/>
         </div>
-        <div className='absolute w-9/12 top-[50%] transform -translate-y-1/2 -translate-x-1/2 left-[50%]  text-white'>
+        <div className='absolute w-9/12 top-[50%] transform -translate-y-1/2 -translate-x-1/2 left-[50%] md:left-[50%] lg:left-[55%]  text-white'>
               <div className='lg:w-1/2 w-full'>
               <h1 className=' text-base md:text-2xl lg:text-4xl font-bold text-white'>
                   Competently disseminate  <br />
