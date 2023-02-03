@@ -9,23 +9,23 @@ const SliderItem = ({data}) => {
 
          <img src={image} className="w-full h-full rounded-none"  alt=''/>
         </div>
-        <div className="absolute flex justify-end transform -translate-y-1/2 left-10 md:left-32 lg:left-80  top-28 md:top-52 lg:top-[255px]">
-                  <h1 className=' text-base md:text-2xl lg:text-4xl font-bold text-white'>
+        <div className='absolute w-9/12 top-[50%] transform -translate-y-1/2 -translate-x-1/2 left-[50%]  text-white'>
+              <div className='lg:w-1/2 w-full'>
+              <h1 className=' text-base md:text-2xl lg:text-4xl font-bold text-white'>
                   Competently disseminate  <br />
                   dynamic communities   <br />
                   whereas economically sounds data.
                   </h1>
-              </div>
-              <div className="absolute flex my-0 md:mt-24 justify-end transform -translate-y-1/2 w-4/5 md:w-2/5 left-10 md:left-32 lg:left-80 top-40 md:top-1/3">
-                  <p className='text-sm md:text-base lg:text-xl text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-              </div>
-              <div className="absolute flex my-7 md:my-10 flex-col md:flex-row justify-start transform -translate-y-1/2 w-2/5 left-10 md:left-32 lg:left-80 top-52 lg:top-1/2 md:top-96">
+                  <p className='text-sm my-3 md:text-base lg:text-xl text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
+                <div >
                 <ScrollLink to='services' spy={true} smooth={true} offset={50}>
 
-                  <button className="md:btn rounded-lg  btn-sm btn-primary bg-sky-500 hover:bg-sky-600 md:bg-sky-500 md:hover:bg-sky-600 mr-0 md:mr-5">Get Started</button>
-                </ScrollLink>
-               
+<button className="md:btn rounded-lg  btn-sm btn-primary bg-sky-500 hover:bg-sky-600 md:bg-sky-500 md:hover:bg-sky-600 mr-0 md:mr-5">Get Started</button>
+</ScrollLink>
+                </div>
               </div>
+        </div>
+       
   <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
     <a href={`#slide${prev}`} className="btn btn-circle hover:bg-sky-600 hover:border-none">❮</a> 
     <a href={`#slide${next}`} className="btn ml-2  hover:bg-sky-600 hover:border-none btn-circle">❯</a>

@@ -111,6 +111,16 @@ const LayoutDashboard = ({children}) => {
                 <h3 className="text-white hover:text-gray-100">Add Event</h3>
               </div>
               </Link>
+              <Link href='/dashboard/adminRequestEvents'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                <img
+                  src="https://i.ibb.co/L6gP69g/download.jpg"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-100">Requested Events</h3>
+              </div>
+              </Link>
 
               <div className={`${styles.nav_option} ${styles.option4}`}>
                 <img
@@ -198,6 +208,30 @@ const LayoutDashboard = ({children}) => {
                 
               </div>
               </Link>
+              <Link href='/dashboard/customevent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                
+                <img
+                  src="https://i.ibb.co/88frRk9/images.png"
+                  className={styles.nav_img}
+                  alt="articles"
+                />
+                <h3 className="text-white hover:text-gray-100"> Create Custom Event</h3>
+                
+              </div>
+              </Link>
+              <Link href='/dashboard/requestedevent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                
+                <img
+                  src="https://i.ibb.co/5KzwmRk/images.png"
+                  className={styles.nav_img}
+                  alt="articles"
+                />
+                <h3 className="text-white hover:text-gray-100"> Check Custom Event</h3>
+                
+              </div>
+              </Link>
 
               <div className={`${styles.nav_option} ${styles.option1}`}>
                 <img
@@ -207,8 +241,6 @@ const LayoutDashboard = ({children}) => {
                 />
                 <h3 className="text-white hover:text-gray-100">Payment</h3>
               </div>
-
-
               
             </div>
           </nav>
