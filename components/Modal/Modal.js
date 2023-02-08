@@ -1,6 +1,6 @@
 
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { addBooking } from "../../lib/helperBooking";
 
@@ -9,16 +9,35 @@ const Modal = ({ setModal, modal }) => {
   console.log(modal);
   const {user} =useContext(AuthContext);
   const router = useRouter();
+  const [selectedOption, setSelectedOption] = useState("");
+  
+  const options = [ 
+    "Select an Optional plan",
+    "Photography",
+    "Ceremony Music", 
+    "Guitar Play",
+    "Violin Play",
+    "Plan for VIP persons (such as: distributing flowers)",
+    "Vendor recommendations",
+    "Videography",
+    "Entertainment"
+  ];
+
+  const handleSelectChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
   
   const handleBooking =  (event) => {
     event.preventDefault();
     const form = event.target;
     const phone = form.phone.value;
+    const optionals = form.optionals.value;
 
     const booking = {
       picture: modal?.image_url,
       price: modal?.price,
       phone: phone,
+      optionals: optionals,
       availability: '0',
       email: user?.email,
       product_id: modal?._id,
@@ -69,6 +88,20 @@ const Modal = ({ setModal, modal }) => {
               readOnly
               className="input w-full text-gray-800 input-bordered"
             />
+
+            <select 
+              name="optionals" 
+              value={selectedOption}
+              onChange={handleSelectChange}
+              className="input w-full text-gray-800 input-bordered" 
+              >
+                {options.map((option, index) => (
+                  <option key={index} value={option}>
+                    {option}
+                  </option>
+                ))}
+            </select>
+
             <input
               name="phone"
               type="number"
