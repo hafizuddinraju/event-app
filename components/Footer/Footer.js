@@ -3,12 +3,12 @@ import { FaEnvelope, FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaTwitter
 const Footer = () => {
     return (
         <footer className=''>
-            <div className='py-7 bg-[#14172A] text-base-100'>
+            <div className='py-7 bg-[#EFEFEF] text-black'>
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 lg:px-0 gap-6 items-baseline justify-between ">
                         <div>
                             <div>
-                                <h4 className="text-xl capitalize mb-4">contact info</h4>
+                                <h4 className="text-xl capitalize mb-4 font-semibold">contact info</h4>
                                 <div className='space-y-3 text-sm lg:text-md'>
                                     <div className="flex items-center gap-3">
                                         <FaMapMarkerAlt size={20} />
@@ -25,7 +25,7 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className='mt-4'>
-                                <h4 className="text-2xl capitalize mb-4">connect with event</h4>
+                                <h4 className="text-2xl capitalize mb-4 font-semibold">connect with event</h4>
                                 <ul className='navbar gap-3'>
                                     <li> <a href="/" target="_blank" ><FaFacebook size={24} /></a> </li>
                                     <li> <a href="/" target="_blank" > <FaInstagram size={24} /> </a> </li>
@@ -35,7 +35,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className=''>
-                            <h4 className="text-2xl capitalize mb-4">event venues</h4>
+                            <h4 className="text-2xl capitalize mb-4 font-semibold">event venues</h4>
                             <ul>
                                 <li>
                                     InterContinental Dhaka
@@ -52,7 +52,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h4 className="text-2xl capitalize mb-4">recent event</h4>
+                            <h4 className="text-2xl capitalize mb-4 font-semibold">recent event</h4>
                             <div className="space-y-3">
                                 <div className='flex items-center gap-3'>
                                     <figure>
@@ -75,7 +75,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className='capitalize'>
-                            <h4 className="text-2xl  mb-4">customar service</h4>
+                            <h4 className="text-2xl  mb-4 font-semibold">customar service</h4>
                             <ul>
                                 <li> <Link href='/'>customar services</Link> </li>
                                 <li> <Link href='/'>terms & conditions</Link> </li>
