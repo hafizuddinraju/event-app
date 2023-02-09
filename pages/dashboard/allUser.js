@@ -49,7 +49,7 @@ const Attendance = () => {
     return (
         <>
        
-        <title>All User</title>
+        <title>All Users</title>
       
         <LayoutDashboard>
         <div className='flex justify-between items-center'>
