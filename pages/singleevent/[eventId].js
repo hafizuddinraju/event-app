@@ -19,7 +19,7 @@ const SingleCategory = () => {
   const [modal, setModal] = useState({});
   const [eventData, setEventData] = useState({});
   const id = router.query.eventId;
-  const shareUrl = router.asPath
+  const shareUrl = `https://event-app-pi.vercel.app/singleevent/${id}`
   useEffect(() => {
     getEvent(id)
       .then((res) => {
