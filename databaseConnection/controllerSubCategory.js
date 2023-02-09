@@ -19,7 +19,7 @@ export const getSingleSubCategory = async (req, res) => {
         const filterData = cate.filter(cat => cat.code === subcatId)
         res.status(200).json(filterData)
 
-    } catch (error) {
+    } catch (error) { 
         res.status(404).json({ error: "Cannot get the Category...!" });
     }
 };

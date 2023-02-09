@@ -1,11 +1,11 @@
-import LeftSide from "../components/blogs/LeftSide";
-import RightSite from "../components/blogs/RightSite";
+import RightSite from "../../components/blogs/RightSite";
 
 
-const blog = () => {
-  return (
-    <div>
-      <div className="mb-24 py-10">
+const [blogId] = () => {
+    return (
+        <div>
+            <div>
+            <div className="mb-24 py-10">
         <div className="relative">
           <img
             className="object-cover w-full h-56 sm:h-96"
@@ -26,17 +26,16 @@ const blog = () => {
            </div>
           </div>
         </div>
-      </div>
-      <div className="flex lg:inline-flex md:inline-block sm:inline-block  gap-10">
-        <div className="w-2/3 ml-10 mb-10">
-        <LeftSide/>
         </div>
-        <div>
-          <RightSite/>
+            </div>
+            <div>
+
+            </div>
+            <div>
+                <RightSite/>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
-export default blog;
+export default [blogId];
