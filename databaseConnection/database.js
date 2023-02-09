@@ -1,3 +1,7 @@
+import { loadStripe } from '@stripe/stripe-js';
+
+let stripePromise = null;
+
 const mongoose = require('mongoose');
 
 const connectMongo = async () => {
@@ -13,3 +17,10 @@ const connectMongo = async () => {
 } 
 
 export default connectMongo;
+
+export const getStripe = () => {
+    if(!stripePromise) {
+        stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
+    }
+    return stripePromise;
+}

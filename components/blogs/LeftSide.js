@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { blogData } from "../../lib/helperBlog";
@@ -109,18 +110,18 @@ console.log(cards)
                           onClick={handleReadMore}
                           className="text-sky-700"
                         >
-                          read More
+                          read more
                         </button>
                       </small>
                     ) : <>{desc} <button className='text-red-500 underline font-bold' onClick={handleShowLess}>show less</button></>}
                             </p>
               
-              <button
+                            <Link href='/BlogDetail'><button
                 type="submit"
                 className="inline-flex items-center justify-center h-12 px-6 mt-6 font-medium tracking-wide text-orange-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
               >
                 Read more
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>

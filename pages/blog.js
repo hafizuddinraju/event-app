@@ -13,15 +13,15 @@ const blog = () => {
             alt=""
           />
           
-          <div className="absolute  inset-0 bg-gray-900 bg-opacity-60" >
+          <div className="absolute  inset-0 bg-gray-900 bg-opacity-80" >
            <div className="text-center justify-center mt-24">
-           <h3 className="text-xl my-2 font-lg text-white">OUR BLOGS</h3>
-           <h3 className="text-3xl my-2 font-xl text-gray-200">EVENT MART</h3>
-           <h3 className="text-5xl font-semibold text-yellow-500">LATEST BLOGS</h3>
+           <h3 className="text-xl my-2 font-light font-lg text-white">OUR BLOGS</h3>
+           <h3 className="text-3xl my-2 font-xl text-gray-300">EVENT MART</h3>
+           <h3 className="text-5xl font-semibold text-sky-500">LATEST BLOGS</h3>
            <div className="flex text-center justify-center mt-12">
-            <a className="mr-10 text-lg font-lg hover:scale-105  duration-100 text-gray-200" href='/'>Home</a>
+            <a className="mr-10 text-lg font-lg hover:scale-105  duration-100 text-gray-300" href='/'>Home</a>
             <a className="mr-10 text-lg font-lg  text-gray-200" href='/'>||</a>
-            <a className="text-lg font-lg hover:scale-105  duration-100 text-gray-200" href='/'>Our Blogs</a>
+            <a className="text-lg font-lg hover:scale-105  duration-100 text-gray-300" href='/'>Our Blogs</a>
            </div>
            </div>
           </div>
