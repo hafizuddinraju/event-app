@@ -19,7 +19,7 @@ const SingleCategory = () => {
   const [modal, setModal] = useState({});
   const [eventData, setEventData] = useState({});
   const id = router.query.eventId;
-  const url = router.asPath
+  const shareUrl = router.asPath
   useEffect(() => {
     getEvent(id)
       .then((res) => {
@@ -107,14 +107,14 @@ const SingleCategory = () => {
                     rel="noopener noreferrer"
                     className="text-xs  text-gray-400 font-semibold hover:underline"
                   >
-                    <FacebookShareButton url={url}>
+                    <FacebookShareButton url={shareUrl}>
                       
                       <FacebookIcon size={28} round={true} />
                     </FacebookShareButton>
-                    <LinkedinShareButton className="ml-1" url={url}>
+                    <LinkedinShareButton className="ml-1" url={shareUrl}>
                     <LinkedinIcon size={28} round={true}></LinkedinIcon>
                     </LinkedinShareButton>
-                    <TwitterShareButton className="ml-1" url={url}>
+                    <TwitterShareButton className="ml-1" url={shareUrl}>
                       <TwitterIcon size={28} round={true}></TwitterIcon>
                     </TwitterShareButton>
                     {/* phone: {phone} */}
