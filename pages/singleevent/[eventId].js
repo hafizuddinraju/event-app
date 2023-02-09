@@ -5,7 +5,6 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { FacebookIcon, FacebookShareButton,LinkedinShareButton,TwitterShareButton, LinkedinIcon, TwitterIcon } from "react-share";
 import Pdf from "react-to-pdf";
-import Modal from '../../components/Modal/Modal';
 import { AuthContext } from '../../context/AuthProvider';
 import { getEvent } from '../../lib/helperSubCategory';
 import Modal from "../../components/Modal/Modal";
