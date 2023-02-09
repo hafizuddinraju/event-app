@@ -25,18 +25,18 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
-  }, [user?.email,loading]);
+      })
+  }, [user?.email,loading])
   
   const handleDelete = async(id)=>{
-    console.log(id)
+    console.log(id);
     const res =await deleteBooking(id)
     if(res){
       setLoading(!loading)
       toast.success("Delete Successful", {autoClose:500})
-    }
+    };
 
-  }
+  };
 
   const router= useRouter()
   const {success, canceled} = router.query;
