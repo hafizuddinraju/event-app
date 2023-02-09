@@ -23,7 +23,7 @@ const Category = () => {
             <div className='text-center my-20'>
                 <h3 className='font-bold text-3xl'>Events for You</h3>
             </div>
-            <div className='grid grid-cols-1  gap-8 w-full md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center '>
+            <div className='grid grid-cols-1 gap-8 w-full md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center '>
                 {
                     allCategories.length > 0 && allCategories?.slice(0, 4).map(event => <CategoryCard
                         key={event._id}

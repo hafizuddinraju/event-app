@@ -5,6 +5,12 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import { deleteBooking, getSingleBooking } from "../../lib/helperBooking";
+import { loadStripe } from '@stripe/stripe-js';
+import {useRouter } from 'next/router'
+
+loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
@@ -31,6 +37,24 @@ const myOrders = () => {
     }
 
   }
+
+  const router= useRouter()
+  const {success, canceled} = router.query;
+useEffect(() => {
+  // Check to see if this is a redirect back from Checkout
+  // const query = new URLSearchParams(window.location.search);
+
+  if(success !== undefined || canceled !== undefined) {
+  if (success) {
+    console.log('Order placed! You will receive an email confirmation.');
+  }
+
+  if (canceled) {
+    console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+  }
+}
+}, [success, canceled]);
+
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
@@ -81,6 +105,9 @@ const myOrders = () => {
                       Price
                     </th>
                     <th scope="col" className="px-6 py-3">
+                      Payment
+                    </th>
+                    <th scope="col" className="px-6 py-3">
                       Action
                     </th>
                   </tr>
@@ -119,7 +146,14 @@ const myOrders = () => {
                         <td className="px-6 py-4">{book?.email}</td>
                         <td className="px-6 py-4">{book?.phone}</td>
                         <td className="px-6 py-4">{book?.price}</td>
-
+                        <td className="px-6 py-4">
+                          <form action="/api/checkout_sessions" method="POST">
+      <section>
+        <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" type="submit" role="link">
+          payment
+        </button>
+      </section></form></td>
+                      
                         <td className="px-6 py-4">
                           <AiFillDelete onClick={()=>handleDelete(book._id)} className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
                         </td>
