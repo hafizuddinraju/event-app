@@ -10,6 +10,7 @@ import Pdf from "react-to-pdf";
 import Modal from "../../components/Modal/Modal";
 import { AuthContext } from "../../context/AuthProvider";
 import { getEvent } from "../../lib/helperSubCategory";
+import ProtectRoute from "../../layout/ProtectRoute";
 
 const ref = createRef();
 const SingleCategory = () => {
@@ -35,6 +36,9 @@ const SingleCategory = () => {
   }
 
   return (
+    
+
+  
     <>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-10 md:mx-20 ">
         <div ref={ref} className="col-span-2">
