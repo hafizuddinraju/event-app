@@ -11,12 +11,6 @@ import Modal from '../../components/Modal/Modal';
 import { AuthContext } from '../../context/AuthProvider';
 import { getEvent } from '../../lib/helperSubCategory';
 
-
-
-
-
-
-
 const ref = createRef();
 const SingleCategory = () => {
 
