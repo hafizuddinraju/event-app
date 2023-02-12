@@ -89,3 +89,12 @@
   padding-top: 0;
 }
 
+.leaflet-container{
+  width: 300px;
+  height: 500px;
+}
+
+.map{
+  width: 300px;
+  height: 500px;
+}

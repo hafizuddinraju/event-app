@@ -1,11 +1,7 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 
-const indexData = () => {
-    return (
-        <div>
-            <h1>Data load</h1>
-        </div>
-    );
-};
+const Map = dynamic(()=> import("./Map.js"),{
+    ssr: false
+});
 
-export default indexData;
+export default Map;

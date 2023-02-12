@@ -3,13 +3,16 @@ import { createRef, useContext, useEffect, useState } from "react";
 import { MdCleaningServices, MdOutlineReport } from "react-icons/md";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { FacebookIcon, FacebookShareButton,LinkedinShareButton,TwitterShareButton, LinkedinIcon, TwitterIcon } from "react-share";
+import { FacebookIcon, FacebookShareButton, LinkedinShareButton, TwitterShareButton, LinkedinIcon, TwitterIcon } from "react-share";
 import Pdf from "react-to-pdf";
 import Modal from "../../components/Modal/Modal";
 import Spinner from "../../components/Spinner/Spinner";
 import { AuthContext } from "../../context/AuthProvider";
 import ProtectRoute from "../../layout/ProtectRoute";
 import { getEvent } from "../../lib/helperSubCategory";
+import "leaflet/dist/leaflet.css";
+import Map from "./index";
+
 
 const ref = createRef();
 const SingleCategory = () => {
@@ -34,6 +37,7 @@ const SingleCategory = () => {
   if (!eventData) {
     return <Spinner></Spinner>;
   }
+
 
   return (
     <ProtectRoute>
@@ -108,11 +112,11 @@ const SingleCategory = () => {
                     className="text-xs  text-gray-400 font-semibold hover:underline"
                   >
                     <FacebookShareButton url={shareUrl}>
-                      
+
                       <FacebookIcon size={28} round={true} />
                     </FacebookShareButton>
                     <LinkedinShareButton className="ml-1" url={shareUrl}>
-                    <LinkedinIcon size={28} round={true}></LinkedinIcon>
+                      <LinkedinIcon size={28} round={true}></LinkedinIcon>
                     </LinkedinShareButton>
                     <TwitterShareButton className="ml-1" url={shareUrl}>
                       <TwitterIcon size={28} round={true}></TwitterIcon>
@@ -147,12 +151,10 @@ const SingleCategory = () => {
         </div>
         <div>
           <div className="my-4 mx-auto mt-24 md:mt-36 lg:mt-36">
-            <div>
-              <img
-                className="mx-auto w-96 rounded-xl"
-                src="https://i.ibb.co/yk0vDG1/Screenshot-2023-01-23-183803.png"
-                alt=""
-              />
+            <div className="text-center">
+
+              <Map></Map>
+
             </div>
             <div className="my-4 text-center">
               <p className="font-bold text-lg">Open hour</p>
