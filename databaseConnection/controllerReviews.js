@@ -1,6 +1,6 @@
 import reviewsCollection from "../model/reviewsSchema";
 
-export const reviews = async (req, res) =>{
+export const getReviews = async (req, res) =>{
     try {
         const review = await reviewsCollection.find({});
         if(!review){

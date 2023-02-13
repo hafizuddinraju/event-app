@@ -1,4 +1,4 @@
-import { reviews } from "../../../databaseConnection/controllerReviews";
+import { getReviews } from "../../../databaseConnection/controllerReviews";
 import connectMongo from "../../../databaseConnection/database";
 
 export default async function (req,res) {
@@ -8,7 +8,7 @@ export default async function (req,res) {
     switch (method) {
         case 'GET':
             // res.status(200).json({method,name:'get'})
-            reviews(req,res)
+            getReviews(req,res)
             break;
         
         default:
