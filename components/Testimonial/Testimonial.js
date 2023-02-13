@@ -44,10 +44,10 @@ const Testimonial = () => {
 
      
     ]
-
+    // bg-[#f1f1f1]
 
     return (
-        <section className='my-20  py-20 bg-[#f1f1f1] '>
+        <section className='my-20  py-20  '>
                <div className='mx-5'>
                <div className='my-10'>
                     <h2 className=" text-4xl md:text-5xl  font-bold text-center">
