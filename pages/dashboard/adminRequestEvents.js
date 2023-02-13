@@ -1,17 +1,47 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AiFillDelete } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import AcceptEventConfirmationModal from '../../components/AcceptEventConfirmationModal/AcceptEventConfirmationModal';
+import ConfirmationModal from '../../components/ConfirmationModal/ConfirmationModal';
 import Spinner from '../../components/Spinner/Spinner';
 import LayoutDashboard from '../../layout/LayoutDashboard';
-import { getCustomEvent } from '../../lib/customEventAddHalper';
+import {  getCustomEvent, updateCustomEventData } from '../../lib/customEventAddHalper';
 
 
 const adminRequestEvents = () => {
   
-    const [data , setData] = useState([])
+    const [data , setData] = useState([]);
+    const [refresh , setRefresh] = useState(false);
+    // modal state
+    const [modalData , setModalData] = useState(null);
     useEffect(()=>{
         getCustomEvent()
-        .then(res => setData(res))
-    },[]) ;
+        .then(res =>setData(res.filter(book=> book.status !== "rejected")))
+    },[refresh]) ;
+    // setData(res.filter(book => book.status === "rejected"))
+    // handle delete user requested data
+    const handleRejectEvent = async(id) =>{
+      const adminData = {
+        status : "rejected"
+      }
+      const res = await updateCustomEventData(id, adminData);
+      if(res){
+        toast.success("User Requested event Reject Successfully",{autoClose:1000});
+        setRefresh(!refresh);
+      }
+    }
+    // user requested event accepted function
+    const handleAcceptEvent = async (id) =>{
+      const adminData = {
+        status : "accepted"
+      };
+      const res = await updateCustomEventData(id , adminData) ;
+      if(res){
+        toast.success("User Requested event Accepted Successfully",{autoClose:1000});
+        setRefresh(!refresh);
+      }
+    }
+
     if(!data)return <Spinner></Spinner>
 
     return (
@@ -94,15 +124,28 @@ const adminRequestEvents = () => {
                         <td className="px-6 py-4">{book?.eventDate}</td>
                         <td className="px-6 py-4">{book?.guest}</td>
                         <td className="px-6 py-4">{book?.eventLocation}</td>
-                        <td className="px-6 py-4">{book?.status == 0 ? <button disabled className='px-3 py-2 bg-sky-400 rounded-xl text-white disabled'>Pending</button> : <button className='px-3 py-2 bg-sky-700 rounded-xl text-white disabled'>Pay</button>}</td>
+                        <td className="px-6 py-4">{book?.status == "0" ? <button onClick={()=>setModalData(book)} >
+                        <label  className='hover-effect-custom-css px-3 py-2 bg-indigo-700 rounded-xl text-white cursor-pointer' htmlFor="accept-event-confirmation-modal" >Pending</label>
+                          </button> : <button className='px-3 py-2 bg-green-700 rounded-xl text-white disabled' disabled ={book?.status == "accepted"} >Accepted</button>}</td>
                         <td className="px-6 py-4">
-                          <AiFillDelete className="text-3xl text-center text-[#a41010]"></AiFillDelete>
+                     
+                        <button onClick={()=>setModalData(book)}>   <label  disabled={book?.status !== "0"}  htmlFor="confirmation-modal" className='btn btn-warning px-3 py-2'>Reject</label></button>
                         </td>
+                      
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
+             {modalData ? <ConfirmationModal message={"Why You Reject this event , Send to user message"} data={modalData} handler={handleRejectEvent} setData={setModalData}></ConfirmationModal> :""}
+                  
+                  {/* accept confirmation modal */}
+                  {
+                    modalData ?
+                    <AcceptEventConfirmationModal
+                    message={"Are You Sure To Accept this event Request"} data={modalData} handler={handleAcceptEvent} setData={setModalData}
+                    ></AcceptEventConfirmationModal> : ""
+                  }
             </div>
           </div>
         </div>
