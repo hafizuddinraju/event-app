@@ -16,9 +16,20 @@ const ConfirmationModal = ({message, data , handler, setData}) => {
 <div className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-xl text-center mb-2">{message || ""}</h3>
+    {
+      !router.pathname.includes("/dashboard/allUser") &&<>
     <p className="text-xl font-semibold">Your Event is {data?.eventName || ""}</p>
     <p className=" text-xl">Your Event Date {data?.eventDate || ""}</p>
     <p className="font-semibold">Your Event Location {data?.eventLocation || ""}</p>
+      </>
+    }
+    {
+      router.pathname.includes("/dashboard/allUser") && <>
+       <p className=" text-xl text-black">User Name :  {data?.name || ""}</p>
+       <p className=" text-xl text-black">User Email  : {data?.email || ""}</p>
+      </>
+    }
+    
     <div>
      { router.pathname.includes( 
 "/dashboard/adminRequestEvents") && <textarea onChange={(e)=>setUserMessage(e.target.value)} className="input input-bordered
