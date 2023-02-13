@@ -8,11 +8,12 @@ import AuthProvider from "../context/AuthProvider";
 import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next"
 import { useEffect } from "react";
+import "../styles/Custom.css"
+
 
 function App({ Component, pageProps }) {
   const queryDataClient = new QueryClient();
   const router = useRouter();
-
 
   const { isFallback, events } = useRouter()
 
@@ -60,9 +61,11 @@ function App({ Component, pageProps }) {
           <Navbar></Navbar>
           <ToastContainer position="top-center" />
 
-          <Component {...pageProps} />
+          <div id="root">
 
-
+            <Component {...pageProps} />
+            
+          </div>
 
           <Footer></Footer>
         </AuthProvider>
