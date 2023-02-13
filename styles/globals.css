@@ -50,6 +50,7 @@
 }
 
 
+
 /* hover effect custom css for admin dashboard requested events */
 .hover-effect-custom-css{
   position: relative;
@@ -100,3 +101,14 @@
   font-weight: bold;
   transition: all linear .5s ease-in-out;
  }
+
+.leaflet-container{
+  width: 300px;
+  height: 500px;
+}
+
+.map{
+  width: 300px;
+  height: 500px;
+}
+
