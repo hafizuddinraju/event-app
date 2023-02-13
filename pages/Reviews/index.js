@@ -4,7 +4,6 @@ import Reviews from '../../components/Reviews/Reviews';
 const reviews = () => {
     return (
         <div>
-            <title>All reviews</title>
             <Reviews></Reviews>
         </div>
     );

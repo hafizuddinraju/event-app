@@ -1,6 +1,6 @@
 import { model, models, Schema } from "mongoose";
 
-const reviewsSchema = new Schema({
+const reviewsSchema = new Schema ({
     user_name:String,
     user_email:String,
     date:String,
@@ -10,7 +10,6 @@ const reviewsSchema = new Schema({
     rating:String
 })
 
-const reviewsCollection = models.reviews || model('reviews',reviewsSchema)
+const reviewsCollection = models.reviews || model('reviews', reviewsSchema)
 
 export default reviewsCollection;
-
