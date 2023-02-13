@@ -80,109 +80,111 @@ const LayoutDashboard = ({ children }) => {
       <div className={styles.main_container}>
         <div className={toggle ? `${styles.navcontainer} ${styles.navclose}` : styles.navcontainer}>
           {
-            dataFilter[0]?.role == 'Admin' ?
-              <nav className={styles.nav}>
-                <div className={styles.nav_upper_options}>
-                  <Link href="/dashboard">
-                    <div className={`${styles.nav_option} ${styles.option1}`}>
-                      <MdDashboard className="text-3xl"></MdDashboard>
 
-                      <h3> Dashboard</h3>
+            dataFilter[0]?.role == 'Admin'?
+            <nav className={styles.nav}>
+            <div className={styles.nav_upper_options}>
+            <Link href="/dashboard">
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+              <MdDashboard className="text-3xl"></MdDashboard>
+                
+                <h3> Dashboard</h3>
+                
+              </div>
+              </Link>
+              <Link href='/dashboard/allUser'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                
+                <img
+                  src="https://i.ibb.co/w6TmPMM/9.png"
+                  className={styles.nav_img}
+                  alt="articles"
+                />
+                <h3 className="text-white hover:text-gray-100"> AllUser</h3>
+                
+              </div>
+              </Link>
+              <Link href='/dashboard/addEvent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                <img
+                  src="https://i.ibb.co/1ZNpvYK/5.png"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-100">Add Event</h3>
+              </div>
+              </Link>
+              <Link href='/dashboard/adminRequestEvents'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                <img
+                  src="https://i.ibb.co/L6gP69g/download.jpg"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-100">Requested Events</h3>
+              </div>
+              </Link>
+              <Link href='/dashboard/rejectedEvent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                <img
+                  src="https://i.ibb.co/Cs2bvXv/6.png"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-100">Requested Rejected Event</h3>
+              </div>
+              </Link>
 
-                    </div>
-                  </Link>
-                  <Link href='/dashboard/allUser'>
-                    <div className={`${styles.nav_option} ${styles.option1}`}>
+              <div className={`${styles.nav_option} ${styles.option5}`}>
+                <img
+                  src="https://i.ibb.co/ZNQzLfC/10.png"
+                  className={styles.nav_img}
+                  alt="blog"
+                />
+                <h3 className="text-white hover:text-gray-800"> Expense</h3>
+              </div>
+              <div className={`${styles.nav_option} ${styles.option5}`}>
+                <img
+                  src="https://i.ibb.co/ZNQzLfC/10.png"
+                  className={styles.nav_img}
+                  alt="blog"
+                />
+                <h3 className="text-white hover:text-gray-800"> Notice</h3>
+              </div>
+              
+             
+              <div className={`${styles.nav_option} ${styles.option6}`}>
+                <img
+                  src="https://i.ibb.co/nC91Ty6/4.png"
+                  className={styles.nav_img}
+                  alt="settings"
+                />
+                <h3 className="text-white hover:text-gray-800"> 
+                <div className="flex items-center gap-5">
+                  <p>Settings</p>
+                  
+                  </div>  </h3>
+               
+              
+              
 
-                      <img
-                        src="https://i.ibb.co/w6TmPMM/9.png"
-                        className={styles.nav_img}
-                        alt="articles"
-                      />
-                      <h3 className="text-white hover:text-gray-100"> AllUser</h3>
+              </div>
+              
+              
+              
 
-                    </div>
-                  </Link>
-                  <Link href='/dashboard/addEvent'>
-                    <div className={`${styles.nav_option} ${styles.option1}`}>
-                      <img
-                        src="https://i.ibb.co/1ZNpvYK/5.png"
-                        className={styles.nav_img}
-                        alt="report"
-                      />
-                      <h3 className="text-white hover:text-gray-100">Add Event</h3>
-                    </div>
-                  </Link>
-                  <Link href='/dashboard/adminRequestEvents'>
-                    <div className={`${styles.nav_option} ${styles.option1}`}>
-                      <img
-                        src="https://i.ibb.co/L6gP69g/download.jpg"
-                        className={styles.nav_img}
-                        alt="report"
-                      />
-                      <h3 className="text-white hover:text-gray-100">Requested Events</h3>
-                    </div>
-                  </Link>
-
-                  <div className={`${styles.nav_option} ${styles.option4}`}>
-                    <img
-                      src="https://i.ibb.co/Cs2bvXv/6.png"
-                      className={styles.nav_img}
-                      alt="institution"
-                    />
-                    <h3 className="text-white hover:text-gray-800">Leaves</h3>
-                  </div>
-
-                  <div className={`${styles.nav_option} ${styles.option5}`}>
-                    <img
-                      src="https://i.ibb.co/ZNQzLfC/10.png"
-                      className={styles.nav_img}
-                      alt="blog"
-                    />
-                    <h3 className="text-white hover:text-gray-800"> Expense</h3>
-                  </div>
-                  <div className={`${styles.nav_option} ${styles.option5}`}>
-                    <img
-                      src="https://i.ibb.co/ZNQzLfC/10.png"
-                      className={styles.nav_img}
-                      alt="blog"
-                    />
-                    <h3 className="text-white hover:text-gray-800"> Notice</h3>
-                  </div>
-
-
-                  <div className={`${styles.nav_option} ${styles.option6}`}>
-                    <img
-                      src="https://i.ibb.co/nC91Ty6/4.png"
-                      className={styles.nav_img}
-                      alt="settings"
-                    />
-                    <h3 className="text-white hover:text-gray-800">
-                      <div className="flex items-center gap-5">
-                        <p>Settings</p>
-
-                      </div>  </h3>
-
-
-
-
-                  </div>
-
-
-
-
-                  <div className={`${styles.nav_option} ${styles.logout}`}>
-                    <img
-                      src="https://i.ibb.co/NK4pb43/7.png"
-                      className={styles.nav_img}
-                      alt="logout"
-                    />
-                    <h3 className="text-white hover:text-gray-800">Logout</h3>
-                  </div>
-                </div>
-              </nav>
-              :
-              ''
+              <div className={`${styles.nav_option} ${styles.logout}`}>
+                <img
+                  src="https://i.ibb.co/NK4pb43/7.png"
+                  className={styles.nav_img}
+                  alt="logout"
+                />
+                <h3 className="text-white hover:text-gray-800">Logout</h3>
+              </div>
+            </div>
+          </nav>
+          :
+          ''
 
           }
 

@@ -46,7 +46,8 @@ const AdvertisePopUp = () => {
             },1000
            )
         })
-    },[])
+    },[]);
+  
     const handleMovePopUp = () =>{
         setOpenModal(!openModal)
     }
