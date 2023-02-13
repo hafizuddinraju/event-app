@@ -10,6 +10,7 @@ import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import Link from 'next/link';
 const Testimonial = () => {
     const SwipperItem = [
       
