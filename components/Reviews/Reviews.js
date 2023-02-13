@@ -24,7 +24,7 @@ const Reviews = () => {
       <div className='my-28 mx-5'>
             <div className="flex justify-center mb-5">
                 <div className='text-center'>
-                    <p className='text-md sm:text-xl font-bold text-center text-cyan-900 pt-10'>Provide your valuable review</p>
+                    <p className='text-md sm:text-xl font-bold text-center text-cyan-900 pt-10'>Provide your valuable reviews</p>
                 </div>
             </div>
             <div className="mb-20">
