@@ -3,6 +3,7 @@
 @tailwind utilities;
  
 
+/* home page speaker section css for hover effect */
 .speaker-parent:hover .speaker-hover-icon{
   width: 80px;
   transition: all linear .7s;
@@ -48,3 +49,54 @@
   padding-top: 0;
 }
 
+
+/* hover effect custom css for admin dashboard requested events */
+.hover-effect-custom-css{
+  position: relative;
+  transition: all linear .5s ease-in-out;
+}
+.hover-effect-custom-css:hover::after{
+  content: "click to accept";
+  position: absolute;
+  top: -20px;
+  z-index: 222;
+  width: 200px;
+  color: red;
+  left:-60px;
+  font-weight: bold;
+  transition: all linear .5s ease-in-out;
+}
+
+/* admin dashboard all user router hover animation */
+.custom-css-title {
+  position: relative;
+  transition: all linear .5s ease-in-out;
+}
+.custom-css-title:hover::after {
+  content: "click to make admin";
+  position: absolute;
+  top: -20px;
+  z-index: 222;
+  width: 200px;
+  color: red;
+  left:-70px;
+  font-weight: bold;
+  transition: all linear .5s ease-in-out;
+}
+
+ /* admin dashboard all user router hover animation */ 
+ .custom-css-delete-user{
+  position: relative;
+  transition: all linear .5s ease-in-out;
+ }
+ .custom-css-delete-user:hover::after{
+  content: "Delete User";
+  position: absolute;
+  top: -0px;
+  z-index: 222;
+  width: 200px;
+  color: red;
+  left:-0px;
+  font-weight: bold;
+  transition: all linear .5s ease-in-out;
+ }

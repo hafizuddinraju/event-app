@@ -45,8 +45,9 @@ export const addCustomEvent = async(req ,res) =>{
 export const updateCustomEventData = async(req, res) =>{
   try {
     const {customId} = req.query ;
-    if(customId){
-      const eventStatus = await customEventModel.findByIdAndUpdate(customId, {status : "one"});
+    const formData = req.body ;
+    if(customId && formData){
+      const eventStatus = await customEventModel.findByIdAndUpdate(customId, formData);
       res.status(200).json(eventStatus);
     }
     res.status(404).json({error: "Data not updated"});

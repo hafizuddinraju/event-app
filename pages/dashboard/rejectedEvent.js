@@ -13,7 +13,7 @@ const rejectedEvent = () => {
     
     useEffect(()=>{
         getCustomEvent()
-        .then(res =>setData(res.filter(book=> book.status == "one")))
+        .then(res =>setData(res.filter(book=> book.status == "rejected")))
     },[]) ;
   
 
