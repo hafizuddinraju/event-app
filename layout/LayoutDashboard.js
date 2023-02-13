@@ -121,15 +121,16 @@ const LayoutDashboard = ({children}) => {
                 <h3 className="text-white hover:text-gray-100">Requested Events</h3>
               </div>
               </Link>
-
-              <div className={`${styles.nav_option} ${styles.option4}`}>
+              <Link href='/dashboard/rejectedEvent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
                 <img
                   src="https://i.ibb.co/Cs2bvXv/6.png"
                   className={styles.nav_img}
-                  alt="institution"
+                  alt="report"
                 />
-                <h3 className="text-white hover:text-gray-800">Leaves</h3>
+                <h3 className="text-white hover:text-gray-100">Requested Rejected Event</h3>
               </div>
+              </Link>
 
               <div className={`${styles.nav_option} ${styles.option5}`}>
                 <img

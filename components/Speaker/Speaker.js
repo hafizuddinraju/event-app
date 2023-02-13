@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Speaker = () => {
     const speakerInfo = [
@@ -22,7 +23,7 @@ const Speaker = () => {
         },
     ]
     return (
-        <section className='py-10'>
+        <section className='py-10 '>
             <div className='max-w-screen-xl mx-auto '>
             <h1 className='text-4xl md:text-5xl text-center my-10'><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
             {/* speaker container */}
@@ -44,7 +45,18 @@ function SpeakerCard ({data}){
     return (
        <>
          {/* card */}
-         <div className='border-2  rounded-md shadow-md  hover:top-2'>
+         <div className='relative z-20 speaker-parent border-2 rounded-md shadow-md '>
+            <div className='speaker-hover-icon flex flex-col justify-evenly items-center'>
+               <FaFacebook className='cursor-pointer text-blue-400' size={30} />
+               <FaTwitter className='cursor-pointer text-white' size={30} />
+               <FaLinkedin  className='cursor-pointer text-white' size={30}></FaLinkedin>
+               <FaInstagram  className='cursor-pointer text-red-600' size={30}> </FaInstagram>
+               <FaTwitch  className='cursor-pointer text-white' size={30}></FaTwitch>
+               <FaYoutube  className='cursor-pointer text-red-600' size={30}></FaYoutube>
+            </div>
+            <div className='second-speaker-child flex justify-center items-center overflow-hidden text-2xl text-white'>
+                
+            </div>
         <figure>
         <img className='w-full h-64 object-fill' src={image} alt="image" />
         </figure>

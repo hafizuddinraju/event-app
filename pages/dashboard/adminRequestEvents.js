@@ -1,17 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AiFillDelete } from 'react-icons/ai';
+import { toast } from 'react-toastify';
+import ConfirmationModal from '../../components/ConfirmationModal/ConfirmationModal';
 import Spinner from '../../components/Spinner/Spinner';
 import LayoutDashboard from '../../layout/LayoutDashboard';
-import { getCustomEvent } from '../../lib/customEventAddHalper';
+import {  getCustomEvent, updateCustomEventData } from '../../lib/customEventAddHalper';
 
 
 const adminRequestEvents = () => {
   
-    const [data , setData] = useState([])
+    const [data , setData] = useState([]);
+    const [refresh , setRefresh] = useState(false);
+    // modal state
+    const [modalData , setModalData] = useState(null);
     useEffect(()=>{
         getCustomEvent()
-        .then(res => setData(res))
-    },[]) ;
+        .then(res =>setData(res.filter(book=> book.status !== "one")))
+    },[refresh]) ;
+    // setData(res.filter(book => book.status === "rejected"))
+    // handle delete user requested data
+    const handleRejectEvent = async(id) =>{
+      const res = await updateCustomEventData(id);
+      if(res){
+        toast.success("User Requested event Reject Successfully",{autoClose:1000});
+        setRefresh(!refresh);
+      }
+    }
+
     if(!data)return <Spinner></Spinner>
 
     return (
@@ -94,15 +109,19 @@ const adminRequestEvents = () => {
                         <td className="px-6 py-4">{book?.eventDate}</td>
                         <td className="px-6 py-4">{book?.guest}</td>
                         <td className="px-6 py-4">{book?.eventLocation}</td>
-                        <td className="px-6 py-4">{book?.status == 0 ? <button disabled className='px-3 py-2 bg-sky-400 rounded-xl text-white disabled'>Pending</button> : <button className='px-3 py-2 bg-sky-700 rounded-xl text-white disabled'>Pay</button>}</td>
+                        <td className="px-6 py-4">{book?.status == "0" ? <button disabled ={book?.status !== "0"} className='px-3 py-2 bg-indigo-700 rounded-xl text-white disabled'>Pending</button> : <button className='px-3 py-2 bg-green-700 rounded-xl text-white disabled' disabled ={book?.status !== "0"} >Accepted</button>}</td>
                         <td className="px-6 py-4">
-                          <AiFillDelete className="text-3xl text-center text-[#a41010]"></AiFillDelete>
+                     
+                        <button onClick={()=>setModalData(book)}>   <label  disabled={book?.status !== "0"}  htmlFor="confirmation-modal" className='btn btn-warning px-3 py-2'>Reject</label></button>
                         </td>
+                      
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
+             {modalData ? <ConfirmationModal message={"Why You Reject this event , Send to user message"} data={modalData} handler={handleRejectEvent} setData={setModalData}></ConfirmationModal> :""}
+       
             </div>
           </div>
         </div>
