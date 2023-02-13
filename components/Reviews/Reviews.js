@@ -21,10 +21,10 @@ const Reviews = () => {
   }
   return (
     <>
-      <div className='my-36 mx-5'>
+      <div className='my-28 mx-5'>
             <div className="flex justify-center mb-5">
                 <div className='text-center'>
-                    <p className='text-md sm:text-xl font-bold text-center text-cyan-900'>Provide your valuable review</p>
+                    <p className='text-md sm:text-xl font-bold text-center text-cyan-900 pt-10'>Provide your valuable review</p>
                 </div>
             </div>
             <div className="mb-20">
@@ -40,7 +40,7 @@ const Reviews = () => {
                         {
                             allReviews.map(rvw=> 
                                 <div key={rvw._id}>
-                                    <div className='mb-10 bg-orange-100 py-4 mx-6 border rounded-lg'>
+                                    <div className='mb-10 bg-orange-50 py-4 mx-6 border rounded-lg'>
                                         <div className='py-3 px-2 text-lg font-bold text-cyan-900'>
                                             <p>User name: <span className='text-md font-semibold text-dark-900'>{rvw.user_name}</span></p>
                                             <p>Email: <span className='text-md font-semibold text-dark-900'>{rvw.user_email}</span></p>
