@@ -4,11 +4,15 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import { getCategory } from '../../lib/helperCategory';
+import { addReview } from '../../lib/helperReviews';
+import Spinner from '../Spinner/Spinner';
 
 const ReviewForm = () => {
     const {user} = useContext(AuthContext);
     const router = useRouter();
-    const [selectedOption, setSelectedOption] = useState("");
+    const [selectedTypes, setSelectedTypes] = useState("");
+    const [selectedCategories, setSelectedCategories] = useState("");
+    const [selectedRatings, setSelectedRatings] = useState("");
 
     const types = [
         "Types of event", 
@@ -57,40 +61,50 @@ const ReviewForm = () => {
       })
     //   console.log(AllCategories)
 
-    const postTime = new Date().toLocaleTimeString()
-    const postDay = new Date().toDateString()
-    const postDate = new Date()
-    const date ={
-        postTime,
-        postDay,
-        postDate
-    }
+    const date = new Date().toDateString();
 
-    const handleSelectChange = (e) => {
-        setSelectedOption(e.target.value);
+    const handleSelectTypesChange = (e) => {
+        setSelectedTypes(e.target.value);
     };
 
-  const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
-    date: '',
-    category: '',
-    title: '',
-    reviewDesc: '',
-    rating: '',
-  });
+    const handleSelectCategoriesChange = (e) => {
+        setSelectedCategories(e.target.value);
+    };
 
-  const handleInputChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
+    const handleSelectRatingsChange = (e) => {
+        setSelectedRatings(e.target.value);
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // code to submit form data to the server goes here
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        const form = e.target;
+        const reviewDesc = form.reviewDesc.value;
+        const category = form.category.value;
+        const title = form.title.value;
+        const rating = form.rating.value;
+
+        const review = {
+            user_name: user?.displayName,
+            user_email: user?.email,
+            date: date,
+            category: category,
+            title: title,
+            reviewDesc: reviewDesc,
+            rating: rating
+        };
+
+        addReview(review).then(res => {
+                console.log(res)
+                router.push('/Reviews');
+            }).catch(error=>{
+            console.log(error)})
+        form.reset('');
+    };
+
+    if(isLoading){
+        return <Spinner></Spinner>
+    }
 
   return (
     <div className='flex justify-center mt-5'>
@@ -107,7 +121,7 @@ const ReviewForm = () => {
                     <input
                     type="text"
                     readOnly
-                    defaultValue={user?.name}
+                    defaultValue={user?.displayName}
                     className="input text-gray-800 w-full sm:w-[280px] input-bordered"
                     />
                 </div>
@@ -128,17 +142,6 @@ const ReviewForm = () => {
                 </div>
             </div>
 
-            {/* <div>
-                <label htmlFor="date">Date:</label>
-                <input
-                type="date"
-                id="date"
-                name="date"
-                value={formData.date}
-                onChange={handleInputChange}
-                />
-            </div> */}
-
             <div className='block sm:flex'>
                 <div className='mr-0 sm:mr-10 mb-2'>
                     <label
@@ -148,8 +151,8 @@ const ReviewForm = () => {
                     <br />
                     <select
                         name="category" 
-                        value={selectedOption}
-                        onChange={handleSelectChange}
+                        value={selectedCategories}
+                        onChange={handleSelectCategoriesChange}
                         className="input text-gray-800 w-full sm:w-[280px] input-bordered "
                     >
                         <option>Select One</option>
@@ -172,8 +175,8 @@ const ReviewForm = () => {
                     <br />
                     <select 
                         name="title" 
-                        value={selectedOption}
-                        onChange={handleSelectChange}
+                        value={selectedTypes}
+                        onChange={handleSelectTypesChange}
                         className="input w-full sm:w-[280px] text-gray-800 input-bordered" 
                         >
                         {types.map((type, index) => (
@@ -208,8 +211,8 @@ const ReviewForm = () => {
                 <br />
                 <select 
                     name="rating" 
-                    value={selectedOption}
-                    onChange={handleSelectChange}
+                    value={selectedRatings}
+                    onChange={handleSelectRatingsChange}
                     className="input w-full sm:w-[600px] text-gray-800 input-bordered" 
                     >
                     {ratings.map((rating, index) => (
