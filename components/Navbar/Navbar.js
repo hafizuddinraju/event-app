@@ -168,8 +168,8 @@ const Navbar = () => {
 
             <h1 className='font-bold text-4xl flex items-center'>
 
-              <img className='w-11 mt-3' src="https://i.ibb.co/khpBckc/f67.png" alt="" />
-             <i className='flex'><span className='text-sky-500 ml-4 hidden md:block lg:block'>Event</span><span className='hidden md:block lg:block' style={{ color: `${textColor}` }} >Mart</span></i>
+              <img className='w-11 mt-1' src="https://i.ibb.co/khpBckc/f67.png" alt="" />
+             <span className='text-sky-500 uppercase ml-4 hidden md:block lg:block'>Event</span><span className='hidden uppercase md:block lg:block' style={{ color: `${textColor}` }} >Mart</span>
             </h1>
           </Link>
           <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
