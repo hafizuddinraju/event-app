@@ -47,7 +47,7 @@ const LayoutDashboard = ({ children }) => {
           />
         </div>
 
-        <div className={styles.searchbar}>
+        {/* <div className={styles.searchbar}>
           <input type="text" placeholder="Search" />
           <div className={styles.searchbtn}>
             <img
@@ -56,15 +56,15 @@ const LayoutDashboard = ({ children }) => {
               alt="search-icon"
             />
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.message}>
           <div className={styles.circle}></div>
-          <img
+          {/* <img
             src="https://i.ibb.co/qs4QtHf/8.png"
             className={styles.icn}
             alt=""
-          />
+          /> */}
           <div className={styles.dp}>
             <Link href="/dashboard/profile">
               <img
