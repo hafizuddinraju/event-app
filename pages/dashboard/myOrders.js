@@ -7,6 +7,8 @@ import LayoutDashboard from "../../layout/LayoutDashboard";
 import { deleteBooking, getSingleBooking } from "../../lib/helperBooking";
 import { loadStripe } from '@stripe/stripe-js';
 import {useRouter } from 'next/router'
+import ReviewModal from "../../components/ReviewModal/ReviewModal";
+import Spinner from "../../components/Spinner/Spinner";
 
 loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -14,8 +16,11 @@ loadStripe(
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
+  const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [reviewModal, setReviewModal] = useState({});
+
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -38,7 +43,6 @@ const myOrders = () => {
 
   };
 
-  const router= useRouter()
   const {success, canceled} = router.query;
 useEffect(() => {
   // Check to see if this is a redirect back from Checkout
@@ -108,6 +112,9 @@ useEffect(() => {
                       Payment
                     </th>
                     <th scope="col" className="px-6 py-3">
+                      Review
+                    </th>
+                    <th scope="col" className="px-6 py-3">
                       Action
                     </th>
                   </tr>
@@ -153,13 +160,23 @@ useEffect(() => {
           payment
         </button>
       </section></form></td>
-                      
+
+                        <td>
+                          <label 
+                          htmlFor={user ? "review-modal" : router.push("/login")} 
+                          className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none normal-case"
+                          onClick={()=> setReviewModal(orderData)}
+                          >
+                            Add Review
+                          </label>
+                        </td>
                         <td className="px-6 py-4">
                           <AiFillDelete onClick={()=>handleDelete(book._id)} className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
                         </td>
                       </tr>
                     );
                   })}
+                  {reviewModal && orderData?.map((product)=><ReviewModal key={product._id} product={product}></ReviewModal>) }
                 </tbody>
               </table>
             </div>
