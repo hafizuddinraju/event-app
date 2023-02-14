@@ -5,12 +5,9 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import { deleteBooking, getSingleBooking } from "../../lib/helperBooking";
-import { loadStripe } from '@stripe/stripe-js';
-import {useRouter } from 'next/router'
-
-loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+import { loadStripe } from "@stripe/stripe-js";
+import { useRouter } from "next/router";
+loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
@@ -21,39 +18,51 @@ const myOrders = () => {
       .then((res) => {
         console.log(res);
         setOderData(res);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-      })
-  }, [user?.email,loading])
-  
-  const handleDelete = async(id)=>{
-    console.log(id);
-    const res =await deleteBooking(id)
-    if(res){
-      setLoading(!loading)
-      toast.success("Delete Successful", {autoClose:500})
-    };
+      });
+  }, [user?.email, loading]);
 
+  const handleDelete = async (id) => {
+    console.log(id);
+    const res = await deleteBooking(id);
+    if (res) {
+      setLoading(!loading);
+      toast.success("Delete Successful", { autoClose: 500 });
+    }
   };
 
-  const router= useRouter()
-  const {success, canceled} = router.query;
-useEffect(() => {
-  // Check to see if this is a redirect back from Checkout
-  // const query = new URLSearchParams(window.location.search);
+    const router= useRouter()
+    const {success, canceled} = router.query;
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    // const query = new URLSearchParams(window.location.search);
 
-  if(success !== undefined || canceled !== undefined) {
-  if (success) {
-    console.log('Order placed! You will receive an email confirmation.');
-  }
+    if(success !== undefined || canceled !== undefined) {
+    if (success) {
+      console.log('Order placed! You will receive an email confirmation.');
+    }
 
-  if (canceled) {
-    console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+    if (canceled) {
+      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+    }
   }
-}
-}, [success, canceled]);
+  }, [success, canceled]);
+
+  // const redirectToCheckout = async () => {
+  //   const {
+  //     data: { id },
+  //   } = await axios.post("/api/checkout_sessions", {
+  //     items: Object.entries(events).map(([_, { id,quantity }]) => ({
+  //       price:id,
+  //       quantity
+  //     })),
+  //   });
+  //   const stripe = await getStripe();
+  //   await stripe.redirectToCheckout({ sessionId: id });
+  // };
 
   return (
     <LayoutDashboard>
@@ -147,15 +156,21 @@ useEffect(() => {
                         <td className="px-6 py-4">{book?.phone}</td>
                         <td className="px-6 py-4">{book?.price}</td>
                         <td className="px-6 py-4">
-                          <form action="/api/checkout_sessions" method="POST">
-      <section>
-        <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" type="submit" role="link">
-          payment
-        </button>
-      </section></form></td>
-                      
+                          <button
+                            onClick={redirectToCheckout}
+                            className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none"
+                            type="submit"
+                            role="link"
+                          >
+                            payment
+                          </button>
+                        </td>
+
                         <td className="px-6 py-4">
-                          <AiFillDelete onClick={()=>handleDelete(book._id)} className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
+                          <AiFillDelete
+                            onClick={() => handleDelete(book._id)}
+                            className="text-3xl text-center text-[#ea0606]"
+                          ></AiFillDelete>
                         </td>
                       </tr>
                     );
