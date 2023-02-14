@@ -70,7 +70,7 @@ const Testimonial = () => {
         {
             allReviews.map((rvw) => <SwiperSlide key={rvw._id} className='bg-white rounded-lg  text-black p-10 w-96'>
                 <div>
-                    <div className='font-bold text-lg mb-3 flex'>
+                    <div className='font-bold text-lg mb-3 flex text-cyan-900'>
                         <div>
                             Rating: <span className='mx-3'>
                                 {rvw.rating}</span>
@@ -82,7 +82,14 @@ const Testimonial = () => {
                     <p className='mb-5 text-xl h-24 text-justify'>{rvw.reviewDesc.slice(0, 100) + "..."}</p>
                     <div className='flex justify-end gap-5'>
                         <img className='w-20 rounded-full ' src={rvw.user_img} alt="" />
-                        <h3 className='ml-2 text-xl'>{rvw.user_name}</h3>
+                        <div className='ml-2'>
+                            <h3 className='text-xl font-medium'>
+                                {rvw.user_name}
+                            </h3>
+                            <p className='text-xs text-slate-500'>
+                                {rvw.date}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </SwiperSlide>)
