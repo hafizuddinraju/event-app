@@ -10,6 +10,7 @@ import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import Link from 'next/link';
 const Testimonial = () => {
     const SwipperItem = [
       
@@ -44,10 +45,10 @@ const Testimonial = () => {
 
      
     ]
-
+    // bg-[#f1f1f1]
 
     return (
-        <section className='my-20  py-20 bg-[#f1f1f1] '>
+        <section className='my-20  py-20  '>
                <div className='mx-5'>
                <div className='my-10'>
                     <h2 className=" text-4xl md:text-5xl  font-bold text-center">
@@ -88,6 +89,9 @@ const Testimonial = () => {
        
       </Swiper>
                </div>
+               <div className='flex justify-center mb-20 mt-10' >
+                <Link data-tip='click to see all reviews' href='/Reviews' className='btn tooltip text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>All Reviews</Link>
+            </div>
         </section>
     );
 };

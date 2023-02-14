@@ -1,4 +1,4 @@
-import { addCustomEvent, getCustomEvent } from "../../../databaseConnection/customEvenetController";
+import { addCustomEvent, getCustomEvent, updateCustomEventData } from "../../../databaseConnection/customEvenetController";
 import connectMongo from "../../../databaseConnection/database";
 
 export default async function handler (req , res ){
@@ -16,7 +16,8 @@ export default async function handler (req , res ){
             // res.status(200).json({method , name: "Post Method"})
           break ;
         case "PUT":
-            res.status(200).json({method, name : "PUT method"});
+            updateCustomEventData(req , res);
+            // res.status(200).json({method, name : "PUT method this is"});
             break ;
         case "DELETE":
             res.status(200).json({method , name : "DELETE method"})

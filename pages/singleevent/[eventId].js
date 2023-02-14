@@ -11,7 +11,7 @@ import { AuthContext } from "../../context/AuthProvider";
 import ProtectRoute from "../../layout/ProtectRoute";
 import { getEvent } from "../../lib/helperSubCategory";
 import "leaflet/dist/leaflet.css";
-import Map from "./index";
+import dynamic from "next/dynamic";
 
 
 const ref = createRef();
@@ -38,6 +38,11 @@ const SingleCategory = () => {
   if (!eventData) {
     return <Spinner></Spinner>;
   }
+
+  
+  const MapWithNoSSR = dynamic(() => import("../../components/Map/Map"), {
+    ssr: false,
+  });
 
 
   return (
@@ -154,7 +159,14 @@ const SingleCategory = () => {
           <div className="my-4 mx-auto mt-24 md:mt-36 lg:mt-36">
             <div className="text-center">
 
-              <Map></Map>
+              {/* <Map></Map> */}
+
+              <MapWithNoSSR
+            // coords={lngLatCoords}
+            // lastPosition={lastPosition}
+            // markers={latLngMarkerPositions}
+            // latestTimestamp={latestTimestamp}
+          />
 
             </div>
             <div className="my-4 text-center">

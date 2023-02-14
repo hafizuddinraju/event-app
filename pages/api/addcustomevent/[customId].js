@@ -1,4 +1,4 @@
-import { deleteEventRequest, getRequestEvent } from "../../../databaseConnection/customEvenetController";
+import { deleteEventRequest, getRequestEvent, updateCustomEventData } from "../../../databaseConnection/customEvenetController";
 import connectMongo from "../../../databaseConnection/database";
 
 
@@ -16,6 +16,9 @@ export default async function handler(req, res) {
         case 'DELETE':
             deleteEventRequest(req, res)
             break;
+        case "PUT":
+            updateCustomEventData(req, res);
+            // res.status(200).json({method , name : "PUT Request this is"})
         default : 
             res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
             res.status(405).end(`Method ${method} Not Allowd`)

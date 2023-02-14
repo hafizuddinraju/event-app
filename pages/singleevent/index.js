@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const Map = dynamic(()=> import("./Map.js"),{
+const Map = dynamic(()=> import("./[eventId].js"),{
     ssr: false
 });
 
