@@ -145,7 +145,7 @@ const myOrders = () => {
                      </Link> 
                       }
                    
-
+                    {/* show this button when payment successful */}
                        {
                         book?.availability === "paid" && <button className="btn btn-sm bg-[#063df0e8] hover:bg-sky-500 border-none" >
                         Paid
