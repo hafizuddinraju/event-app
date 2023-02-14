@@ -9,6 +9,7 @@ import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next"
 import { useEffect } from "react";
 import "../styles/Custom.css"
+import Script from "next/script";
 
 
 function App({ Component, pageProps }) {
@@ -63,8 +64,24 @@ function App({ Component, pageProps }) {
 
           <div id="root">
 
+            <Script
+              strategy="lazyOnload"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+
+            <Script id="google-analytics-script" strategy="lazyOnload">
+              {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+          page_path: window.location.pathname,
+          });
+    `}
+            </Script>
+
             <Component {...pageProps} />
-            
+
           </div>
 
           <Footer></Footer>
