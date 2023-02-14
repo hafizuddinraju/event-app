@@ -3,9 +3,10 @@ import { model, models, Schema } from "mongoose";
 const reviewsSchema = new Schema ({
     user_name:String,
     user_email:String,
+    user_img:String,
     date:String,
-    category:String,
-    title:String,
+    product_id:String,
+    product_img:String,
     reviewDesc:String,
     rating:String
 })
