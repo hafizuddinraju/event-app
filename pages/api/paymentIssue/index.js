@@ -1,5 +1,6 @@
-import { getBookings, getSingleBookingForDetails, postBooking } from "../../../databaseConnection/controllerBooking";
+
 import connectMongo from "../../../databaseConnection/database";
+import { postPaymentIssue } from "../../../databaseConnection/paymentIssueSchemaController";
 
 export default async function handler(req, res) {
     connectMongo().catch(() => res.status(405).json({ error: "Error in the Connection"}))
@@ -9,14 +10,13 @@ export default async function handler(req, res) {
 
     switch(method){
         case 'GET' :
-            //res.status(200).json({method,name:'Get'})
-            getBookings(req, res)
+            res.status(200).json({method,name:'Get'})
             break;
             case "GET":
-            getSingleBookingForDetails(req, res)
+
             break ;
         case 'POST':
-            postBooking(req, res)
+            postPaymentIssue(req , res);
             break;
         
         // case 'DELETE':

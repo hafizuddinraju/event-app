@@ -40,21 +40,39 @@ export const postBooking= async(req, res)=> {
   }
 }
 
-// put : http://localhost:3000/api/users/1
-// export const putRoom = async(req, res)=> {
-//   try {
-//     const { roomId } = req.query;
-//     const formData = req.body;
+// GET Single Booking : http://localhost:3000/api/users/userId
+export const getSingleBookingForDetails = async(req , res)=>{
+  try {
+      const {bookingId} = req.query ;
+      if(bookingId){
+          const singleUser = await bookingsData.findById(bookingId)
+          return res.status(200).json(singleUser)
+      }
+      res.status(404).json({error:"single user not find"})
+  } catch (error) {
+      res.status(404).json({error:"Error while fetching by id"})
+  }
+}
 
-//     if (roomId && formData) {
-//       const room = await Rooms.findByIdAndUpdate(roomId, formData);
-//       res.status(200).json(room);
-//     }
-//     res.status(404).json({ error: "Room Not Selected...!" });
-//   } catch (error) {
-//     res.status(404).json({ error: "Error While Updating the Data...!" });
-//   }
-// }
+// put : http://localhost:3000/api/users/1
+export const updateBooking = async(req, res)=> {
+  try {
+    const { paymentId } = req.query;
+    const formData = req.body;
+    let filter = {product_id : paymentId}
+    await bookingsData.countDocuments(filter)
+    let doc = await bookingsData.findOneAndUpdate(filter, formData, {
+        new:true,
+        upsert:true
+    })
+   if(doc){
+    res.status(200).json(doc);
+   }
+   
+  } catch (error) {
+    res.status(404).json({ error: "Error While Updating the Data...!" });
+  }
+}
 
 // delete : http://localhost:3000/api/users/1
 export async function deleteBooking(req, res) {

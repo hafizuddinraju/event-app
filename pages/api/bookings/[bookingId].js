@@ -1,4 +1,4 @@
-import { deleteBooking, getBook } from "../../../databaseConnection/controllerBooking";
+import { deleteBooking, getBook, getSingleBookingForDetails } from "../../../databaseConnection/controllerBooking";
 import connectMongo from "../../../databaseConnection/database";
 
 export default async function handler(req, res) {
@@ -12,6 +12,9 @@ export default async function handler(req, res) {
             //res.status(200).json({method,name:'Get'})
             getBook(req, res)
             break;
+        case "GET":
+            getSingleBookingForDetails(req, res)
+            break ;
         case 'DELETE':
             deleteBooking(req, res)
             break;

@@ -2,20 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { IoSettingsSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
-import { AuthContext } from "../../context/AuthProvider";
-import LayoutDashboard from "../../layout/LayoutDashboard";
-import { deleteBooking, getSingleBooking } from "../../lib/helperBooking";
-import { loadStripe } from '@stripe/stripe-js';
+import { AuthContext } from "../../../context/AuthProvider";
+import LayoutDashboard from "../../../layout/LayoutDashboard";
+import { deleteBooking, getSingleBooking } from "../../../lib/helperBooking";
 import {useRouter } from 'next/router'
-
-loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
+import ReviewModal from "../../../components/ReviewModal/ReviewModal";
+import Spinner from "../../../components/Spinner/Spinner";
+import Link from "next/link";
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
+  const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [reviewModal, setReviewModal] = useState({});
+
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -37,23 +38,8 @@ const myOrders = () => {
     };
 
   };
+  if(loading)return <Spinner></Spinner>
 
-  const router= useRouter()
-  const {success, canceled} = router.query;
-useEffect(() => {
-  // Check to see if this is a redirect back from Checkout
-  // const query = new URLSearchParams(window.location.search);
-
-  if(success !== undefined || canceled !== undefined) {
-  if (success) {
-    console.log('Order placed! You will receive an email confirmation.');
-  }
-
-  if (canceled) {
-    console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
-  }
-}
-}, [success, canceled]);
 
   return (
     <LayoutDashboard>
@@ -108,6 +94,9 @@ useEffect(() => {
                       Payment
                     </th>
                     <th scope="col" className="px-6 py-3">
+                      Review
+                    </th>
+                    <th scope="col" className="px-6 py-3">
                       Action
                     </th>
                   </tr>
@@ -147,19 +136,39 @@ useEffect(() => {
                         <td className="px-6 py-4">{book?.phone}</td>
                         <td className="px-6 py-4">{book?.price}</td>
                         <td className="px-6 py-4">
-                          <form action="/api/checkout_sessions" method="POST">
-      <section>
-        <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" type="submit" role="link">
-          payment
-        </button>
-      </section></form></td>
-                      
+                      {
+                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?.product_id}`} >
+     
+                         <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" >
+                           payment
+                         </button>
+                     </Link> 
+                      }
+                   
+                    {/* show this button when payment successful */}
+                       {
+                        book?.availability === "paid" && <button className="btn btn-sm bg-[#063df0e8] hover:bg-sky-500 border-none" >
+                        Paid
+                      </button>
+                       }
+      </td>
+
+                        <td>
+                          <label 
+                          htmlFor={user ? "review-modal" : router.push("/login")} 
+                          className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none normal-case"
+                          onClick={()=> setReviewModal(orderData)}
+                          >
+                            Add Review
+                          </label>
+                        </td>
                         <td className="px-6 py-4">
                           <AiFillDelete onClick={()=>handleDelete(book._id)} className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
                         </td>
                       </tr>
                     );
                   })}
+                  {reviewModal && orderData?.map((product)=><ReviewModal key={product._id} product={product}></ReviewModal>) }
                 </tbody>
               </table>
             </div>

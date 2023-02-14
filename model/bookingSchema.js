@@ -8,7 +8,7 @@ const bookingsCateSchema = new Schema({
     availability: String,
     email: String,
     product_id: String,
-})
+});
 
 const bookingsData = models.bookings || model("bookings", bookingsCateSchema);
 
