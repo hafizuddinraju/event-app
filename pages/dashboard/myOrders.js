@@ -35,21 +35,21 @@ const myOrders = () => {
   };
 
     const router= useRouter()
-    const {success, canceled} = router.query;
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    // const query = new URLSearchParams(window.location.search);
+  //   const {success, canceled} = router.query;
+  // useEffect(() => {
+  //   // Check to see if this is a redirect back from Checkout
+  //   // const query = new URLSearchParams(window.location.search);
 
-    if(success !== undefined || canceled !== undefined) {
-    if (success) {
-      console.log('Order placed! You will receive an email confirmation.');
-    }
+  //   if(success !== undefined || canceled !== undefined) {
+  //   if (success) {
+  //     console.log('Order placed! You will receive an email confirmation.');
+  //   }
 
-    if (canceled) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
-    }
-  }
-  }, [success, canceled]);
+  //   if (canceled) {
+  //     console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+  //   }
+  // }
+  // }, [success, canceled]);
 
   // const redirectToCheckout = async () => {
   //   const {
@@ -157,7 +157,6 @@ const myOrders = () => {
                         <td className="px-6 py-4">{book?.price}</td>
                         <td className="px-6 py-4">
                           <button
-                            onClick={redirectToCheckout}
                             className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none"
                             type="submit"
                             role="link"
