@@ -22,21 +22,20 @@ const myOrders = () => {
       .then((res) => {
         console.log(res);
         setOderData(res);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
-      })
-  }, [user?.email,loading])
-  
-  const handleDelete = async(id)=>{
-    console.log(id);
-    const res =await deleteBooking(id)
-    if(res){
-      setLoading(!loading)
-      toast.success("Delete Successful", {autoClose:500})
-    };
+      });
+  }, [user?.email, loading]);
 
+  const handleDelete = async (id) => {
+    console.log(id);
+    const res = await deleteBooking(id);
+    if (res) {
+      setLoading(!loading);
+      toast.success("Delete Successful", { autoClose: 500 });
+    }
   };
   if(loading)return <Spinner></Spinner>
 
@@ -163,7 +162,10 @@ const myOrders = () => {
                           </label>
                         </td>
                         <td className="px-6 py-4">
-                          <AiFillDelete onClick={()=>handleDelete(book._id)} className="text-3xl text-center text-[#ea0606]"></AiFillDelete>
+                          <AiFillDelete
+                            onClick={() => handleDelete(book._id)}
+                            className="text-3xl text-center text-[#ea0606]"
+                          ></AiFillDelete>
                         </td>
                       </tr>
                     );

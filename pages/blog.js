@@ -1,5 +1,5 @@
 import LeftSide from "../components/blogs/LeftSide";
-import RightSite from "../components/blogs/RightSite";
+import RightSite, { Faq } from "../components/blogs/RightSite";
 
 
 const blog = () => {
@@ -28,11 +28,11 @@ const blog = () => {
         </div>
       </div>
       <div className="flex lg:inline-flex md:inline-block sm:inline-block  gap-10">
-        <div className="w-2/3 ml-10 mb-10">
+        <div className="w-3/4 ml-10 mb-10">
         <LeftSide/>
         </div>
         <div>
-          <RightSite/>
+          <Faq/>
         </div>
       </div>
     </div>

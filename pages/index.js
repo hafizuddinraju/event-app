@@ -39,6 +39,7 @@ export default function Home() {
         <Speaker></Speaker>
         <ReachUs></ReachUs>
         <ContactUs />
+        
       </main>
       }
     </div>
