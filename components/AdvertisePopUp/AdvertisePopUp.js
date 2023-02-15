@@ -12,7 +12,7 @@ const AdvertisePopUp = () => {
     
     let interval = useRef();
     const startTimer = () =>{
-        const countdownDate = new Date('Feb 15 , 2023').getTime();
+        const countdownDate = new Date('Feb 28 , 2023').getTime();
         interval = setInterval(()=>{
             const now = new Date().getTime();
             const distance =  countdownDate - now ;
@@ -46,7 +46,8 @@ const AdvertisePopUp = () => {
             },1000
            )
         })
-    },[])
+    },[]);
+  
     const handleMovePopUp = () =>{
         setOpenModal(!openModal)
     }

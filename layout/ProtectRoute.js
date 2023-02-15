@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useContext } from 'react';
+import Spinner from '../components/Spinner/Spinner';
 import { AuthContext } from '../context/AuthProvider';
 
 const ProtectRoute = ({children}) => {
-    const {user} = useContext(AuthContext);
+    const {user, loading} = useContext(AuthContext);
     const router = useRouter();
+    if(loading){
+        return <Spinner></Spinner>
+    }
 
     useEffect(()=>{
         if(!user){

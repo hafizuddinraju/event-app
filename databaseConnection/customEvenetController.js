@@ -1,6 +1,6 @@
 import customEventModel from "../model/customEventSchema";
 
-// get custom event from user 
+// get custom event from user for admin dashboard
 export const getCustomEvent = async ( req , res ) =>{
    try {
     const events = await customEventModel.find({})
@@ -41,6 +41,20 @@ export const addCustomEvent = async(req ,res) =>{
     }
 }
 
+// update single event information form user and admin
+export const updateCustomEventData = async(req, res) =>{
+  try {
+    const {customId} = req.query ;
+    const formData = req.body ;
+    if(customId && formData){
+      const eventStatus = await customEventModel.findByIdAndUpdate(customId, formData);
+      res.status(200).json(eventStatus);
+    }
+    res.status(404).json({error: "Data not updated"});
+  } catch (error) {
+    res.status(401).json({error:"Error While update data"})
+  }
+}
 
 // delete : http://localhost:3000/api/requseted/1
 export async function deleteEventRequest(req, res) {

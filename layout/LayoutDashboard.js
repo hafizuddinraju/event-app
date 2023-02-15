@@ -10,35 +10,35 @@ import Spinner from "../components/Spinner/Spinner";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "../lib/helperUser";
 
-const LayoutDashboard = ({children}) => {
-    const [toggle, setToggle]= useState(false);
-    const {user} = useContext(AuthContext);
-    
-    const {
-      data: alluser = [],
-      refetch,
-      isLoading,
-    } = useQuery({
-      queryKey: ["users"],
-      queryFn: async () => {
-        const res = await getUsers();
-        return res;
-      },
-    });
+const LayoutDashboard = ({ children }) => {
+  const [toggle, setToggle] = useState(false);
+  const { user } = useContext(AuthContext);
 
-    if(isLoading){
-      return <Spinner></Spinner>
-    }
-    
-    const dataFilter = alluser?.filter(data=> data.email === user.email)
-    
+  const {
+    data: alluser = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await getUsers();
+      return res;
+    },
+  });
+
+  if (isLoading) {
+    return <Spinner></Spinner>
+  }
+
+  const dataFilter = alluser?.filter(data => data.email === user.email)
+
 
 
   return (
     <div className={styles.top_class_data}>
       <div className={styles.header_data}>
-        <div onClick={()=> setToggle(!toggle)} className={styles.logosec}>
-          
+        <div onClick={() => setToggle(!toggle)} className={styles.logosec}>
+
           <img
             src="https://i.ibb.co/0YMpbT0/Untitled-design-30.png"
             className={`${styles.icn} ${styles.menuicn}`}
@@ -47,7 +47,7 @@ const LayoutDashboard = ({children}) => {
           />
         </div>
 
-        <div className={styles.searchbar}>
+        {/* <div className={styles.searchbar}>
           <input type="text" placeholder="Search" />
           <div className={styles.searchbtn}>
             <img
@@ -56,28 +56,31 @@ const LayoutDashboard = ({children}) => {
               alt="search-icon"
             />
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.message}>
           <div className={styles.circle}></div>
-          <img
+          {/* <img
             src="https://i.ibb.co/qs4QtHf/8.png"
             className={styles.icn}
             alt=""
-          />
+          /> */}
           <div className={styles.dp}>
-            <img
-              src="https://i.ibb.co/9rcGLKG/profile-removebg-preview.png"
-              className={styles.dpicn}
-              alt="dp"
-            />
+            <Link href="/dashboard/profile">
+              <img
+                src="https://i.ibb.co/9rcGLKG/profile-removebg-preview.png"
+                className={styles.dpicn}
+                alt="dp"
+              />
+            </Link>
           </div>
         </div>
       </div>
 
       <div className={styles.main_container}>
-        <div className={toggle ? `${styles.navcontainer} ${styles.navclose}`: styles.navcontainer}>
+        <div className={toggle ? `${styles.navcontainer} ${styles.navclose}` : styles.navcontainer}>
           {
+
             dataFilter[0]?.role == 'Admin'?
             <nav className={styles.nav}>
             <div className={styles.nav_upper_options}>
@@ -131,15 +134,16 @@ const LayoutDashboard = ({children}) => {
                 <h3 className="text-white hover:text-gray-100">Requested Events</h3>
               </div>
               </Link>
-
-              <div className={`${styles.nav_option} ${styles.option4}`}>
+              <Link href='/dashboard/rejectedEvent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
                 <img
                   src="https://i.ibb.co/Cs2bvXv/6.png"
                   className={styles.nav_img}
-                  alt="institution"
+                  alt="report"
                 />
-                <h3 className="text-white hover:text-gray-800">Leaves</h3>
+                <h3 className="text-white hover:text-gray-100">Requested Rejected Event</h3>
               </div>
+              </Link>
 
               <div className={`${styles.nav_option} ${styles.option5}`}>
                 <img
@@ -195,70 +199,70 @@ const LayoutDashboard = ({children}) => {
           }
 
           {
-            dataFilter[0]?.role == 'User'?
-            <nav className={styles.nav}>
-            <div className={styles.nav_upper_options}>
-            <Link href="/dashboard">
-              <div className={`${styles.nav_option} ${styles.option1}`}>
-              <MdDashboard className="text-3xl"></MdDashboard>
-                
-                <h3> Dashboard</h3>
-                
-              </div>
-              </Link>
-              <Link href='/dashboard/myOrders'>
-              <div className={`${styles.nav_option} ${styles.option1}`}>
-                
-                <img
-                  src="https://i.ibb.co/w6TmPMM/9.png"
-                  className={styles.nav_img}
-                  alt="articles"
-                />
-                <h3 className="text-white hover:text-gray-100"> MyOrders</h3>
-                
-              </div>
-              </Link>
-              <Link href='/dashboard/customevent'>
-              <div className={`${styles.nav_option} ${styles.option1}`}>
-                
-                <img
-                  src="https://i.ibb.co/88frRk9/images.png"
-                  className={styles.nav_img}
-                  alt="articles"
-                />
-                <h3 className="text-white hover:text-gray-100"> Create Custom Event</h3>
-                
-              </div>
-              </Link>
-              <Link href='/dashboard/requestedevent'>
-              <div className={`${styles.nav_option} ${styles.option1}`}>
-                
-                <img
-                  src="https://i.ibb.co/5KzwmRk/images.png"
-                  className={styles.nav_img}
-                  alt="articles"
-                />
-                <h3 className="text-white hover:text-gray-100"> Check Custom Event</h3>
-                
-              </div>
-              </Link>
+            dataFilter[0]?.role == 'User' ?
+              <nav className={styles.nav}>
+                <div className={styles.nav_upper_options}>
+                  <Link href="/dashboard">
+                    <div className={`${styles.nav_option} ${styles.option1}`}>
+                      <MdDashboard className="text-3xl"></MdDashboard>
 
-              <div className={`${styles.nav_option} ${styles.option1}`}>
-                <img
-                  src="https://i.ibb.co/1ZNpvYK/5.png"
-                  className={styles.nav_img}
-                  alt="report"
-                />
-                <h3 className="text-white hover:text-gray-100">Payment</h3>
-              </div>
-              
-            </div>
-          </nav>
-          :
-          ''
+                      <h3> Dashboard</h3>
+
+                    </div>
+                  </Link>
+                  <Link href='/dashboard/myOrders'>
+                    <div className={`${styles.nav_option} ${styles.option1}`}>
+
+                      <img
+                        src="https://i.ibb.co/w6TmPMM/9.png"
+                        className={styles.nav_img}
+                        alt="articles"
+                      />
+                      <h3 className="text-white hover:text-gray-100"> MyOrders</h3>
+
+                    </div>
+                  </Link>
+                  <Link href='/dashboard/customevent'>
+                    <div className={`${styles.nav_option} ${styles.option1}`}>
+
+                      <img
+                        src="https://i.ibb.co/88frRk9/images.png"
+                        className={styles.nav_img}
+                        alt="articles"
+                      />
+                      <h3 className="text-white hover:text-gray-100"> Create Custom Event</h3>
+
+                    </div>
+                  </Link>
+                  <Link href='/dashboard/requestedevent'>
+                    <div className={`${styles.nav_option} ${styles.option1}`}>
+
+                      <img
+                        src="https://i.ibb.co/5KzwmRk/images.png"
+                        className={styles.nav_img}
+                        alt="articles"
+                      />
+                      <h3 className="text-white hover:text-gray-100"> Check Custom Event</h3>
+
+                    </div>
+                  </Link>
+
+                  <div className={`${styles.nav_option} ${styles.option1}`}>
+                    <img
+                      src="https://i.ibb.co/1ZNpvYK/5.png"
+                      className={styles.nav_img}
+                      alt="report"
+                    />
+                    <h3 className="text-white hover:text-gray-100">Payment</h3>
+                  </div>
+
+                </div>
+              </nav>
+              :
+              ''
 
           }
-          
+
         </div>
         <div className={styles.main}>
           <div className={styles.searchbar2}>
@@ -271,8 +275,8 @@ const LayoutDashboard = ({children}) => {
               />
             </div>
           </div>
-        {children}
-          
+          {children}
+
         </div>
       </div>
     </div>

@@ -4,12 +4,14 @@ import { MdOutlineReport, MdVerified } from "react-icons/md";
 import { useRouter } from "next/router";
 import { createRef, useEffect, useState } from "react";
 import Spinner from "../../components/Spinner/Spinner";
-
 import { useContext } from "react";
 import Pdf from "react-to-pdf";
 import Modal from "../../components/Modal/Modal";
 import { AuthContext } from "../../context/AuthProvider";
 import { getEvent } from "../../lib/helperSubCategory";
+import ProtectRoute from "../../layout/ProtectRoute";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css"
 
 const ref = createRef();
 const SingleCategory = () => {
@@ -33,6 +35,8 @@ const SingleCategory = () => {
   if (!eventData) {
     return <Spinner></Spinner>;
   }
+
+  const position = [23.772723525552248, 90.3724520803533]
 
   return (
     <>
@@ -137,11 +141,19 @@ const SingleCategory = () => {
         <div>
           <div className="my-4 mx-auto mt-24 md:mt-36 lg:mt-36">
             <div>
-              <img
-                className="mx-auto w-96 rounded-xl"
-                src="https://i.ibb.co/yk0vDG1/Screenshot-2023-01-23-183803.png"
-                alt=""
-              />
+              <MapContainer center={position} zoom={10} scrollWheelZoom={false}
+                style={{ width: "100vw", height: "100vh" }}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={position}>
+                  <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                  </Popup>
+                </Marker>
+              </MapContainer>
             </div>
             <div className="my-4 text-center">
               <p className="font-bold text-lg">Open hour</p>

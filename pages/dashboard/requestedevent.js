@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 import { toast } from 'react-toastify';
+import ConfirmationModal from '../../components/ConfirmationModal/ConfirmationModal';
 import Spinner from '../../components/Spinner/Spinner';
 import { AuthContext } from '../../context/AuthProvider';
 import LayoutDashboard from '../../layout/LayoutDashboard';
@@ -10,6 +11,7 @@ const requestedevent = () => {
     const {user} = useContext(AuthContext);
     const [data , setData] = useState([])
     const [refresh , setRefresh] = useState(false);
+    const [modalData , setModalData] = useState(null)
     useEffect(()=>{
         getRequestEventCustomEvent(user?.email)
         .then(res => {
@@ -20,7 +22,6 @@ const requestedevent = () => {
     },[user?.email,refresh]) ;
 
     const handleDeleteRequestEvent =async (id) =>{
-        console.log(id, "idddd")
        const res = await deleteEventRequest(id)
        if(res){
         toast.success("Request event delete successful", {autoClose:1000})
@@ -84,9 +85,7 @@ const requestedevent = () => {
                 </thead>
 
                 <tbody>
-                  {data?.map((book) => {
-                    return (
-                      <tr
+                  {data?.map((book) => <tr
                         key={book._id}
                         className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                       >
@@ -113,14 +112,19 @@ const requestedevent = () => {
                         <td className="px-6 py-4">{book?.guest}</td>
                         <td className="px-6 py-4">{book?.eventLocation}</td>
                         <td className="px-6 py-4">{book?.status == 0 ? <button disabled className='px-3 py-2 bg-sky-400 rounded-xl text-white disabled'>Pending</button> : <button className='px-3 py-2 bg-sky-700 rounded-xl text-white disabled'>Pay</button>}</td>
-                        <td onClick={()=>handleDeleteRequestEvent(book._id)} className="px-6 py-4 cursor-pointer">
-                          <AiFillDelete className="text-3xl text-center text-[#a41010]"></AiFillDelete>
+                        <td  className="px-6 py-4 cursor-pointer">
+                        <label onClick={()=>setModalData(book)} htmlFor="confirmation-modal" className=""><AiFillDelete className="text-3xl text-center cursor-pointer text-[#a41010]"></AiFillDelete></label>
+                          
                         </td>
+                       
                       </tr>
-                    );
-                  })}
+                   
+                  )}
                 </tbody>
               </table>
+           {
+            modalData ?    <ConfirmationModal message={"Are You Sure Delete This Event Request"} data={modalData} handler={handleDeleteRequestEvent} setData={setModalData}></ConfirmationModal> : ""
+           }
             </div>
           </div>
         </div>
