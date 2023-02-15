@@ -15,7 +15,8 @@ const myOrders = () => {
   const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [reviewModal, setReviewModal] = useState({});
+  const [reviewModal, setReviewModal] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState(null);
 
   useEffect(() => {
     getSingleBooking(user?.email)
@@ -28,6 +29,11 @@ const myOrders = () => {
         console.log(error);
       })
   }, [user?.email,loading])
+
+  const handleReview = (productId) => {
+    setSelectedProductId(productId);
+    setReviewModal(true);
+  };
   
   const handleDelete = async(id)=>{
     console.log(id);
@@ -38,6 +44,7 @@ const myOrders = () => {
     };
 
   };
+  console.log(orderData);
   if(loading)return <Spinner></Spinner>
 
 
@@ -157,7 +164,7 @@ const myOrders = () => {
                           <label 
                           htmlFor={user ? "review-modal" : router.push("/login")} 
                           className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none normal-case"
-                          onClick={()=> setReviewModal(orderData)}
+                          onClick={() => handleReview(book.product_id)}
                           >
                             Add Review
                           </label>
@@ -168,7 +175,11 @@ const myOrders = () => {
                       </tr>
                     );
                   })}
-                  {reviewModal && orderData?.map((product)=><ReviewModal key={product._id} product={product}></ReviewModal>) }
+                  {reviewModal && (
+                  <ReviewModal 
+                    productId={selectedProductId}
+                    onClose={() => setReviewModal(false)}>
+                  </ReviewModal>) }
                 </tbody>
               </table>
             </div>

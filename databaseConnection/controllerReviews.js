@@ -12,6 +12,23 @@ export const getReviews = async (req, res) =>{
     }
 }
 
+export const getSingleEventReview = async (req, res, next) => {
+    try {
+        const {productId} = req.query;
+        const filter = {product_id : productId}
+        const reviewCount = await reviewsCollection.countDocuments(filter)
+
+        if(reviewCount > 0){
+            const reviews = await reviewsCollection.find(filter);
+            res.status(200).json(reviews);
+        } else {
+            res.status(404).json({ message: 'No reviews found for the specified product.' });
+        }
+        
+    } catch (error) {
+        res.status(404).json({ error: "Cannot get the Product...!" });
+    }
+}
 
 export const postReview = async (req, res) => {
     try {
