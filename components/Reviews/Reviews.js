@@ -63,7 +63,7 @@ const SingleEventReviews = ({reviews}) => {
                               <img className='w-20 rounded-full ' src={rvw?.user_img} alt="" />
                               <div className='ml-2'>
                                   <h3 className='text-xl font-medium'>
-                                      {rvw.user_name}
+                                      {rvw.user_name || <FaUser></FaUser>}
                                   </h3>
                                   <p className='text-xs text-slate-500'>
                                       {rvw.date}
