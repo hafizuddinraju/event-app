@@ -87,7 +87,9 @@ useEffect(() => {
                 eventName: name,
                 userEmail : user?.email,
                 eventId : booking?._id,
-                price : booking?.price
+                price : booking?.price,
+                eventUpdate: 10,
+                transaction_Id: transactionId
           }
           
             const response = await postPaymentIssueHelper(paymentInfo)

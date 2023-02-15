@@ -1,5 +1,6 @@
 import { updateBooking } from "../../../databaseConnection/controllerBooking";
 import connectMongo from "../../../databaseConnection/database";
+import { getPaymentSingle } from "../../../databaseConnection/paymentIssueSchemaController";
 
 export default async function handler(req, res) {
     connectMongo().catch(() => res.status(405).json({ error: "Error in the Connection"}))
@@ -9,8 +10,8 @@ export default async function handler(req, res) {
 
     switch(method){
         case 'GET' :
-            res.status(200).json({method,name:'Get'})
-        
+            // res.status(200).json({method,name:'Get'})
+            getPaymentSingle(req, res)
             break;
         case "PUT" :
             updateBooking(req , res);
