@@ -38,7 +38,19 @@ const SingleCategory = () => {
       });
   }, [router.query.eventId]);
 
- 
+  useEffect(() => {
+    if (id){
+        getSingleEventReview(id)
+        .then((res) => {
+            console.log(res);
+            setReviews(res);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+  }, [router.query.eventId]);
+  // console.log(reviews);
 
   if (!eventData) {
     return <Spinner></Spinner>;
