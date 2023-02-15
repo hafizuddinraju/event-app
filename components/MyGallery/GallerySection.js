@@ -23,14 +23,15 @@ const GallerySection = () => {
   }
   return (
     <>
-      <div className="px-4 py-16 max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-20">
+      <div className="px-4 py-16 max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-20" data-aos="fade-up"
+     data-aos-duration="3000">
         <div className=" mb-6 text-center lg:justify-center lg:flex-row md:mb-8">
           <h2 className="text-3xl font-bold">OUR GALLERY</h2>
           <h4 className="text-lg font-xl">
             Some of our projects discussion,management and meeting image
           </h4>
         </div>
-        <div className="grid gap-6 mb-8 w-full lg:grid-cols-4 md:grid-cols-2 sm:row-gap-6 sm:grid-cols-1">
+        <div  className="grid gap-6 mb-8 w-full lg:grid-cols-4 md:grid-cols-2 sm:row-gap-6 sm:grid-cols-1">
 
           {
           allPhotos.length > 0  && allPhotos?.slice(0, 4).map(({ _id, title, desc, cover }) => 

@@ -38,19 +38,7 @@ const SingleCategory = () => {
       });
   }, [router.query.eventId]);
 
-  useEffect(() => {
-    if (id){
-        getSingleEventReview(id)
-        .then((res) => {
-            console.log(res);
-            setReviews(res);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
-  }, [router.query.eventId]);
-  console.log(reviews);
+ 
 
   if (!eventData) {
     return <Spinner></Spinner>;
@@ -175,23 +163,27 @@ const SingleCategory = () => {
           </div>
         </div>
         <div>
-          <div className="my-4 mx-auto md:mx-[150px] lg:mx-0 mt-10 md:mt-10 lg:mt-36 ">
-            <div className="">
+          <div className="my-4  mt-10 md:mt-10 lg:mt-36 ">
+            <div className="w-1/2 text-center">
 
               <MapWithNoSSR></MapWithNoSSR>
 
             </div>
-            <div className="my-4 mx-auto">
+            <div className="w-1/2">
+            <div className="my-4 text-center ">
               <p className="font-bold text-lg">Open hour</p>
               <p className="text-sm">Monday - Friday</p>
               <p className="text-sm">8.00am - 5.00pm</p>
               <p className="text-sm">Weekend closed</p>
             </div>
-            <div className="mx-auto">
+            <div className="my-4 text-center">
               <p className="font-bold text-lg"> Phone&Email</p>
               <p className="text-sm">Phone: +084385922</p>
               <p className="text-sm">Email: event@bd.com</p>
             </div>
+
+            </div>
+            
           </div>
         </div>
       </div>

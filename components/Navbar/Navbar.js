@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 import { AuthContext } from '../../context/AuthProvider';
-// import{useSession, signOut} from 'next-auth/react'
+
 
 
 const Navbar = () => {
@@ -13,8 +13,7 @@ const Navbar = () => {
   const [color, setColor] = useState('transparent');
   const [textColor, setTextColor] = useState('white');
   const { user, logOut } = useContext(AuthContext)
-  //   const {data:session} = useSession();
-  //   console.log(session)
+  
   const router = useRouter();
   useEffect(() => {
     if (router.route == '/') {
@@ -108,16 +107,7 @@ const Navbar = () => {
         Contact
       </Link>
     </li>
-    <li className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
-      <Link
-        href="/signup"
-        aria-label="contact"
-        title="signup"
-        className=''
-      >
-        Signup
-      </Link>
-    </li>
+    
     {
       user ?
         <>
@@ -143,7 +133,20 @@ const Navbar = () => {
 
         </>
         :
-        ' '
+        <>
+        <li className='hover:border-b-2 p-6 font-semibold border-b-sky-500 duration-100'>
+      <Link
+        href="/signup"
+        aria-label="contact"
+        title="signup"
+        className=''
+      >
+        Signup
+      </Link>
+    </li>
+        
+        
+        </>
     }
 
 
@@ -168,8 +171,8 @@ const Navbar = () => {
 
             <h1 className='font-bold text-4xl flex items-center'>
 
-              <img className='w-11 mt-3' src="https://i.ibb.co/khpBckc/f67.png" alt="" />
-             <i className='flex'><span className='text-sky-500 ml-4 hidden md:block lg:block'>Event</span><span className='hidden md:block lg:block' style={{ color: `${textColor}` }} >Mart</span></i>
+              <img className='w-11 mt-1' src="https://i.ibb.co/khpBckc/f67.png" alt="" />
+             <span className='text-sky-500 uppercase ml-4 hidden md:block lg:block'>Event</span><span className='hidden uppercase md:block lg:block' style={{ color: `${textColor}` }} >Mart</span>
             </h1>
           </Link>
           <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
@@ -193,24 +196,8 @@ const Navbar = () => {
             }
           >
             <ul>
-              <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-                <Link href='/home'>Home</Link>
-              </li>
-              <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-                <Link href='/about'>About Us</Link>
-              </li>
-              <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-                <Link href='/categories'>Events</Link>
-              </li>
-              <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-                <Link href='/blog'>Blog</Link>
-              </li>
-              <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-                <Link href='/contact'>Contact</Link>
-              </li>
-              <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-                <Link href='/dashboard'>Dashboard</Link>
-              </li>
+            {menu}
+              
             </ul>
           </div>
         </div>
