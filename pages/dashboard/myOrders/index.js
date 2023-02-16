@@ -16,9 +16,9 @@ const myOrders = () => {
   const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [reviewModal, setReviewModal] = useState({});
-  // for delete user booking
-  const [modalData , setModalData] = useState(null)
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [modalData , setModalData] = useState(null);
+  
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -28,12 +28,13 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-
       })
   }, [user?.email,loading])
-  
- 
 
+   const handleReview = (productId) => {
+    setSelectedProductId(productId);
+    setModalData(true);
+  };
 
   const handleDelete = async (id) => {
     console.log(id);
@@ -43,7 +44,10 @@ const myOrders = () => {
       toast.success("Delete Successful", { autoClose: 500 });
     }
   };
+
+  console.log(orderData);
   if(loading)return <Spinner></Spinner>
+
 // this is myorders dashboard layout
   return (
     <LayoutDashboard>
@@ -141,7 +145,7 @@ const myOrders = () => {
                         <td className="px-6 py-4">{book?.price}</td>
                         <td className="px-6 py-4">
                       {
-                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?.product_id}`} >
+                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?._id}`} >
      
                          <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" >
                            payment
@@ -161,7 +165,7 @@ const myOrders = () => {
                           <label 
                           htmlFor={user ? "review-modal" : router.push("/login")} 
                           className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none normal-case"
-                          onClick={()=> setReviewModal(orderData)}
+                          onClick={() => handleReview(book.product_id)}
                           >
                             Add Review
                           </label>
@@ -171,11 +175,14 @@ const myOrders = () => {
                           <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
                           </label>
                         </td>
-                        {/* onClick={()=>handleDelete(book._id)} */}
+              
                       </tr>
                     );
                   })}
-                  {reviewModal && orderData?.map((product)=><ReviewModal key={product._id} product={product}></ReviewModal>) }
+                  {modalData && (
+                  <ReviewModal 
+                    productId={selectedProductId}>
+                  </ReviewModal>) }
                 </tbody>
               </table>
             {  <ConfirmationModal

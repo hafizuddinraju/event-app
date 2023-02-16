@@ -1,5 +1,5 @@
-import RightSite from "../components/blogs/RightSite";
-import BlogDetails from "../components/blogs/blogDetails";
+import BlogDetails from '../components/blogs/BlogDetails';
+import RightSite from '../components/blogs/RightSite'
 
 const BlogDetail = () => {
   return (
@@ -53,10 +53,10 @@ const BlogDetail = () => {
       </div>
       <div className="flex sm:flex-1 gap-10">
       <div className="w-2/3 -mt-28 ml-10">
-        <BlogDetails/>
+        <BlogDetails></BlogDetails>
       </div>
       <div>
-        <RightSite/>
+        <RightSite></RightSite>
       </div>
       </div>
     </div>

@@ -1,10 +1,11 @@
 import styles from '/styles/profile.module.css'
 import { BsArrowLeftSquare } from "react-icons/bs";
-import { useContext, } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+// import { UpdateUser } from '../../lib/helperUser';
 
 const UpdateProfile = ({ hide }) => {
     const [imgUrl, setImgUrl] = useState('')
@@ -33,23 +34,28 @@ const UpdateProfile = ({ hide }) => {
             .then(imgData => {
                 console.log(imgData);
                 if (imgData.success) {
-                    setImgUrl(imgData.data.url)
-                    //update user details in firebase
+
                     const updateInfo = {
                         displayName: name,
                         photoURL: imgData.data.url
                     }
-                    updateUser(updateInfo)
-                        .then((result) => {
-                            console.log(result);
-                            toast.success(' successfully updated')
-                            hide(false)
-                        })
-                        .catch(err => {
-                            console.log(err.message)
-                        })
+                    setImgUrl(imgData.data.url)
+                    handleUpdateUser(updateInfo)
+                    hide(false)
                 }
             })
+
+        //update user details in firebase
+        const handleUpdateUser = (userInfo) => {
+            updateUser(userInfo)
+                .then((result) => {
+                    console.log(result);
+                    toast.success(' successfully updated')
+                })
+                .catch(err => {
+                    console.log(err.message)
+                })
+        }
     }
     return (
         <section className="bg-white p-8">

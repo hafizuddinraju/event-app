@@ -4,9 +4,9 @@ const blogSchema = new Schema({
     name:String,
     title:String,
     desc:String,
-    Image:String
+    image:String
 })
 
-const blogCollection = models.blogs || model('blogs',blogSchema)
+const blogCollection = models.blogCall || model('blogCall',blogSchema)
 
 export default blogCollection;

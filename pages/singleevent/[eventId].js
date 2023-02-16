@@ -12,6 +12,8 @@ import ProtectRoute from "../../layout/ProtectRoute";
 import { getEvent } from "../../lib/helperSubCategory";
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
+import { getSingleEventReview } from "../../lib/helperReviews";
+import SingleEventReviews from "../../components/Reviews/Reviews";
 
 
 const ref = createRef();
@@ -21,6 +23,7 @@ const SingleCategory = () => {
   console.log(router.asPath)
   const [modal, setModal] = useState({});
   const [eventData, setEventData] = useState({});
+  const [reviews, setReviews] = useState([]);
   const id = router.query.eventId;
   const shareUrl = `https://event-app-pi.vercel.app/singleevent/${id}`
   // console.log("url",shareUrl)
@@ -35,7 +38,19 @@ const SingleCategory = () => {
       });
   }, [router.query.eventId]);
 
- 
+  useEffect(() => {
+    if (id){
+        getSingleEventReview(id)
+        .then((res) => {
+            console.log(res);
+            setReviews(res);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+  }, [router.query.eventId]);
+  // console.log(reviews);
 
   if (!eventData) {
     return <Spinner></Spinner>;
@@ -183,6 +198,12 @@ const SingleCategory = () => {
             
           </div>
         </div>
+      </div>
+      <div>
+        <div className="text-center">
+          <p className="text-2xl md:text-4xl font-extrabold text-cyan-900">User Reviews</p>
+        </div>
+            <SingleEventReviews reviews={reviews}></SingleEventReviews>
       </div>
     </ProtectRoute>
   );

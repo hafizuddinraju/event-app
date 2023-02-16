@@ -1,3 +1,17 @@
+.feature_card_css{
+    transition: all linear .5s;
+}
+.feature_card_css:hover{
+    /* background-color: rgba(195, 193, 193, 0.434);
+     */
+     background-color: rgba(178, 221, 239, 0.847);
+    color: #000;
+    border-radius: 5px;
+    
+}
+.feature_card_css:hover .icon{
+    color: rgb(206, 64, 88)
+}
 .horizontal_line{
     --tw-bg-opacity: 1;
     background-color: rgb(125 211 252 / var(--tw-bg-opacity));

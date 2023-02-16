@@ -12,6 +12,9 @@
 .speaker-parent:hover .second-speaker-child{
   width: 100%;
   transition: all linear .7s;
+  border-radius: 6px;
+  background: linear-gradient(to right, #11bfff, #1c6dcf);
+  opacity: .5;
 }
 .speaker-hover-icon {
   position: absolute;
@@ -19,7 +22,7 @@
   right: 0;
   width: 00px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.781);
+  background: linear-gradient(to right, #11bfff, #1c6dcf);
   overflow: hidden;
   transition: all linear .7s;
   z-index: 999;
@@ -102,4 +105,71 @@
 }
 .label {
   padding-top: 0;
+}
+
+
+/* this is for home page category css */
+/* .parent-category-container{
+  background-color: hsla(160, 70%, 100%, 0.3)
+} */
+.parent-category-container-grid-card:nth-child(2){
+  margin-top:30px;
+}
+.parent-category-container-grid-card:nth-child(4){
+  margin-top:30px;
+}
+
+/* this is for gallery home page css design */
+.gallery-items::before {
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 30px;
+  bottom: -12px;
+  right: -12px;
+  background: linear-gradient(to right, #11bfff, #0068e7);
+  border-radius: 50%;
+  transition: all linear 0.3s;
+}
+
+.gallery-items::after {
+  position: absolute;
+  content: '';
+  width: 0%;
+  height: 0%;
+  bottom: 0%;
+  right: 0%;
+  background: linear-gradient(to right, #11bfff, #0068e7);
+  
+   /* background-color: rgb(20, 179, 39); */
+   opacity: .5;
+  border-radius: 3px;
+  transition: all linear 0.5s;
+  z-index: 999;
+  clip-path: circle(0% at 100% 100%);
+}
+
+
+.gallery-items:hover::after {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.8;
+  clip-path: circle(141.4% at 100% 100%);
+}
+.gallery-items:hover::before {
+  opacity: .5;
+}
+
+.gallery-items::before {
+  opacity: 1;
+}
+/* hover item information */
+.hover-item-info{
+  opacity: 0;
+  transition: all linear .8s;
+}
+.gallery-items:hover .hover-item-info{
+ opacity: 1;
+  z-index: 999;
 }
