@@ -22,12 +22,7 @@ const Category = () => {
     }
 
     return (
-           <div className='grid grid-rows-1 sm:grid-rows-1'>
-             <h2 className='text-center text-5xl font-semibold '>Our <span className='text-sky-600'>all events</span></h2>
-        <div className='max-w-[1400px] flex my-10  mx-auto'>
-            <div className='text-center mr-12 my-20'>
-            <div className='justify-center items-center mt-20 text-center'>
-                <GiVineFlower className='ml-72 mb-5 text-sky-500' size={80}/>
+        
 
          <section className='bg-[#f1f1f1] py-28'>
               <div className='max-w-screen-xl mx-auto parent-category-container'>
