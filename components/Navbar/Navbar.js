@@ -149,22 +149,14 @@ const Navbar = () => {
         </>
     }
 
-
-
-
-
-
-
   </>
 
   return (
     <>
-
       <div
         style={{ backgroundColor: `${color}` }}
         className='fixed left-0 top-0 w-full  z-[999]  ease-in duration-300'
       >
-
         <div className='max-w-[1240px] m-auto flex justify-between items-center pt-4 px-4 pb-1 text-white'>
 
           <Link href='/'>
@@ -175,12 +167,12 @@ const Navbar = () => {
              <span className='text-sky-500 uppercase ml-4 hidden md:block lg:block'>Event</span><span className='hidden uppercase md:block lg:block' style={{ color: `${textColor}` }} >Mart</span>
             </h1>
           </Link>
-          <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
+          <ul style={{ color: `${textColor}` }} className='hidden md:hidden lg:flex'>
             {menu}
           </ul>
 
           {/* Mobile Button */}
-          <div onClick={handleNav} className='block  md:hidden z-10'>
+          <div onClick={handleNav} className='block md:block lg:hidden z-10'>
             {nav ? (
               <AiOutlineClose className='text-white' size={20} />
             ) : (
@@ -191,8 +183,8 @@ const Navbar = () => {
           <div
             className={
               nav
-                ? 'md:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
-                : 'md:hidden  absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+                ? 'lg:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+                : 'lg:hidden  absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
             }
           >
             <ul>

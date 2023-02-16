@@ -15,8 +15,8 @@ const About = () => {
             />
            </div>
           <div className="w-1/2 mb-16 text-start">
-            <p className="text-2xl font-bold text-sky-600">About Us</p>
-            <h1 className="text-5xl font-bold my-5">
+            <p className="text-xl lg:text-2xl font-bold text-sky-600">About Us</p>
+            <h1 className="text-3xl lg:text-5xl font-bold my-5">
             Our Event management 
             </h1>
             <p className="py-6">
