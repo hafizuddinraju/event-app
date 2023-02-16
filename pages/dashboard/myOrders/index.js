@@ -26,8 +26,21 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
+
+      })
+  }, [user?.email,loading])
+  
+  const handleDelete = async(id)=>{
+    
+    const res =await deleteBooking(id)
+    if(res){
+      setLoading(!loading)
+      toast.success("Delete Successful", {autoClose:500})
+    };
+
       });
   }, [user?.email, loading]);
+
 
   const handleDelete = async (id) => {
     console.log(id);
@@ -39,7 +52,7 @@ const myOrders = () => {
   };
   if(loading)return <Spinner></Spinner>
 
-
+console.log(orderData, "this is order data")
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
