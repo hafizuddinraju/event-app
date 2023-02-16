@@ -201,7 +201,7 @@ const SingleCategory = () => {
       </div>
       <div>
         <div className="text-center">
-          <p className="text-2xl font-extrabold text-cyan-900">User Reviews</p>
+          <p className="text-2xl md:text-4xl font-extrabold text-cyan-900">User Reviews</p>
         </div>
             <SingleEventReviews reviews={reviews}></SingleEventReviews>
       </div>
