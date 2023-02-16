@@ -18,7 +18,7 @@ const ConfirmationModal = ({message, data , handler, setData}) => {
   <div className="modal-box">
     <h3 className="font-bold text-xl text-center mb-2">{message || ""}</h3>
     {
-      !router.pathname.includes("/dashboard/allUser") || !router.pathname.includes("/dashboard/myOrders") &&<>
+      !router.pathname.includes("/dashboard/allUser") && <>
     <p className="text-xl font-semibold">Your Event is {data?.eventName || ""}</p>
     <p className=" text-xl">Your Event Date {data?.eventDate || ""}</p>
     <p className="font-semibold">Your Event Location {data?.eventLocation || ""}</p>
