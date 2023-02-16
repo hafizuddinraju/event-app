@@ -32,13 +32,14 @@ export default function Home() {
         <Header></Header>
         <Features></Features>
         <Category></Category>
-        {/* <About></About> */}
+        <About></About>
         <GallerySection />
         <HappyClients></HappyClients>
         <Testimonial></Testimonial>
         <Speaker></Speaker>
         <ReachUs></ReachUs>
         <ContactUs />
+        
       </main>
       }
     </div>

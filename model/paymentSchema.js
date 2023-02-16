@@ -1,12 +1,14 @@
 import { model, models, Schema } from "mongoose";
 
-const paymentSchema = new Schema({
+const paymentEventSchema = new Schema({
     price:String,
     eventId : String,
     userEmail : String ,
-    eventName : String
+    eventName : String,
+    eventUpdate: Number,
+    transaction_Id: String
 });
 
-const paymentIssueSchemaModel = models.paymentSchema || model("paymentSchema", paymentSchema);
+const paymentIssueEventSchemaModel = models.paymentEventSchema || model("paymentEventSchema", paymentEventSchema);
 
-export default paymentIssueSchemaModel ; 
+export default paymentIssueEventSchemaModel ; 

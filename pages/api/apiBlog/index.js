@@ -1,5 +1,5 @@
 import connectMongo from "../../../databaseConnection/database";
-import { blogData } from "../../../databaseConnection/controllerBlog";
+import { blogData, postBlog } from "../../../databaseConnection/controllerBlog";
 
 export default async function (req,res) {
     connectMongo().catch(()=>res.status(405).json({error:'error in the connection'}))
@@ -9,6 +9,10 @@ export default async function (req,res) {
         case 'GET':
             // res.status(200).json({method,name:'get'})
             blogData(req,res)
+            break;
+        case 'POST':
+            // res.status(200).json({method,name:'get'})
+            postBlog(req,res)
             break;
         
         default:

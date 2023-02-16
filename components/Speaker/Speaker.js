@@ -23,9 +23,9 @@ const Speaker = () => {
         },
     ]
     return (
-        <section className='py-10 '>
+        <section className='py-28 bg-[#f1f1f1]'>
             <div className='max-w-screen-xl mx-auto '>
-            <h1 className='text-2xl md:text-4xl font-bold uppercase text-center my-10'><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
+            <h1 className='text-2xl lg:text-5xl mb-12 md:text-4xl font-bold uppercase text-center '><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
             {/* speaker container */}
             <div className='grid justify-center grid-cols-1 mx-5 md:grid-cols-2 lg:grid-cols-3 gap-5'> 
             {
@@ -45,9 +45,9 @@ function SpeakerCard ({data}){
     return (
        <>
          {/* card */}
-         <div className='relative z-20 speaker-parent border-2 rounded-md shadow-md '>
+         <div className='relative z-20  bg-sky-50 speaker-parent border-2 rounded-md shadow-md '>
             <div className='speaker-hover-icon flex flex-col justify-evenly items-center'>
-               <FaFacebook className='cursor-pointer text-blue-400' size={30} />
+               <FaFacebook className='cursor-pointer text-white' size={30} />
                <FaTwitter className='cursor-pointer text-white' size={30} />
                <FaLinkedin  className='cursor-pointer text-white' size={30}></FaLinkedin>
                <FaInstagram  className='cursor-pointer text-red-600' size={30}> </FaInstagram>
@@ -58,9 +58,9 @@ function SpeakerCard ({data}){
                 
             </div>
         <figure>
-        <img className='w-full h-64 object-fill' src={image} alt="image" />
+        <img className='w-full  rounded-t-md h-64 object-fill' src={image} alt="image" />
         </figure>
-        <div className='text-info pt-2 pb-5 px-3'>
+        <div className='text-info  pt-2 pb-5 px-3'>
             <h2 className="text-2xl text-black font-bold">{name}</h2>
             <p ><strong>{designation}</strong></p>
             <p className='font-semibold'>{institution}</p>
