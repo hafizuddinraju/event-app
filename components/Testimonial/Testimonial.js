@@ -32,7 +32,7 @@ const Testimonial = () => {
     }
 
     return (
-        <section className='my-20  py-20  '>
+        <section className='py-28 '>
                <div className='mx-5'>
                <div className='my-10'>
                     <h2 className=" text-4xl md:text-5xl  font-bold text-center">

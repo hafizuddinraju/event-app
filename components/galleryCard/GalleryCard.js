@@ -7,7 +7,7 @@ const GalleryCard = ({_id,cover,desc,title}) => {
        
              <div
               key={_id}
-              className="relative overflow-hidden transition-all rounded  duration-1000 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
+              className="relative cursor-pointer gallery-items  overflow-hidden transition-all rounded  duration-1000 transform shadow-lg hover: translate-y-2 hover:shadow-2xl"
             >
               <img
                 src={cover}
@@ -16,10 +16,10 @@ const GalleryCard = ({_id,cover,desc,title}) => {
                 width={100}
                 height={100}
               />
-
-              <div className="absolute inset-0 px-6 py-4 top-0 left-0 transition-opacity duration-200 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-4 text-lg font-bold text-gray-100">{title}</p>
-                <PhotoProvider>
+              <div className='absolute hover-item-info  top-[60%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full h-full  z-50'>
+              <p className="capitalize mx-5 text-lg font-bold text-gray-100">{title}</p>
+              <p className="font-semibold mx-5 text-white text-xl tracking-wide ">{desc}</p>
+              <PhotoProvider>
                   <PhotoView src={cover}>
                     <img src={cover} alt="" className="w-full absolute top-0 left-0 opacity-0 h-full"
                     width={100}
@@ -27,8 +27,6 @@ const GalleryCard = ({_id,cover,desc,title}) => {
                     />
                   </PhotoView>
                 </PhotoProvider>
-
-                <p className="text-sm tracking-wide text-gray-300">{desc}</p>
               </div>
             </div>
         

@@ -23,10 +23,10 @@ const GallerySection = () => {
   }
   return (
     <>
-      <div className="px-4 py-16 max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-20" data-aos="fade-up"
+      <div className="px-4 bg-[#f1f1f1]  max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-28" data-aos="fade-up"
      data-aos-duration="3000">
         <div className=" mb-6 text-center lg:justify-center lg:flex-row md:mb-8">
-          <h2 className="text-3xl font-bold">OUR GALLERY</h2>
+          <h2 className="text-5xl font-bold mb-3"><span className="text-sky-500 ">OUR</span> GALLERY</h2>
           <h4 className="text-lg font-xl">
             Some of our projects discussion,management and meeting image
           </h4>
@@ -43,7 +43,7 @@ const GallerySection = () => {
             ></GalleryCard>
           )}
         </div>
-        <div className='flex justify-center mb-20 tooltip' data-tip='click the Button explore more Gallery Cards'>
+        <div className='flex justify-center mt-20 tooltip' data-tip='click the Button explore more Gallery Cards'>
           <Link href='/allGallery' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more
           
           </Link>

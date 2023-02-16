@@ -6,11 +6,11 @@ import styles from '../../styles/Features.module.css'
 
 const Features = () => {
     return (
-        <div className='my-20'>
-            <div className='text-center'>
-                <p className='text-lg sm:text-3xl font-bold'>
-                    <span className='text-sky-500'>Hello! </span>
-                    Your Event Management Agency is here.
+        <div className='py-28 bg-[#fbf9f9]'>
+            <div className='text-center mb-5'>
+                <p className='text-lg sm:text-4xl lg:text-5xl font-bold'>
+                    <span className='text-sky-500 '>Hello! </span>
+                    Your Event Management <br /> Agency is here.
                 </p>
             </div>
             <div className='hidden sm:block text-center text-lg mx-10 sm:mx-20 md:mx-48 my-5'>
