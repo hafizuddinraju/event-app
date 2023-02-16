@@ -35,16 +35,20 @@ const SingleCategory = () => {
       });
   }, [router.query.eventId]);
 
+ 
+
   if (!eventData) {
     return <Spinner></Spinner>;
   }
 
   
+  // declaring function for showing map 
   const MapWithNoSSR = dynamic(() => import("../../components/Map/Map"), {
     ssr: false,
   });
 
-
+  // grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3
+  // col-span-2
   return (
     <ProtectRoute>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mx-10 md:mx-20 ">
@@ -156,30 +160,27 @@ const SingleCategory = () => {
           </div>
         </div>
         <div>
-          <div className="my-4 mx-auto mt-24 md:mt-36 lg:mt-36">
-            <div className="text-center">
+          <div className="my-4  mt-10 md:mt-10 lg:mt-36 ">
+            <div className="w-1/2 text-center">
 
-              {/* <Map></Map> */}
-
-              <MapWithNoSSR
-            // coords={lngLatCoords}
-            // lastPosition={lastPosition}
-            // markers={latLngMarkerPositions}
-            // latestTimestamp={latestTimestamp}
-          />
+              <MapWithNoSSR></MapWithNoSSR>
 
             </div>
-            <div className="my-4 text-center">
+            <div className="w-1/2">
+            <div className="my-4 text-center ">
               <p className="font-bold text-lg">Open hour</p>
               <p className="text-sm">Monday - Friday</p>
               <p className="text-sm">8.00am - 5.00pm</p>
               <p className="text-sm">Weekend closed</p>
             </div>
-            <div className="text-center">
+            <div className="my-4 text-center">
               <p className="font-bold text-lg"> Phone&Email</p>
               <p className="text-sm">Phone: +084385922</p>
               <p className="text-sm">Email: event@bd.com</p>
             </div>
+
+            </div>
+            
           </div>
         </div>
       </div>

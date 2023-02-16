@@ -24,21 +24,24 @@ const myOrders = () => {
       .then((res) => {
         console.log(res);
         setOderData(res);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+
       })
   }, [user?.email,loading])
   
-  const handleDelete = async(id)=>{
-    
-    const res =await deleteBooking(id)
-    if(res){
-      setLoading(!loading)
-      toast.success("Delete Successful", {autoClose:500})
-    };
+ 
 
+
+  const handleDelete = async (id) => {
+    console.log(id);
+    const res = await deleteBooking(id);
+    if (res) {
+      setLoading(!loading);
+      toast.success("Delete Successful", { autoClose: 500 });
+    }
   };
   if(loading)return <Spinner></Spinner>
 // this is myorders dashboard layout
@@ -164,7 +167,7 @@ const myOrders = () => {
                           </label>
                         </td>
                         <td className="px-6 py-4">
-                          <label onClick={()=>setModalData(book)} htmlFor="confirmation-modal">
+                        <label onClick={()=>setModalData(book)} htmlFor="confirmation-modal">
                           <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
                           </label>
                         </td>
