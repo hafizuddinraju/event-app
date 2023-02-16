@@ -9,6 +9,7 @@ import {useRouter } from 'next/router'
 import ReviewModal from "../../../components/ReviewModal/ReviewModal";
 import Spinner from "../../../components/Spinner/Spinner";
 import Link from "next/link";
+import ConfirmationModal from "../../../components/ConfirmationModal/ConfirmationModal";
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
@@ -17,7 +18,8 @@ const myOrders = () => {
   const [loading, setLoading] = useState(false);
   const [reviewModal, setReviewModal] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
-
+  const [modalData , setModalData] = useState(null);
+  
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -27,8 +29,12 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
-  }, [user?.email, loading]);
+
+      })
+  }, [user?.email,loading])
+  
+ 
+
 
   const handleDelete = async (id) => {
     console.log(id);
@@ -40,8 +46,7 @@ const myOrders = () => {
   };
   console.log(orderData);
   if(loading)return <Spinner></Spinner>
-
-
+// this is myorders dashboard layout
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
@@ -164,11 +169,11 @@ const myOrders = () => {
                           </label>
                         </td>
                         <td className="px-6 py-4">
-                          <AiFillDelete
-                            onClick={() => handleDelete(book._id)}
-                            className="text-3xl text-center text-[#ea0606]"
-                          ></AiFillDelete>
+                        <label onClick={()=>setReviewModal(book)} htmlFor="confirmation-modal">
+                          <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
+                          </label>
                         </td>
+                        {/* onClick={()=>handleDelete(book._id)} */}
                       </tr>
                     );
                   })}
@@ -179,6 +184,12 @@ const myOrders = () => {
                   </ReviewModal>) }
                 </tbody>
               </table>
+            {  <ConfirmationModal
+              message={"Are You Sure to Cancel the Booking"}
+              handler={handleDelete}
+              data={modalData}
+              setData={setModalData}
+              ></ConfirmationModal>}
             </div>
           </div>
         </div>
