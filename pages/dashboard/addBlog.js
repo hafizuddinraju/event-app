@@ -35,7 +35,6 @@ const addBlog = () => {
    
       
     const image = data.image[0];
-    console.log(image);
     const formData = new FormData();
     formData.append("image", image);
 
