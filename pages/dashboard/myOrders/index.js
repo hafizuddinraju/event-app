@@ -169,7 +169,7 @@ const myOrders = () => {
                           </label>
                         </td>
                         <td className="px-6 py-4">
-                        <label onClick={()=>setReviewModal(book)} htmlFor="confirmation-modal">
+                        <label onClick={()=>setModalData(book)} htmlFor="confirmation-modal">
                           <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
                           </label>
                         </td>
