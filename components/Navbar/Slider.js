@@ -5,13 +5,13 @@ import SliderItem from './SliderItem';
 const Slider = () => {
     const bannerData = [
         {
-            image: 'https://i.ibb.co/vcq1FP3/p1.jpg',
+            image: 'https://i.ibb.co/jvjkF1w/p6.jpg',
             prev: 6,
             id: 1,
             next: 2
         },
         {
-            image: 'https://i.ibb.co/2nHGJZm/p4.jpg',
+            image: 'https://i.ibb.co/vcq1FP3/p1.jpg',
             prev: 1,
             id: 2,
             next: 3
@@ -29,7 +29,7 @@ const Slider = () => {
             next: 5
         },
         {
-            image: 'https://i.ibb.co/jvjkF1w/p6.jpg',
+            image: 'https://i.ibb.co/2nHGJZm/p4.jpg',
             prev: 4,
             id: 5,
             next: 6

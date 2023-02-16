@@ -175,7 +175,7 @@ const myOrders = () => {
                           <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
                           </label>
                         </td>
-                        {/* onClick={()=>handleDelete(book._id)} */}
+              
                       </tr>
                     );
                   })}
