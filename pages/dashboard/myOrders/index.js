@@ -136,7 +136,7 @@ const myOrders = () => {
                         <td className="px-6 py-4">{book?.price}</td>
                         <td className="px-6 py-4">
                       {
-                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?.product_id}`} >
+                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?._id}`} >
      
                          <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" >
                            payment

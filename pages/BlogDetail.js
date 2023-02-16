@@ -1,5 +1,5 @@
-import RightSite from "../components/blogs/RightSite";
-import BlogDetails from "../components/blogs/blogDetails";
+import RightSite from '../components/blogs/RightSite'
+import BlogDetails from "../components/blogs/BlogDetails";
 
 const BlogDetail = () => {
   return (
@@ -56,7 +56,7 @@ const BlogDetail = () => {
         <BlogDetails/>
       </div>
       <div>
-        <RightSite/>
+        <RightSite></RightSite>
       </div>
       </div>
     </div>
