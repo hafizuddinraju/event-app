@@ -41,7 +41,6 @@ const UpdateProfile = ({ hide }) => {
                     }
                     setImgUrl(imgData.data.url)
                     handleUpdateUser(updateInfo)
-                    hide(false)
                 }
             })
 
@@ -51,6 +50,7 @@ const UpdateProfile = ({ hide }) => {
                 .then((result) => {
                     console.log(result);
                     toast.success(' successfully updated')
+                    hide(false)
                 })
                 .catch(err => {
                     console.log(err.message)
