@@ -68,7 +68,7 @@ const LayoutDashboard = ({ children }) => {
           <div className={styles.dp}>
             <Link href="/dashboard/profile">
               <img
-                src="https://i.ibb.co/9rcGLKG/profile-removebg-preview.png"
+                src={user?.photoURL}
                 className={styles.dpicn}
                 alt="dp"
               />
