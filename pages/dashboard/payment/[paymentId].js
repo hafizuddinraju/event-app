@@ -1,22 +1,27 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { getEvent} from "../../../lib/helperSubCategory";
+
 import { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "../../../components/CheckOutForm/CheckOutForm";
+import { getSingleBookingDetail } from "../../../lib/helperBooking";
+
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 const userPaymentPage = () => {
     const [getEventPayment , setGetEventPayment] = useState({});
     const router = useRouter();
-    const id = router.query.payment ;
+    const id = router.query.paymentId ;
+    console.log(id)
    
    useEffect(()=>{
     // get event for further details
-    getEvent(id)
+    getSingleBookingDetail(id)
      .then(res =>setGetEventPayment(res))
    
    },[id]);
+
+   console.log(getEventPayment, "call it")
 
 
 

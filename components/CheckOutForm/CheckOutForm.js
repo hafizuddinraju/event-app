@@ -12,8 +12,8 @@ const CheckOutForm = ({booking}) => {
     const [success , setSuccess] = useState("");
     const [transactionId , setTransactionId] = useState("");
     const [processing, setProcessing] = useState(false);
-    const { _id ,name} = booking ;
-    console.log(booking)
+    const {name} = booking ;
+    console.log(booking,'checkoutpage')
      const price = booking?.price?.slice(1,6) ;
     // console.log(price)
     const stripe = useStripe();
