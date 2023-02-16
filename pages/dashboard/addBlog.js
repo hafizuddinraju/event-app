@@ -26,30 +26,35 @@ const addBlog = () => {
       return res;
     },
   });
+
+  
+  const url = `https://api.imgbb.com/1/upload?key=${imgHost}`;
   console.log(allBlog);
 
   const handleSubmitEvent = async (data) => {
    
       
     const image = data.image[0];
+    console.log(image);
     const formData = new FormData();
     formData.append("image", image);
 
-    const url = `https://api.imgbb.com/1/upload?key=${imgHost}`;
+      console.log(url)
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
-      .then(async(imgData) => {
+      .then((imgData) => {
+        console.log(imgData.data.display_url);
+        const BlogInfo = {
+            name: data.name,
+            title: data.title,
+            desc: data.desc,
+            image: imgData.data.display_url,
+          };
         if (imgData.success) {
-            const BlogInfo = {
-                name: data.name,
-                title: data.title,
-                desc: data.desc,
-                image: imgData.data.url,
-              };
-           const res = await addBlogData(BlogInfo);
+           const res = addBlogData(BlogInfo);
            console.log(res)
            if(res){
             setSpinner(false)
