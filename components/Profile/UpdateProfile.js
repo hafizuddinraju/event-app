@@ -1,18 +1,13 @@
 import styles from '/styles/profile.module.css'
 import { BsArrowLeftSquare } from "react-icons/bs";
-import { RiPencilFill } from "react-icons/ri";
-import { useContext, useEffect } from 'react';
+import { useContext, } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
-import DragFile from '../DragFile/DragFile';
 import { useState } from 'react';
-import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { UpdateUser } from '../../lib/helperUser';
 
 const UpdateProfile = ({ hide }) => {
     const [imgUrl, setImgUrl] = useState('')
-    const [selectedImage, setSelectedImage] = useState();
     const { user, updateUser } = useContext(AuthContext)
     const { handleSubmit, register } = useForm()
 
@@ -39,22 +34,21 @@ const UpdateProfile = ({ hide }) => {
                 console.log(imgData);
                 if (imgData.success) {
                     setImgUrl(imgData.data.url)
+                    //update user details in firebase
+                    const updateInfo = {
+                        displayName: name,
+                        photoURL: imgData.data.url
+                    }
+                    updateUser(updateInfo)
+                        .then((result) => {
+                            console.log(result);
+                            toast.success(' successfully updated')
+                            hide(false)
+                        })
+                        .catch(err => {
+                            console.log(err.message)
+                        })
                 }
-            })
-
-        //update user details in firebase
-        const updateInfo = {
-            displayName: name,
-            photoURL: imgUrl
-        }
-        updateUser(updateInfo)
-            .then((result) => {
-                console.log(result);
-                toast.success(' successfully updated')
-                UpdateUser(user.email, name)
-            })
-            .catch(err => {
-                console.log(err.message)
             })
     }
     return (
