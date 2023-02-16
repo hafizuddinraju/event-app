@@ -29,13 +29,23 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-        })
+      })
   }, [user?.email,loading])
 
   const handleReview = (productId) => {
     setSelectedProductId(productId);
     setReviewModal(true);
   };
+
+  const handleDelete = async(id)=>{
+    console.log(id);
+    const res =await deleteBooking(id)
+    if(res){
+      setLoading(!loading)
+      toast.success("Delete Successful", {autoClose:500})
+    };
+      });
+  }, [user?.email, loading]);
   
   const handleDelete = async (id) => {
     console.log(id);
