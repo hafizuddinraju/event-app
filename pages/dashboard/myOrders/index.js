@@ -16,10 +16,11 @@ const myOrders = () => {
   const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [reviewModal, setReviewModal] = useState(false);
+  // const [reviewModal, setReviewModal] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
   // for delete user booking
   const [modalData , setModalData] = useState(null)
+
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -32,9 +33,12 @@ const myOrders = () => {
 
       })
   }, [user?.email,loading])
-  
- 
 
+   const handleReview = (productId) => {
+    setSelectedProductId(productId);
+    // setReviewModal(true);
+    setModalData(true);
+  };
 
   const handleDelete = async (id) => {
     console.log(id);
@@ -44,8 +48,10 @@ const myOrders = () => {
       toast.success("Delete Successful", { autoClose: 500 });
     }
   };
+
   console.log(orderData);
   if(loading)return <Spinner></Spinner>
+
 // this is myorders dashboard layout
   return (
     <LayoutDashboard>
@@ -177,10 +183,9 @@ const myOrders = () => {
                       </tr>
                     );
                   })}
-                  {reviewModal && (
+                  {modalData && (
                   <ReviewModal 
-                    productId={selectedProductId}
-                    onClose={() => setReviewModal(false)}>
+                    productId={selectedProductId}>
                   </ReviewModal>) }
                 </tbody>
               </table>
