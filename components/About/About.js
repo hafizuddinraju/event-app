@@ -4,7 +4,7 @@ import { HiOutlineStatusOffline } from "react-icons/hi";
 
 const About = () => {
     return (
-        <div className="hero mt-24">
+        <div className="hero my-24">
         <div className="hero-content flex-col lg:flex-row">
           <div className="relative w-1/2">
             <img src='https://i.ibb.co/bmWH6z1/marc-babin-a-QWm-CH-b3-MU-unsplash.jpg' alt="" className="w-3/4  rounded-t-full shadow-2xl" />
@@ -15,8 +15,8 @@ const About = () => {
             />
            </div>
           <div className="w-1/2 mb-16 text-start">
-            <p className="text-2xl font-bold text-sky-600">About Us</p>
-            <h1 className="text-5xl font-bold my-5">
+            <p className="text-xl lg:text-2xl font-bold text-sky-600">About Us</p>
+            <h1 className="text-3xl lg:text-5xl font-bold my-5">
             Our Event management 
             </h1>
             <p className="py-6">
@@ -25,7 +25,8 @@ const About = () => {
               humour, or randomised words which don't look even slightly
               believable.{" "}
             </p>
-            <hr className="w-full border-2"/><br/>
+            <hr className="w-full border-sky-600 border-2"/>
+            <br/>
             <div className="grid lg:grid-cols-2 sm:grid-cols-1">
               <div className="flex justify-center items-center">
                 <HiOutlineStatusOffline className="text-sky-500" size={50}/>
@@ -42,7 +43,7 @@ const About = () => {
                   </div>
               </div>
             </div>
-        <div className='my-8'>
+        {/* <div className='my-8'>
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row">
                     <div>
@@ -69,13 +70,13 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <hr className="mt-10 border-2"/>
-            <div className="mt-10 ">
-                  <p className="font-semibold justify-center items-center flex mb-2"><MdOfflinePin size={25} className="text-sky-500 mr-2"/> We are some technologies used.there are Next Js, React-Router dom, socket Io,Node js,Mongoose</p>
-                  <p className="font-semibold justify-center items-center flex"><MdOfflinePin size={25} className="text-sky-500 mr-2"/>We are some technologies used.there are Next Js, React-Router dom, socket Io,Node js,Mongoose</p>
-            </div><br/>
-            <button className="btn border-none text-white hover:bg-sky-500 bg-blue-600">Get More Info</button>
-          </div>
+          </div> */}
+          <hr className="mt-10 border-sky-600 border-2"/>
+          <div className="mt-10 ">
+                <p className="font-semibold justify-center items-center flex mb-2"><MdOfflinePin size={25} className="text-sky-600 mr-2"/> We are some technologies used.there are Next Js, React-Router dom, socket Io,Node js,Mongoose</p>
+                <p className="font-semibold justify-center items-center flex"><MdOfflinePin size={25} className="text-sky-600 mr-2"/>We are some technologies used.there are Next Js, React-Router dom, socket Io,Node js,Mongoose</p>
+          </div><br/>
+          <button className="btn border-none my-3 text-white hover:bg-sky-500 bg-blue-600">Get More Info</button>
         </div>
       </div>
       </div>

@@ -1,5 +1,5 @@
+import Faq from "../components/blogs/Faq";
 import LeftSide from "../components/blogs/LeftSide";
-import RightSite, { Faq } from "../components/blogs/RightSite";
 
 
 const blog = () => {

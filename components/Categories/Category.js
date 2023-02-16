@@ -22,13 +22,14 @@ const Category = () => {
     }
 
     return (
-         <section className='bg-[#f1f1f1] py-28'>
+            <section className='bg-[#f1f1f1] py-28'>
               <div className='max-w-screen-xl mx-auto parent-category-container'>
              <h2 className='text-center text-5xl mb-20 font-bold uppercase'>Events <span className='text-sky-600 '>for you</span></h2>
         <div className=' flex gap-5'>
             <div className='  '>
             <div className=' mt-20 text-center'>
                 <GiVineFlower className='mx-auto mb-5 text-sky-500' size={80}/>
+
                 <div>
                 <h1 className='text-5xl transition duration-1000 font-semibold my-4 font-serif text-left text-gray-800'>includes Various Event Categories</h1>
                 <p className='text-justify pr-10 transition duration-1000 text-lg'>There are many blogs that cover all categories of events. Some popular ones include Eventbrite Blog, Event Manager Blog, and Cvent Blog. These blogs cover a wide range of events, from corporate events and conferences to music festivals and sporting events. </p>

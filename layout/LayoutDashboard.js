@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { MdDashboard } from 'react-icons/md';
 import { IoIosArrowDown } from 'react-icons/io';
 import styles from '../styles/dashboard.module.css'
@@ -31,8 +30,6 @@ const LayoutDashboard = ({ children }) => {
   }
 
   const dataFilter = alluser?.filter(data => data.email === user.email)
-
-
 
   return (
     <div className={styles.top_class_data}>
@@ -68,7 +65,7 @@ const LayoutDashboard = ({ children }) => {
           <div className={styles.dp}>
             <Link href="/dashboard/profile">
               <img
-                src="https://i.ibb.co/9rcGLKG/profile-removebg-preview.png"
+                src={user?.photoURL}
                 className={styles.dpicn}
                 alt="dp"
               />
@@ -144,8 +141,10 @@ const LayoutDashboard = ({ children }) => {
                 <h3 className="text-white hover:text-gray-100">Requested Rejected Event</h3>
               </div>
               </Link>
+
               <Link href='/dashboard/paymentEvent'>
               <div className={`${styles.nav_option} ${styles.option1}`}>
+
                 <img
                   src="https://i.ibb.co/Cs2bvXv/6.png"
                   className={styles.nav_img}
@@ -154,6 +153,7 @@ const LayoutDashboard = ({ children }) => {
                 <h3 className="text-white hover:text-gray-100">Payment Event</h3>
               </div>
               </Link>
+
 
             </div>
           </nav>
