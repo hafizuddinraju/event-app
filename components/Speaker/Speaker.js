@@ -25,7 +25,7 @@ const Speaker = () => {
     return (
         <section className='py-10 '>
             <div className='max-w-screen-xl mx-auto '>
-            <h1 className='text-4xl md:text-5xl text-center my-10'><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
+            <h1 className='text-2xl md:text-4xl font-bold uppercase text-center my-10'><span className='text-blue-500'>Our</span> Honorable Speaker</h1>
             {/* speaker container */}
             <div className='grid justify-center grid-cols-1 mx-5 md:grid-cols-2 lg:grid-cols-3 gap-5'> 
             {

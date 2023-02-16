@@ -47,7 +47,7 @@ const LayoutDashboard = ({ children }) => {
           />
         </div>
 
-        <div className={styles.searchbar}>
+        {/* <div className={styles.searchbar}>
           <input type="text" placeholder="Search" />
           <div className={styles.searchbtn}>
             <img
@@ -56,15 +56,15 @@ const LayoutDashboard = ({ children }) => {
               alt="search-icon"
             />
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.message}>
           <div className={styles.circle}></div>
-          <img
+          {/* <img
             src="https://i.ibb.co/qs4QtHf/8.png"
             className={styles.icn}
             alt=""
-          />
+          /> */}
           <div className={styles.dp}>
             <Link href="/dashboard/profile">
               <img
@@ -112,6 +112,16 @@ const LayoutDashboard = ({ children }) => {
                   alt="report"
                 />
                 <h3 className="text-white hover:text-gray-100">Add Event</h3>
+              </div>
+              </Link>
+              <Link href='/dashboard/addBlog'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+                <img
+                  src="https://i.ibb.co/1ZNpvYK/5.png"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-100">Add Blog</h3>
               </div>
               </Link>
               <Link href='/dashboard/adminRequestEvents'>
