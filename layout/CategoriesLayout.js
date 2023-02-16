@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CategorySidebar from '../components/CategorySidebar/CategorySidebar';
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
