@@ -3,7 +3,7 @@ import { BsFillCalendar2EventFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { BsFillHeartFill } from "react-icons/bs";
 
-const BlogDetails = () => {
+const BlogData = () => {
   return (
     <div className="ml-12">
       <div className="">
@@ -156,11 +156,11 @@ const BlogDetails = () => {
           placeholder="Your message"
         ></textarea>
       </div>
-      <button className="btn border-none hover:bg-orange-600 my-8 bg-orange-500">
+      <button className="btn border-none hover:bg-sky-600 my-8 bg-sky-500">
         Submit Now
       </button>
     </div>
   );
 };
 
-export default BlogDetails;
+export default BlogData;
