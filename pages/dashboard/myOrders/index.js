@@ -30,7 +30,7 @@ const myOrders = () => {
   }, [user?.email,loading])
   
   const handleDelete = async(id)=>{
-    console.log(id);
+    
     const res =await deleteBooking(id)
     if(res){
       setLoading(!loading)
@@ -40,7 +40,7 @@ const myOrders = () => {
   };
   if(loading)return <Spinner></Spinner>
 
-
+console.log(orderData, "this is order data")
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
