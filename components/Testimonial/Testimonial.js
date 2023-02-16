@@ -32,10 +32,10 @@ const Testimonial = () => {
     }
 
     return (
-        <section className='my-20  py-20  '>
+        <section className='my-8 py-20  '>
                <div className='mx-5'>
                <div className='my-10'>
-                    <h2 className=" text-4xl md:text-5xl  font-bold text-center">
+                    <h2 className=" text-4xl md:text-4xl font-bold text-center">
                     Testimonials
                     </h2>
                     <p className='text-center mt-4 '>HAPPY CLIENTS ABOUT US</p>

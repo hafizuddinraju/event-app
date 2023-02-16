@@ -25,7 +25,7 @@ const GallerySection = () => {
     <>
       <div className="px-4 py-16 max-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-20">
         <div className=" mb-6 text-center lg:justify-center lg:flex-row md:mb-8">
-          <h2 className="text-3xl font-bold">OUR GALLERY</h2>
+          <h2 className="text-4xl font-bold">OUR GALLERY</h2>
           <h4 className="text-lg font-xl">
             Some of our projects discussion,management and meeting image
           </h4>

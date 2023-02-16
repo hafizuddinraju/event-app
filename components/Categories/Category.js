@@ -21,7 +21,7 @@ const Category = () => {
     return (
         <div className='max-w-[1400px]  mx-auto'>
             <div className='text-center my-20'>
-                <h3 className='font-bold text-3xl'>Events for You</h3>
+                <h3 className='font-bold text-4xl'>Events for You</h3>
             </div>
             <div className='grid grid-cols-1 gap-8 w-full md:grid-cols-2 lg:grid-cols-4 place-items-center justify-center '>
                 {

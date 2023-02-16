@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { MdDashboard } from 'react-icons/md';
 import { IoIosArrowDown } from 'react-icons/io';
 import styles from '../styles/dashboard.module.css'
@@ -31,8 +30,6 @@ const LayoutDashboard = ({ children }) => {
   }
 
   const dataFilter = alluser?.filter(data => data.email === user.email)
-
-
 
   return (
     <div className={styles.top_class_data}>
@@ -149,7 +146,7 @@ const LayoutDashboard = ({ children }) => {
                   className={styles.nav_img}
                   alt="blog"
                 />
-                <h3 className="text-white hover:text-gray-800"> Notice</h3>
+                <h3 className="text-white hover:text-gray-800">Notice</h3>
               </div>
               
              
@@ -165,13 +162,7 @@ const LayoutDashboard = ({ children }) => {
                   
                   </div>  </h3>
                
-              
-              
-
               </div>
-              
-              
-              
 
               <div className={`${styles.nav_option} ${styles.logout}`}>
                 <img
