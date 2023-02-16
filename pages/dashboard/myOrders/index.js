@@ -29,13 +29,14 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-
-      })
+        })
   }, [user?.email,loading])
+
+  const handleReview = (productId) => {
+    setSelectedProductId(productId);
+    setReviewModal(true);
+  };
   
- 
-
-
   const handleDelete = async (id) => {
     console.log(id);
     const res = await deleteBooking(id);
