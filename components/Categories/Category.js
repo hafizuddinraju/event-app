@@ -22,8 +22,8 @@ const Category = () => {
     }
 
     return (
-           <div className='grid bg-zinc-100 grid-rows-1 sm:grid-rows-1'>
-             <h2 className='text-center text-5xl font-semibold '><i>Our <span className='text-sky-600'>all events</span></i></h2>
+           <div className='grid grid-rows-1 sm:grid-rows-1'>
+             <h2 className='text-center text-5xl font-semibold '>Our <span className='text-sky-600'>all events</span></h2>
         <div className='max-w-[1400px] flex my-10  mx-auto'>
             <div className='text-center mr-12 my-20'>
             <div className='justify-center items-center mt-20 text-center'>
