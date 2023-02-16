@@ -173,20 +173,18 @@ const SingleCategory = () => {
             {modal && <Modal modal={modal} setModal={setModal}></Modal>}
           </div>
         </div>
-        <div className="my-4 mt-10 md:mt-10 lg:mt-36">
-          {/* <div className="w-1/2 justify-center"> */}
+        <div className="my-4 mt-10 md:mt-10 lg:mt-36 mx-auto lg:mx-auto">
 
           <MapWithNoSSR></MapWithNoSSR>
 
-          {/* </div> */}
           <div className="">
-            <div className="my-4 justify-start">
+            <div className="my-4 justify-center md:justify-center lg:justify-start">
               <p className="font-bold text-lg">Open hour</p>
               <p className="text-sm">Monday - Friday</p>
               <p className="text-sm">8.00am - 5.00pm</p>
               <p className="text-sm">Weekend closed</p>
             </div>
-            <div className="my-4 justify-center">
+            <div className="my-4 justify-center md:justify-center lg:justify-start">
               <p className="font-bold text-lg"> Phone&Email</p>
               <p className="text-sm">Phone: +084385922</p>
               <p className="text-sm">Email: event@bd.com</p>
