@@ -39,8 +39,7 @@ const myOrders = () => {
 
   };
   if(loading)return <Spinner></Spinner>
-
-console.log(orderData, "this is order data")
+// this is myorders dashboard layout
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
