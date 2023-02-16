@@ -6,7 +6,6 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const UserProfile = ({ show }) => {
     const { user } = useContext(AuthContext)
-    console.log(user);
     const handleLayout = () => {
         show(true)
     }
@@ -18,7 +17,7 @@ const UserProfile = ({ show }) => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 items-center">
                 <div className="border-r text-center">
-                    <img src="https://1.bp.blogspot.com/-t-6LHB4Oiuo/YUgU9E5RWNI/AAAAAAAAN8c/fPjpFYIYKAA2QH-KDKJ5jBKdYhqP2c5CgCLcBGAsYHQ/s720/DP%2BFor%2BGirls%2B%252817%2529.jpg" alt=""
+                    <img src={user.photoURL} alt=""
                         className="w-36 h-36 mx-auto rounded-full border-2 border-transparent hover:border-[#0EA5E9] p-3 duration-500" />
                 </div>
                 <div className="col-span-2 p-8">
