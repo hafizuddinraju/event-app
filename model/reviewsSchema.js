@@ -6,7 +6,6 @@ const reviewsSchema = new Schema ({
     user_img:String,
     date:String,
     product_id:String,
-    product_img:String,
     reviewDesc:String,
     rating:String
 })
