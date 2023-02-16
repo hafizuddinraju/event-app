@@ -9,6 +9,7 @@ import {useRouter } from 'next/router'
 import ReviewModal from "../../../components/ReviewModal/ReviewModal";
 import Spinner from "../../../components/Spinner/Spinner";
 import Link from "next/link";
+import ConfirmationModal from "../../../components/ConfirmationModal/ConfirmationModal";
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +17,8 @@ const myOrders = () => {
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [reviewModal, setReviewModal] = useState({});
-
+  // for delete user booking
+  const [modalData , setModalData] = useState(null)
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -30,16 +32,7 @@ const myOrders = () => {
       })
   }, [user?.email,loading])
   
-  const handleDelete = async(id)=>{
-    
-    const res =await deleteBooking(id)
-    if(res){
-      setLoading(!loading)
-      toast.success("Delete Successful", {autoClose:500})
-    };
-
-      });
-  }, [user?.email, loading]);
+ 
 
 
   const handleDelete = async (id) => {
@@ -51,8 +44,7 @@ const myOrders = () => {
     }
   };
   if(loading)return <Spinner></Spinner>
-
-console.log(orderData, "this is order data")
+// this is myorders dashboard layout
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
@@ -175,17 +167,23 @@ console.log(orderData, "this is order data")
                           </label>
                         </td>
                         <td className="px-6 py-4">
-                          <AiFillDelete
-                            onClick={() => handleDelete(book._id)}
-                            className="text-3xl text-center text-[#ea0606]"
-                          ></AiFillDelete>
+                        <label onClick={()=>setModalData(book)} htmlFor="confirmation-modal">
+                          <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
+                          </label>
                         </td>
+                        {/* onClick={()=>handleDelete(book._id)} */}
                       </tr>
                     );
                   })}
                   {reviewModal && orderData?.map((product)=><ReviewModal key={product._id} product={product}></ReviewModal>) }
                 </tbody>
               </table>
+            {  <ConfirmationModal
+              message={"Are You Sure to Cancel the Booking"}
+              handler={handleDelete}
+              data={modalData}
+              setData={setModalData}
+              ></ConfirmationModal>}
             </div>
           </div>
         </div>
