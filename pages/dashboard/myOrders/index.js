@@ -16,11 +16,9 @@ const myOrders = () => {
   const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [reviewModal, setReviewModal] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
-  // for delete user booking
-  const [modalData , setModalData] = useState(null)
-
+  const [modalData , setModalData] = useState(null);
+  
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -30,13 +28,11 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-
       })
   }, [user?.email,loading])
 
    const handleReview = (productId) => {
     setSelectedProductId(productId);
-    // setReviewModal(true);
     setModalData(true);
   };
 
