@@ -9,14 +9,16 @@ import {useRouter } from 'next/router'
 import ReviewModal from "../../../components/ReviewModal/ReviewModal";
 import Spinner from "../../../components/Spinner/Spinner";
 import Link from "next/link";
+import ConfirmationModal from "../../../components/ConfirmationModal/ConfirmationModal";
 
 const myOrders = () => {
   const { user } = useContext(AuthContext);
   const router = useRouter();
   const [orderData, setOderData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [reviewModal, setReviewModal] = useState({});
-
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [modalData , setModalData] = useState(null);
+  
   useEffect(() => {
     getSingleBooking(user?.email)
       .then((res) => {
@@ -26,8 +28,13 @@ const myOrders = () => {
       })
       .catch((error) => {
         console.log(error);
-      });
-  }, [user?.email, loading]);
+      })
+  }, [user?.email,loading])
+
+   const handleReview = (productId) => {
+    setSelectedProductId(productId);
+    setModalData(true);
+  };
 
   const handleDelete = async (id) => {
     console.log(id);
@@ -37,9 +44,11 @@ const myOrders = () => {
       toast.success("Delete Successful", { autoClose: 500 });
     }
   };
+
+  console.log(orderData);
   if(loading)return <Spinner></Spinner>
 
-
+// this is myorders dashboard layout
   return (
     <LayoutDashboard>
       <div className="flex justify-between items-center">
@@ -136,7 +145,7 @@ const myOrders = () => {
                         <td className="px-6 py-4">{book?.price}</td>
                         <td className="px-6 py-4">
                       {
-                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?.product_id}`} >
+                        book?.availability !== "paid" && <Link href={`/dashboard/payment/${book?._id}`} >
      
                          <button className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none" >
                            payment
@@ -156,23 +165,32 @@ const myOrders = () => {
                           <label 
                           htmlFor={user ? "review-modal" : router.push("/login")} 
                           className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none normal-case"
-                          onClick={()=> setReviewModal(orderData)}
+                          onClick={() => handleReview(book.product_id)}
                           >
                             Add Review
                           </label>
                         </td>
                         <td className="px-6 py-4">
-                          <AiFillDelete
-                            onClick={() => handleDelete(book._id)}
-                            className="text-3xl text-center text-[#ea0606]"
-                          ></AiFillDelete>
+                        <label onClick={()=>setModalData(book)} htmlFor="confirmation-modal">
+                          <AiFillDelete  className="text-3xl text-center text-[#ea0606] cursor-pointer"></AiFillDelete>
+                          </label>
                         </td>
+              
                       </tr>
                     );
                   })}
-                  {reviewModal && orderData?.map((product)=><ReviewModal key={product._id} product={product}></ReviewModal>) }
+                  {modalData && (
+                  <ReviewModal 
+                    productId={selectedProductId}>
+                  </ReviewModal>) }
                 </tbody>
               </table>
+            {  <ConfirmationModal
+              message={"Are You Sure to Cancel the Booking"}
+              handler={handleDelete}
+              data={modalData}
+              setData={setModalData}
+              ></ConfirmationModal>}
             </div>
           </div>
         </div>

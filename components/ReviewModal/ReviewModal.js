@@ -5,8 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import { addReview } from '../../lib/helperReviews';
 
-const ReviewModal = ({product}) => {
-    console.log(product);
+const ReviewModal = ({productId}) => {
     const {user} = useContext(AuthContext);
     const router = useRouter();
     const [selectedRating, setSelectedRating] = useState("");
@@ -35,14 +34,14 @@ const ReviewModal = ({product}) => {
         const userImg = '';
         const reviewDesc = form.reviewDesc.value;
         const rating = form.rating.value;
+        const product_id = form.productId.value;
 
         const review = {
             user_name: user?.displayName,
             user_email: user?.email,
             user_img: userImg,
             date: date,
-            product_id: product.product_id,
-            product_img: product.picture,
+            product_id: product_id,
             reviewDesc: reviewDesc,
             rating: rating
         };
@@ -70,6 +69,14 @@ const ReviewModal = ({product}) => {
               onSubmit={handleAddReview}
               className="grid grid-cols-1 gap-3 mt-10"
             >
+              <input
+                name="productId"
+                type="text"
+                value={productId}
+                readOnly
+                className="input hidden w-full text-gray-800 input-bordered"
+              />
+
               <select 
                 name="rating" 
                 placeholder='Click to rate'

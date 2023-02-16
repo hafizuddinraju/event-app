@@ -126,7 +126,7 @@ const DashboardItems = () => {
               })
             }
             {
-              !paymentEvent?
+              paymentEvent.length === 0?
               <>
               <p className='  text-center text-sky-500 font-semibold'> No Booking and No Payment. please Booking and Payment! </p>
               </>

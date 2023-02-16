@@ -12,8 +12,8 @@ const CheckOutForm = ({booking}) => {
     const [success , setSuccess] = useState("");
     const [transactionId , setTransactionId] = useState("");
     const [processing, setProcessing] = useState(false);
-    const { _id ,name} = booking ;
-    console.log(booking)
+    const {name} = booking ;
+    console.log(booking,'checkoutpage')
      const price = booking?.price?.slice(1,6) ;
     // console.log(price)
     const stripe = useStripe();
@@ -89,7 +89,7 @@ useEffect(() => {
                 eventId : booking?._id,
                 price : booking?.price,
                 eventUpdate: 10,
-                transaction_Id: transactionId
+                transaction_Id: paymentIntent.id
           }
           
             const response = await postPaymentIssueHelper(paymentInfo)
