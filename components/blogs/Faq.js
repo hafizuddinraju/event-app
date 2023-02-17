@@ -42,11 +42,6 @@ const Faq = () => {
                 <p className="mb-4 text-3xl font-bold text-gray-100">
                 <span className="text-sky-500">Event</span>Mart
                 </p>
-<<<<<<< HEAD
-               <div className="py-4">
-               <button className="btn bg-sky-500  hover:bg-sky-500">Booking Ticket</button>
-               </div>
-=======
                 <p className="text-sm tracking-wide text-gray-300">
                 The goal of our event management agency is to ensure that the event runs smoothly and is a success for all involved. We work closely with clients to understand their needs and goals, and then use our expertise to plan and execute an event that meets those needs and exceeds expectations.
                 </p>
@@ -54,7 +49,6 @@ const Faq = () => {
                   <Link href='/categories' className='btn text-lg normal-case bg-sky-500 hover:bg-sky-700 text-white font-sm py-2 px-4 rounded-full cursor-pointer border border-blue-500'>Events
                   </Link>
                 </div>
->>>>>>> e80645df5f5b706123a2e5fa1790cc80db1bae2d
               </div>
             </div>
           </a>
