@@ -31,7 +31,7 @@ const GallerySection = () => {
             Some of our projects discussion,management and meeting image
           </h4>
         </div>
-        <div  className="grid gap-6 mb-8 w-full lg:grid-cols-4 md:grid-cols-2 sm:row-gap-6 sm:grid-cols-1">
+        <div  className="grid gap-6 mb-8 w-full lg:grid-cols-4 md:grid-cols-2 sm:row-gap-6 sm:grid-cols-1 justify-center align-middle ">
 
           {
           allPhotos.length > 0  && allPhotos?.slice(0, 4).map(({ _id, title, desc, cover }) => 
@@ -44,8 +44,7 @@ const GallerySection = () => {
           )}
         </div>
         <div className='flex justify-center mt-20 tooltip' data-tip='click the Button explore more Gallery Cards'>
-          <Link href='/allGallery' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer border border-blue-500'>See more
-          
+          <Link href='/allGallery' className='btn text-xl normal-case bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 mb-12 md:mb-12 lg:mb-0 rounded-full cursor-pointer border border-blue-500'>See more
           </Link>
         </div>
       </div>

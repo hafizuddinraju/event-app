@@ -73,12 +73,11 @@ const Signup = () => {
             .catch(error => {
                 console.log(error)
             })
-
     }
 
 
     return (
-        <div  className='lg:flex md:flex-row flex-col lg:justify-evenly mt-24 mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2 items-center gap-4'>
             <div>
                 <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>
