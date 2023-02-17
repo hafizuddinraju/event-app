@@ -6,7 +6,7 @@ import styles from '../../styles/Features.module.css'
 
 const Features = () => {
     return (
-      <section className='bg-[#fbf9f9] py-28'>
+      <section className='bg-[#fbf9f9] py-10 md:py-20'>
           <div className=' max-w-screen-xl mx-auto '>
             <div className='text-center mb-5'>
                 <p className='text-lg sm:text-4xl lg:text-5xl font-bold'>
@@ -18,7 +18,7 @@ const Features = () => {
                 <p>The goal of our event management agency is to ensure that the event runs smoothly and is a success for all involved. We work closely with clients to understand their needs and goals, and then use our expertise to plan and execute an event that meets those needs and exceeds expectations.</p>
             </div>
             <div className='flex flex-wrap justify-around mt-10'>
-                <div className={`h-44 ${styles.feature_card_css} shadow-black w-44 p-5 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
+                <div className={`h-44 ${styles.feature_card_css} shadow-sky-200 w-44 p-5 mb-3 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
                     <div className='flex justify-center align-middle mb-5'>
                         <BsHouse className={`h-10 w-10 ${styles.icon} text-sky-400 `}></BsHouse>
                     </div>
@@ -26,7 +26,7 @@ const Features = () => {
                         <p className='text-lg font-semibold'>Find out Your desired venue</p>
                     </div>
                 </div>
-                <div className={`h-44 ${styles.feature_card_css} shadow-black w-44 p-5 hover:border hover:border-sky-300  shadow-md sm:shadow-none`}>
+                <div className={`h-44 ${styles.feature_card_css} shadow-sky-200 w-44 p-5 mb-3 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
                     <div className='flex justify-center align-middle'>
                         <MdOutlineConnectWithoutContact className={`h-10 w-10 ${styles.icon} text-sky-400 mb-5 `}></MdOutlineConnectWithoutContact>
                     </div>
@@ -34,7 +34,7 @@ const Features = () => {
                         <p className='text-lg font-semibold'>Connect your vendor</p>
                     </div>
                 </div>
-                <div className={`h-44 ${styles.feature_card_css} shadow-black w-44 p-5 hover:border hover:border-sky-300  shadow-md sm:shadow-none`}>
+                <div className={`h-44 ${styles.feature_card_css} shadow-sky-200 w-44 p-5 mb-3 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
                     <div className='flex justify-center align-middle'>
                         <FaHandsHelping className={`h-10 w-10 ${styles.icon} text-sky-400 mb-5 `}></FaHandsHelping>
                     </div>
@@ -42,7 +42,7 @@ const Features = () => {
                         <p className='text-lg font-semibold'>Let us organize your event</p>
                     </div>
                 </div>
-                <div className={`h-44 ${styles.feature_card_css} shadow-black w-44 p-3 hover:border hover:border-sky-300  shadow-md sm:shadow-none`}>
+                <div className={`h-44 ${styles.feature_card_css} shadow-sky-200 w-44 p-5 mb-3 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
                     <div className='flex justify-center align-middle'>
                         <FaHeart className={`h-10 w-10 ${styles.icon} text-sky-400 mb-5 `}></FaHeart>
                     </div>
