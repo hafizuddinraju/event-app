@@ -154,7 +154,7 @@ const SingleCategory = () => {
                   ></MdOutlineReport>
                 </div>
                 <div className="text-center">
-                  {eventData?.availability === "0" ? (
+                  {eventData?.availability === "paid" ? (
                     <label className="inline-flex disabled:opacity-75 items-center justify-center w-1/2 h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gray-600 hover:bg-gray-700 focus:shadow-outline focus:outline-none">
                       Stock out
                     </label>
