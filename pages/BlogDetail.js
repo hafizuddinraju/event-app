@@ -1,4 +1,4 @@
-import BlogDetails from '../components/blogs/BlogDetails';
+import BlogData from '../components/blogs/BlogData';
 import RightSite from '../components/blogs/RightSite'
 
 const BlogDetail = () => {
@@ -53,7 +53,7 @@ const BlogDetail = () => {
       </div>
       <div className="flex sm:flex-1 gap-10">
       <div className="w-2/3 -mt-28 ml-10">
-        <BlogDetails></BlogDetails>
+        <BlogData></BlogData>
       </div>
       <div>
         <RightSite></RightSite>

@@ -67,11 +67,20 @@ const LayoutDashboard = ({ children }) => {
           /> */}
           <div className={styles.dp}>
             <Link href="/dashboard/profile">
-              <img
-                src={user?.photoURL}
+              {
+                user?.uid && user?.photoURL ? 
+                <img
+                src={user.photoURL}
                 className={styles.dpicn}
                 alt="dp"
               />
+              :
+              <img
+                src="https://i.ibb.co/9rcGLKG/profile-removebg-preview.png"
+                className={styles.dpicn}
+                alt="dp"
+              />
+              }
             </Link>
           </div>
         </div>
@@ -180,17 +189,19 @@ const LayoutDashboard = ({ children }) => {
 
               </div>
               
-              
-              
+              <Link href='/dashboard/paymentEvent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
 
-              <div className={`${styles.nav_option} ${styles.logout}`}>
                 <img
-                  src="https://i.ibb.co/NK4pb43/7.png"
+                  src="https://i.ibb.co/Cs2bvXv/6.png"
                   className={styles.nav_img}
-                  alt="logout"
+                  alt="report"
                 />
-                <h3 className="text-white hover:text-gray-800">Logout</h3>
+                <h3 className="text-white hover:text-gray-100">Payment Event</h3>
               </div>
+              </Link>
+
+
             </div>
           </nav>
           :

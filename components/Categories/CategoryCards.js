@@ -8,7 +8,7 @@ const CategoryCards = ({ events }) => {
     router.push('/categories');
   }
   return (
-    <div onClick={handlePushAllCategory} className="rounded-xl cursor-pointer parent-category-container-grid-card h-64  bg-slate-50 transition duration-1000 shadow-sky-400 hover:scale-105 shadow-lg">
+    <div onClick={handlePushAllCategory} className="rounded-xl cursor-pointer parent-category-container-grid-card mx-14 lg:mx-0 lg:h-64  bg-slate-50 transition duration-1000 shadow-sky-400 hover:scale-105 shadow-lg">
       <div className="p-5 ">
         <div className="rounded-xl">
           <img src={img} alt="" className="" />

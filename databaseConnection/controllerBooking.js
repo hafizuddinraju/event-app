@@ -53,15 +53,25 @@ export const getSingleBookingForDetails = async(req , res)=>{
       res.status(404).json({error:"Error while fetching by id"})
   }
 }
+export const getSingleBookingPayment = async(req , res)=>{
+  try {
+      const {paymentId} = req.query ;
+      if(paymentId){
+          const singleUser = await bookingsData.findById(paymentId)
+          return res.status(200).json(singleUser)
+      }
+      res.status(404).json({error:"single user not find"})
+  } catch (error) {
+      res.status(404).json({error:"Error while fetching by id"})
+  }
+}
 
 // put : http://localhost:3000/api/users/1
 export const updateBooking = async(req, res)=> {
   try {
     const { paymentId } = req.query;
     const formData = req.body;
-    let filter = {product_id : paymentId}
-    await bookingsData.countDocuments(filter)
-    let doc = await bookingsData.findOneAndUpdate(filter, formData, {
+    let doc = await bookingsData.findByIdAndUpdate(paymentId, formData, {
         new:true,
         upsert:true
     })
