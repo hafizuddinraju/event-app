@@ -15,7 +15,7 @@ const About = () => {
             />
            </div>
           <div className="w-1/2 mb-16 text-start">
-            <p className="text-xl lg:text-2xl font-bold text-sky-600">About Us</p>
+            <p className="text-[13px] md:text-[20px] lg:text-3xl font-bold text-sky-600">About Us</p>
             <h1 className="text-3xl lg:text-5xl font-bold my-5">
             Our Event management 
             </h1>
@@ -31,14 +31,14 @@ const About = () => {
               <div className="flex justify-center items-center">
                 <HiOutlineStatusOffline className="text-sky-500" size={50}/>
                   <div className="block ml-3">
-                  <h3 className="text-2xl flex font-bold">Offline Booking</h3>
+                  <h3 className="text-xl md:text-2xl lg:text-2xl flex font-bold">Offline Booking</h3>
                   <p className="text-lg flex">With our very popular event management</p>
                   </div>
               </div>
               <div className="flex justify-center items-center">
                 <FaInternetExplorer className="text-sky-500" size={50}/>
                   <div className="block ml-3">
-                  <h2 className="text-2xl font-bold">online Booking</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-2xl font-bold">online Booking</h2>
                   <p className="text-lg flex">Our service is very unique and trustful</p>
                   </div>
               </div>
