@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Item from "./RightSite";
 
 const Faq = () => {
@@ -8,32 +9,28 @@ const Faq = () => {
             <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
               <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
                 <span class="relative inline-block">
-                  <span class="relative">The</span>
-                </span>{' '}
-                quick, brown fox jumps over a lazy dog
+                  <span class="relative">
+                    <span className="text-sky-600">Event</span>Mart
+                  </span>
+                </span>
               </h2>
               <p class="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+              The goal of our event management agency is to ensure that the event runs smoothly and is a success for all involved. We work closely with clients to understand their needs and goals, and then use our expertise to plan and execute an event that meets those needs and exceeds expectations.
               </p>
             </div>
           </div>
-          <div class="space-y-4">
-            <Item title="The quick, brown fox jumps over a lazy dog?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
+          <div className="space-y-4">
+            <Item title="What is event management?">
+            Event management involves the planning, organization, and execution of events, such as conferences, trade shows, concerts, and other gatherings. Event management professionals help clients with everything from selecting a venue to coordinating vendors and managing logistics on the day of the event.
             </Item>
-            <Item title="The first mate and his Skipper too will do?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
+            <Item title="What services does your event management company offer?">
+            Our event management company offers a wide range of services, including event planning and design, vendor management, budgeting and financial management, and on-site event management and coordination.
             </Item>
-            <Item title="Is the Space Pope reptilian!?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
+            <Item title="How much does it cost to hire an event management company?">
+            The cost of hiring an event management company will vary depending on the size and complexity of your event, as well as the services you require. We offer customized event management solutions that are tailored to your specific needs and budget, and we are happy to provide a detailed quote for our services upon request.
             </Item>
-            <Item title="How much money you got on you?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
+            <Item title="How can I ensure that my event runs smoothly?">
+            To ensure that your event runs smoothly, it is important to work with an experienced and professional event management team that can help you anticipate and address any issues that may arise. We will work with you to create a detailed event plan and provide on-site coordination and management to ensure that everything goes according to plan.
             </Item>
           </div>
         </div>
@@ -46,13 +43,16 @@ const Faq = () => {
                 alt=""
               />
               <div className="absolute inset-0 px-6 text-center items-center justify-center py-4 transition-opacity duration-200 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                <p className="mb-4 text-lg font-bold text-gray-100">Mona Lisa</p>
-                <p className="text-sm tracking-wide text-gray-300">
-                Some common synonyms of compress are condense, constrict, contract, deflate, and shrink. While all these words mean "to decrease in bulk or volume," compress implies a pressing into a small compass and definite shape usually against resistance.
+                <p className="mb-4 text-3xl font-bold text-gray-100">
+                <span className="text-sky-500">Event</span>Mart
                 </p>
-               <div className="py-4">
-               <button className="btn bg-orange-500  hover:bg-sky-500">Booking Ticket</button>
-               </div>
+                <p className="text-sm tracking-wide text-gray-300">
+                The goal of our event management agency is to ensure that the event runs smoothly and is a success for all involved. We work closely with clients to understand their needs and goals, and then use our expertise to plan and execute an event that meets those needs and exceeds expectations.
+                </p>
+                <div className='flex justify-center mt-5 tooltip' data-tip='click to explore our events'>
+                  <Link href='/categories' className='btn text-lg normal-case bg-sky-500 hover:bg-sky-700 text-white font-sm py-2 px-4 rounded-full cursor-pointer border border-blue-500'>Events
+                  </Link>
+                </div>
               </div>
             </div>
           </a>
