@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Teams from "../../components/Teams/Teams";
 
 const About = () => {
     return (
@@ -46,6 +47,7 @@ const About = () => {
             </div>
           </div>
         </div>
+        <Teams/>
       </div>
     );
   };

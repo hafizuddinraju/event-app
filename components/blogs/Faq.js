@@ -51,7 +51,7 @@ const Faq = () => {
                 Some common synonyms of compress are condense, constrict, contract, deflate, and shrink. While all these words mean "to decrease in bulk or volume," compress implies a pressing into a small compass and definite shape usually against resistance.
                 </p>
                <div className="py-4">
-               <button className="btn bg-orange-500  hover:bg-sky-500">Booking Ticket</button>
+               <button className="btn bg-sky-500  hover:bg-sky-500">Booking Ticket</button>
                </div>
               </div>
             </div>
