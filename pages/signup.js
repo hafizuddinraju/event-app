@@ -77,7 +77,7 @@ const Signup = () => {
 
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 items-center gap-4'>
+        <div className='flex h-screen justify-center flex-col md:flex-row lg:flex-row items-center gap-4'>
             <div>
                 <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>
