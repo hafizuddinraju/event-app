@@ -6,14 +6,20 @@ import { blogData } from "../../lib/helperBlog";
 
 const LeftSide = () => {
   
-  const [readMore, setReadMore] = useState(200);
+  const [readMore, setReadMore] = useState({});
 
   const handleReadMore = (id) =>{
-    setReadMore(1000);
+    setReadMore({
+      ...readMore,
+      [id]: true
+    });
 }
 
 const handleShowLess = (id) =>{
-    setReadMore(200)
+  setReadMore({
+    ...readMore,
+    [id]: false
+  });
 }
 
 const { data: cards = [], error, isError, refetch, isLoading } = useQuery({
@@ -24,7 +30,7 @@ const { data: cards = [], error, isError, refetch, isLoading } = useQuery({
   }
 })
 
-console.log(cards)
+// console.log(cards)
   
   return (
    <>
@@ -59,23 +65,41 @@ console.log(cards)
                 <h4 className="text-xl text-gray-500">{title}</h4>
               </div>
               <p className={' transition-all duration-1000 '}>
-                            {desc?.length > readMore ? (
-                      <small className='transition text-[16px] duration-1000'>
-                        {" "}
-                        {desc.slice(0, 200) + "..."}{" "}
-                        <button
-                          onClick={handleReadMore}
-                          className="text-sky-700"
-                        >
-                          read more
-                        </button>
-                      </small>
-                    ) : <>{desc} <button className='text-red-500 underline font-bold' 
-                    onClick={handleShowLess}>
-                      show less</button></>}
-                            </p>
+
+                {desc?.length > readMore || readMore[_id] ? (
+                  <small className='transition text-[16px] duration-1000'>
+                    {" "}
+                    {desc}{" "}
+                    {desc?.length > readMore && !readMore[_id] && (
+                      <button
+                        onClick={() => handleReadMore(_id)}
+                        className="text-sky-700"
+                      >
+                        read more
+                      </button>
+                    )}
+                    {readMore[_id] && (
+                      <button className='text-red-500 underline font-bold' 
+                        onClick={() => handleShowLess(_id)}>
+                        show less
+                      </button>
+                    )}
+                  </small>
+                ) : (
+                  <small className='transition text-[16px] duration-1000'>
+                    {" "}
+                    {desc.slice(0, 200) + "..."}{" "}
+                    <button
+                      onClick={() => handleReadMore(_id)}
+                      className="text-sky-700"
+                    >
+                      read more
+                    </button>
+                  </small>
+                )}
+              </p>
               
-                            <Link href='/BlogDetail'><button
+              <Link href='/BlogDetail'><button
                 type="submit"
                 className="inline-flex items-center justify-center h-12 px-6 mt-6 font-medium tracking-wide text-orange-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
               >
