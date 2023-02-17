@@ -37,3 +37,20 @@ export const postPaymentIssue= async(req, res)=> {
       return res.status(404).json({ error });
     }
   }
+
+  export const updatePaymentRoadMap = async(req, res)=> {
+    try {
+      const { paymentId } = req.query;
+      const formData = req.body;
+      let doc = await paymentIssueEventSchemaModel.findByIdAndUpdate(paymentId, formData, {
+          new:true,
+          upsert:true
+      })
+     if(doc){
+      res.status(200).json(doc);
+     }
+     
+    } catch (error) {
+      res.status(404).json({ error: "Error While Updating the Data...!" });
+    }
+  }

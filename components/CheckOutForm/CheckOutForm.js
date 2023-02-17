@@ -1,7 +1,9 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import swal from 'sweetalert';
 import { AuthContext } from '../../context/AuthProvider';
 import { postPaymentIssueHelper, updateBookingPayment } from '../../lib/paymentIssueHelper';
 
@@ -12,7 +14,8 @@ const CheckOutForm = ({booking}) => {
     const [success , setSuccess] = useState("");
     const [transactionId , setTransactionId] = useState("");
     const [processing, setProcessing] = useState(false);
-    const {name} = booking ;
+    const router = useRouter();
+    
     console.log(booking,'checkoutpage')
      const price = booking?.price?.slice(1,6) ;
     // console.log(price)
@@ -84,7 +87,7 @@ useEffect(() => {
           console.log(paymentIntent, "this is payment")
 
           const paymentInfo ={
-                eventName: name,
+                eventName: n,
                 userEmail : user?.email,
                 eventId : booking?._id,
                 price : booking?.price,
@@ -98,6 +101,14 @@ useEffect(() => {
 
             const updateResponse = await updateBookingPayment(booking?._id , formData)
             console.log(updateResponse, "this is response")
+
+            if(updateResponse){
+              swal("Payment SuccessFul!", "success", {
+                button: "Done!",
+              });
+              router.push('/dashboard/myOrders')
+
+            }
            }
         
 

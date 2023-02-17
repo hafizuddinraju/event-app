@@ -19,6 +19,8 @@ const Features = () => {
             </div>
             <div className='flex flex-wrap justify-around mt-10'>
                 <div className={`h-44 ${styles.feature_card_css} shadow-sky-200 w-44 p-5 mb-3 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
+            <div className='flex flex-wrap justify-around mt-10'>
+                <div className={`h-44 ${styles.feature_card_css} shadow-black w-44 p-5 hover:border hover:border-sky-300 shadow-md sm:shadow-none`}>
                     <div className='flex justify-center align-middle mb-5'>
                         <BsHouse className={`h-10 w-10 ${styles.icon} text-sky-400 `}></BsHouse>
                     </div>

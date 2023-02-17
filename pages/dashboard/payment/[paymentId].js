@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "../../../components/CheckOutForm/CheckOutForm";
-import { getSingleBookingDetail } from "../../../lib/helperBooking";
+import { getSingleBookingPayment } from "../../../lib/helperBooking";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 const userPaymentPage = () => {
@@ -16,7 +16,7 @@ const userPaymentPage = () => {
    
    useEffect(()=>{
     // get event for further details
-    getSingleBookingDetail(id)
+    getSingleBookingPayment(id)
      .then(res =>setGetEventPayment(res))
    
    },[id]);
@@ -26,12 +26,15 @@ const userPaymentPage = () => {
 
 
     return (
-        <div className="my-32 flex justify-around">
+        <div className="py-32 flex justify-around h-screen">
             <div>
-                <h2>Payment For </h2>
-                <h2 className="text-3xl font-bold">{getEventPayment?.name || ""}</h2>
+                <h2 className="font-bold text-3xl mb-4">Payment For </h2>
+                <div className="flex items-center gap-3 justify-center">
+
+               
+                <img className="w-24 rounded-full" src={getEventPayment?.picture || ""} alt="" />
                 <p className="font-bold">Price : ${getEventPayment?.price || ""}</p>
-                <img className="w-32" src={getEventPayment?.image_url || ""} alt="" />
+                </div>
             </div>
             <div className="w-96 border-2 mt-4">
             <Elements stripe={stripePromise}>
