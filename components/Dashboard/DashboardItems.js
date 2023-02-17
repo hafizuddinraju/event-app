@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import Spinner from '../Spinner/Spinner';
 import { getUsers } from '../../lib/helperUser';
 import { useEffect } from 'react';
+import { FaUsers } from 'react-icons/fa';
 import { getSinglePayment } from '../../lib/paymentIssueHelper';
 const DashboardItems = () => {
   const { user } = useContext(AuthContext);
@@ -55,7 +56,7 @@ const DashboardItems = () => {
               paymentEvent?.map(p =>{
                 return(
                   <div key={p._id} className='mb-6'>
-                   <p className='  text-center text-sky-500 font-semibold'>{p?.eventName} </p>
+                   <p className='  text-center text-sky-500 font-semibold'>{p?.eventId} </p>
                   <div className='mt-10 mx-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 lg:gap-6'>
                     {
                       p?.eventUpdate >=10?
@@ -142,7 +143,60 @@ const DashboardItems = () => {
         {
           dataFilter[0]?.role == 'Admin'?
           <>
-          <h1>Admin Call</h1>
+          <div className='grid lg:mx-10 md:mx-7 mx-5  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-7'>
+          
+          <div className='bg-white py-10 px-10 rounded-lg'>
+                <div className='flex items-center'>
+                <FaUsers></FaUsers>
+                   <h2 className='px-2 text-sm font-medium text-gray-400'>Total Users</h2> 
+                    </div>
+            <div className="flex justify-between  items-center my-10">
+              
+                <h2 className="text-3xl font-bold">{alluser?.length}</h2>
+                
+              
+              
+
+                <div className="radial-progress  text-sky-300" style={{ "--value": "60", "--size": "10rem", "--thickness": "2rem" }}>60%</div>
+       
+            </div>
+           
+           
+            </div>
+          <div className='bg-white py-10 px-10 rounded-lg'>
+                <div className='flex items-center'>
+                <FaUsers></FaUsers>
+                   <h2 className='px-2 text-sm font-medium text-gray-400'>Total Payment</h2> 
+                    </div>
+            <div className="flex justify-between  items-center my-10">
+              
+                <h2 className="text-3xl font-bold">50</h2>
+              
+                <div className="radial-progress  text-green-300" style={{ "--value": "100", "--size": "10rem", "--thickness": "2rem" }}>100%</div>
+       
+            </div>
+            
+            </div>
+          <div className='bg-white py-10 px-10 rounded-lg'>
+                <div className='flex items-center'>
+                <FaUsers></FaUsers>
+                   <h2 className='px-2 text-sm font-medium text-gray-300'>Total Employee</h2> 
+                    </div>
+            <div className="flex justify-between  items-center my-10">
+              
+                <h2 className="text-3xl font-bold">6</h2>
+                
+              
+              
+
+                <div className="radial-progress  text-green-300" style={{ "--value": "100", "--size": "10rem", "--thickness": "2rem" }}>100%</div>
+       
+            </div>
+            
+            </div>
+            
+
+          </div>
           </>
           :
           ''

@@ -1,8 +1,11 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import swal from 'sweetalert';
 import { AuthContext } from '../../context/AuthProvider';
+import { getEvent, updateSubCategory } from '../../lib/helperSubCategory';
 import { postPaymentIssueHelper, updateBookingPayment } from '../../lib/paymentIssueHelper';
 
 const CheckOutForm = ({booking}) => {
@@ -12,7 +15,8 @@ const CheckOutForm = ({booking}) => {
     const [success , setSuccess] = useState("");
     const [transactionId , setTransactionId] = useState("");
     const [processing, setProcessing] = useState(false);
-    const {name} = booking ;
+    const router = useRouter();
+    
     console.log(booking,'checkoutpage')
      const price = booking?.price?.slice(1,6) ;
     // console.log(price)
@@ -34,6 +38,14 @@ useEffect(() => {
   }
   newFun()
 }, [price]);
+
+// useEffect(()=>{
+//   getEvent(booking?.product_id)
+//   .then(res =>{
+//     console.log(res,"data find")
+//   })
+
+// },[booking?.product_id])
 
 
     const handleSubmit =async (event) =>{
@@ -84,7 +96,7 @@ useEffect(() => {
           console.log(paymentIntent, "this is payment")
 
           const paymentInfo ={
-                eventName: name,
+                
                 userEmail : user?.email,
                 eventId : booking?._id,
                 price : booking?.price,
@@ -98,6 +110,15 @@ useEffect(() => {
 
             const updateResponse = await updateBookingPayment(booking?._id , formData)
             console.log(updateResponse, "this is response")
+            const eventSubRes = await updateSubCategory(booking?.product_id, formData)
+
+            if(eventSubRes){
+              swal("Payment SuccessFul!", "success", {
+                button: "Done!",
+              });
+              router.push('/dashboard/myOrders')
+
+            }
            }
         
 

@@ -29,7 +29,7 @@ const Login = () => {
                 router.push('/')
             })
             .catch(err => {
-                toast.error(err.message,{autoClose:1000})
+                toast.error(err.message, { autoClose: 1000 })
             })
     }
 
@@ -59,15 +59,15 @@ const Login = () => {
 
     }
     return (
-        <div className="mt-32">
+        <div className="mt-24">
             <Head>Login</Head>
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
                     <div className="">
                         <img src="https://i.ibb.co/9Wty6PY/Mobile-login-bro-1.png" alt="" />
                     </div>
-                    <div className="w-9/12 mx-auto lg:w-full">
-                        <form onSubmit={handleSubmit(handleLoginForm)} className="flex flex-col justify-center space-y-3 lg:w-2/3 mx-auto bg-base-100 shadow-lg p-6 ">
+                    <div className="">
+                        <form onSubmit={handleSubmit(handleLoginForm)} className="flex flex-col justify-center space-y-3 lg:w-2/3 mx-auto shadow-lg p-6 ">
                             <h4 className="text-center text-3xl uppercase py-4 font-semibold">login</h4>
                             <div className="relative">
                                 <input {...register('email', { required: 'email required' })} type="text" placeholder="Email" className="input focus:outline-none w-full input-bordered focus:border focus:border-cyan-300" />

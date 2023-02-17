@@ -20,21 +20,21 @@ const TeamDetails = ({member}) => {
       <div className="card border hover:shadow-xl hover:-translate-y-1 rounded-lg mt-5  bg-base-100">
       <figure><img src={img} className='w-full h-96 duration-500 rounded-xl hover:scale-105' alt="Movie"/></figure>
       <div className="card-body">
-         <p className='font-semibold text-xl'>{title}</p>
+         <p className='font-semibold text-2xl'>{title}</p>
          <div className='flex'>
           <FcManager size={35} className="justify-center"/>
           <div className='mt-2'>
               <p className='font-semibold'>{name}</p>
           </div>
         </div>
-        <p className={' transition-all duration-1000 '}>
+        <p className={' transition-all duration-1000 text-justify '}>
                             {desc?.length > readMore ? (
                       <small className='transition text-[16px] duration-1000'>
                         {" "}
                         {desc.slice(0, 100) + "..."}{" "}
                         <button
                           onClick={handleReadMore}
-                          className="text-sky-700"
+                          className="text-sky-700 "
                         >
                           read more
                         </button>

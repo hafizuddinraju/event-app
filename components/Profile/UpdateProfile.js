@@ -37,27 +37,25 @@ const UpdateProfile = ({ hide }) => {
 
                     const updateInfo = {
                         displayName: name,
-                        photoURL: imgData.data.display_url
+                        photoURL: imgData.data.url
                     }
-
-                    // setImgUrl(imgData.data.url)
+                    setImgUrl(imgData.data.url)
                     handleUpdateUser(updateInfo)
                 }
             })
 
         //update user details in firebase
-
-            const handleUpdateUser = (userInfo) =>{
-                updateUser(userInfo)
-                    .then((result) => {
-                        console.log(result);
-                        toast.success(' successfully updated')
-                        // UpdateUser(user.email, name)
-                    })
-                    .catch(err => {
-                        console.log(err.message)
-                    })
-                }
+        const handleUpdateUser = (userInfo) => {
+            updateUser(userInfo)
+                .then((result) => {
+                    console.log(result);
+                    toast.success(' successfully updated')
+                    hide(false)
+                })
+                .catch(err => {
+                    console.log(err.message)
+                })
+        }
     }
     return (
         <section className="bg-white p-8">
