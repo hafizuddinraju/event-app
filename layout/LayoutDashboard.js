@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { MdDashboard } from 'react-icons/md';
 import { IoIosArrowDown } from 'react-icons/io';
 import styles from '../styles/dashboard.module.css'
@@ -30,6 +31,8 @@ const LayoutDashboard = ({ children }) => {
   }
 
   const dataFilter = alluser?.filter(data => data.email === user.email)
+
+
 
   return (
     <div className={styles.top_class_data}>
@@ -64,11 +67,20 @@ const LayoutDashboard = ({ children }) => {
           /> */}
           <div className={styles.dp}>
             <Link href="/dashboard/profile">
-              <img
-                src={user?.photoURL}
+              {
+                user?.uid && user?.photoURL ? 
+                <img
+                src={user.photoURL}
                 className={styles.dpicn}
                 alt="dp"
               />
+              :
+              <img
+                src="https://i.ibb.co/9rcGLKG/profile-removebg-preview.png"
+                className={styles.dpicn}
+                alt="dp"
+              />
+              }
             </Link>
           </div>
         </div>
@@ -142,6 +154,41 @@ const LayoutDashboard = ({ children }) => {
               </div>
               </Link>
 
+              <div className={`${styles.nav_option} ${styles.option5}`}>
+                <img
+                  src="https://i.ibb.co/ZNQzLfC/10.png"
+                  className={styles.nav_img}
+                  alt="blog"
+                />
+                <h3 className="text-white hover:text-gray-800"> Expense</h3>
+              </div>
+              <div className={`${styles.nav_option} ${styles.option5}`}>
+                <img
+                  src="https://i.ibb.co/ZNQzLfC/10.png"
+                  className={styles.nav_img}
+                  alt="blog"
+                />
+                <h3 className="text-white hover:text-gray-800"> Notice</h3>
+              </div>
+              
+             
+              <div className={`${styles.nav_option} ${styles.option6}`}>
+                <img
+                  src="https://i.ibb.co/nC91Ty6/4.png"
+                  className={styles.nav_img}
+                  alt="settings"
+                />
+                <h3 className="text-white hover:text-gray-800"> 
+                <div className="flex items-center gap-5">
+                  <p>Settings</p>
+                  
+                  </div>  </h3>
+               
+              
+              
+
+              </div>
+              
               <Link href='/dashboard/paymentEvent'>
               <div className={`${styles.nav_option} ${styles.option1}`}>
 
