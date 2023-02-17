@@ -91,7 +91,7 @@ const addBlog = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="Product Name"
+                      placeholder="Blog Name"
                       {...register("name", {
                         required: "Name is Required",
                       })}
@@ -104,11 +104,11 @@ const addBlog = () => {
                   <div className="form-control w-full md:w-1/3">
                     <label className="label">
                       {" "}
-                      <span className="label-text text-white">Blog Title</span>
+                      <span className="label-text text-white">Your Name</span>
                     </label>
                     <input
                       type="text"
-                      placeholder="Product Title"
+                      placeholder="Your Name"
                       {...register("title", {
                         required: "title is Required",
                       })}

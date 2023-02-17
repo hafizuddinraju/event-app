@@ -3,18 +3,14 @@ import Item from "./RightSite";
 
 const Faq = () => {
     return (
-      <div class=" py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div class="py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
           <div class="flex flex-col mb-16 sm:text-center">
             <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
-              <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                <span class="relative inline-block">
-                  <span class="relative">
-                    <span className="text-sky-600">Event</span>Mart
-                  </span>
-                </span>
+              <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl text-center">
+                  <span className="text-sky-600">Event</span>Mart
               </h2>
-              <p class="text-base text-gray-700 md:text-lg">
+              <p class="text-base text-gray-700 md:text-lg px-3">
               The goal of our event management agency is to ensure that the event runs smoothly and is a success for all involved. We work closely with clients to understand their needs and goals, and then use our expertise to plan and execute an event that meets those needs and exceeds expectations.
               </p>
             </div>
