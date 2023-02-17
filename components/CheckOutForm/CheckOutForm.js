@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import swal from 'sweetalert';
 import { AuthContext } from '../../context/AuthProvider';
+import { getEvent, updateSubCategory } from '../../lib/helperSubCategory';
 import { postPaymentIssueHelper, updateBookingPayment } from '../../lib/paymentIssueHelper';
 
 const CheckOutForm = ({booking}) => {
@@ -37,6 +38,14 @@ useEffect(() => {
   }
   newFun()
 }, [price]);
+
+// useEffect(()=>{
+//   getEvent(booking?.product_id)
+//   .then(res =>{
+//     console.log(res,"data find")
+//   })
+
+// },[booking?.product_id])
 
 
     const handleSubmit =async (event) =>{
@@ -87,7 +96,7 @@ useEffect(() => {
           console.log(paymentIntent, "this is payment")
 
           const paymentInfo ={
-                eventName: n,
+                
                 userEmail : user?.email,
                 eventId : booking?._id,
                 price : booking?.price,
@@ -101,8 +110,9 @@ useEffect(() => {
 
             const updateResponse = await updateBookingPayment(booking?._id , formData)
             console.log(updateResponse, "this is response")
+            const eventSubRes = await updateSubCategory(booking?.product_id, formData)
 
-            if(updateResponse){
+            if(eventSubRes){
               swal("Payment SuccessFul!", "success", {
                 button: "Done!",
               });

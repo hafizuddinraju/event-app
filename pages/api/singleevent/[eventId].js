@@ -1,4 +1,4 @@
-import { getEvent } from "../../../databaseConnection/controllerSubCategory";
+import { getEvent, updateSubCategory } from "../../../databaseConnection/controllerSubCategory";
 import connectMongo from "../../../databaseConnection/database";
 
 export default async function handler(req, res) {
@@ -12,9 +12,9 @@ export default async function handler(req, res) {
         case "GET":
             getEvent(req, res);
             break;
-        // case 'PUT':
-        //     putRoom(req, res)
-        //     break;
+        case 'PUT':
+            updateSubCategory(req, res)
+            break;
         // case 'DELETE':
         //     deleteRoom(req, res)
         //     break;
