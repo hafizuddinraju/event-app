@@ -23,7 +23,7 @@ const Category = () => {
 
     return (
             <section className='bg-[#f1f1f1] py-10 lg:py-20'>
-              <div className='max-w-screen-xl mx-auto parent-category-container'>
+              <div className='max-w-screen-xl mx-auto parent-category-container px-5'>
              <h2 className='text-center text-2xl sm:text-3xl lg:text-5xl mb-5 lg:mb-20 font-bold uppercase'>Events <span className='text-sky-600 '>for you</span></h2>
         <div className='block lg:flex gap-5'>
             <div className='  '>
