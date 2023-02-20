@@ -80,8 +80,8 @@ const Testimonial = () => {
                                     <FaStar className='text-orange-700 mt-1'></FaStar>
                                 </div>
                             </div>
-                            <p className='mb-5 text-md h-36 text-justify'>{rvw.reviewDesc.slice(0, 300) + "..."}</p>
-                            <div className='flex justify-end gap-5'>
+                            <p className='mt-10 mb-5 text-md h-48 text-justify'>{rvw.reviewDesc.slice(0, 250) + "..."}</p>
+                            <div className='flex justify-end gap-5 h-14'>
                                 <img className='w-20 rounded-full ' src={rvw?.user_img || <FaUser></FaUser>} alt="" />
                                 <div className='ml-2'>
                                     <h3 className='text-xl font-medium'>
