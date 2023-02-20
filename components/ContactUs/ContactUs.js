@@ -18,7 +18,7 @@ const ContactUs = () => {
     };
 
     return (
-        <section className="bg-[url('https://images.unsplash.com/photo-1565038930214-09566ed2149b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')] py-6 lg:py-28 bg-cover bg-no-repeat bg-center">
+        <section className="bg-[url('https://i.ibb.co/QNCZ7HS/contact-event-Mart.jpg')] py-6 lg:py-28 bg-cover bg-no-repeat bg-center">
             <div className="container mx-auto">
                 <div className="p-6 rounded-lg lg:w-2/4 w-2/3 mx-auto bg-[#f1f1f1] bg-opacity-90">
                     <h4 className="text-4xl text-center  mb-4 text-[#14172A] uppercase font-bold py-2">Contact Us</h4>
