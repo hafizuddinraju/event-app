@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import SmallSpinner from "../../components/Spinner/SmallSpinner";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import { getCategory } from "../../lib/helperCategory";
-import { addEventData } from "../../lib/helperSubCategory";
+import { getSubCategory, postEvent } from "../../lib/helperSubCategory";
 const cors = require("cors");
 
 const addEvent = () => {
@@ -19,7 +19,7 @@ const addEvent = () => {
     formState: { errors },
   } = useForm();
   const imgHost = "041fbe58f313eee96990646a213a5d53";
-  console.log(imgHost);
+  // console.log(imgHost);
   const { data: allEvent, isLoading } = useQuery({
     queryKey: ["allEvent"],
     queryFn: async () => {
@@ -28,7 +28,16 @@ const addEvent = () => {
       return res;
     },
   });
-  console.log(allEvent);
+  // console.log(allEvent);
+  const { data: subCategories } = useQuery({
+    queryKey: ["subCategories"],
+    queryFn: async () => {
+      const res = await getSubCategory();
+
+      return res;
+    },
+  });
+  // console.log(subCategories);
 
   const handleSubmitEvent = async (data) => {
    
@@ -52,8 +61,12 @@ const addEvent = () => {
                 availability: '1',
                 price: data.price,
                 image_url: imgData.data.url,
+                location: data.subCategories,
+                position: data.position,
+                latitude: data.latitude,
+                longitude: data.longitude
               };
-           const res = await addEventData(eventInfo);
+           const res = await postEvent(eventInfo);
            console.log(res)
            if(res){
             setSpinner(false)
@@ -71,11 +84,11 @@ const addEvent = () => {
     <>
       <title>Add Event</title>
       <LayoutDashboard>
-        <div className="bg-slate-800 border h-screen rounded-lg">
+        <div className="bg-slate-800 border rounded-lg">
           <div className="text-white text-center uppercase font-bold text-3xl pt-20">
             Add Event
           </div>
-          <div className=" bg-slate-900 border  border-slate-900 rounded-lg mx-20 mt-4 flex justify-between items-center">
+          <div className=" bg-slate-900 border  border-slate-900 rounded-lg mx-20 my-4 flex justify-between items-center">
             <img
               className="w-32 ml-20 hidden md:block lg:block "
               src="https://i.ibb.co/khpBckc/f67.png"
@@ -142,7 +155,7 @@ const addEvent = () => {
                       <span className="label-text text-white">Price</span>
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       {...register("price", {
                         required: "Price is Required",
                       })}
@@ -154,7 +167,6 @@ const addEvent = () => {
                       </p>
                     )}
                   </div>
-
                   <div className="form-control w-full ml-3 md:w-4/6 ">
                     <label className="label">
                       {" "}
@@ -175,8 +187,77 @@ const addEvent = () => {
                       </p>
                     )}
                   </div>
+                  <div className="form-control w-full md:w-1/3 ">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Location</span>
+                    </label>
+                    <select
+                      {...register("subCategories")}
+                      className="select input-bordered w-full "
+                    >
+                        <option>Select location</option>
+                      {subCategories?.map((event) => (
+                        <>
+                        <option key={event._id} value={event.location}>
+                          {event.location}
+                        </option>
+                        </>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-control w-full md:w-1/3">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Position</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="[latitude, longitude]"
+                      {...register("position", {
+                        required: "position is Required",
+                      })}
+                      className="input input-bordered "
+                    />
+                    {errors.position && (
+                      <p className="text-red-500">{errors.position.message}</p>
+                    )}
+                  </div>
+                  <div className="form-control w-full md:w-1/3">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Latitude</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="latitude"
+                      {...register("latitude", {
+                        required: "latitude is Required",
+                      })}
+                      className="input input-bordered "
+                    />
+                    {errors.latitude && (
+                      <p className="text-red-500">{errors.latitude.message}</p>
+                    )}
+                  </div>
+                  <div className="form-control w-full md:w-1/3">
+                    <label className="label">
+                      {" "}
+                      <span className="label-text text-white">Longitude</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="longitude"
+                      {...register("longitude", {
+                        required: "longitude is Required",
+                      })}
+                      className="input input-bordered "
+                    />
+                    {errors.longitude && (
+                      <p className="text-red-500">{errors.longitude.message}</p>
+                    )}
+                  </div>
                 </div>
-
                 <div className=" md:w-1/2 md:mx-auto">
                   <button
                     onClick={handleSpinner}
