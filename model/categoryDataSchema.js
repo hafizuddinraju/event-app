@@ -7,7 +7,11 @@ const subCateSchema = new Schema({
     description: String,
     availability: String,
     price: String,
-    image_url: String
+    image_url: String,
+    location: String,
+    position: String,
+    latitude: String,
+    longitude: String
 })
 
 const subCategories = models.subCategory || model("subCategory", subCateSchema);
