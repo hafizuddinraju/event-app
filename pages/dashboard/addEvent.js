@@ -156,6 +156,7 @@ const addEvent = () => {
                     </label>
                     <input
                       type="text"
+                      placeholder="$588"
                       {...register("price", {
                         required: "Price is Required",
                       })}
@@ -176,6 +177,7 @@ const addEvent = () => {
                     </label>
                     <textarea
                       type="text"
+                      placeholder="Write details here"
                       {...register("description", {
                         required: "Description is Required",
                       })}
@@ -230,7 +232,7 @@ const addEvent = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="latitude"
+                      placeholder="23.781855069839718"
                       {...register("latitude", {
                         required: "latitude is Required",
                       })}
@@ -247,7 +249,7 @@ const addEvent = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="longitude"
+                      placeholder="90.41470751205877"
                       {...register("longitude", {
                         required: "longitude is Required",
                       })}
