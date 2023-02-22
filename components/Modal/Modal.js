@@ -32,6 +32,7 @@ const Modal = ({ setModal, modal }) => {
     const form = event.target;
     const phone = form.phone.value;
     const optionals = form.optionals.value;
+    const eventDate = form.date.value;
 
     const booking = {
       picture: modal?.image_url,
@@ -41,6 +42,8 @@ const Modal = ({ setModal, modal }) => {
       availability: '0',
       email: user?.email,
       product_id: modal?._id,
+      event_name: modal?.name,
+      event_Date: eventDate
     };
      addBooking(booking).then(res =>{
       console.log(res)
@@ -79,6 +82,11 @@ const Modal = ({ setModal, modal }) => {
               type="text"
               defaultValue={modal?.name}
               readOnly
+              className="input w-full text-gray-800 input-bordered"
+            />
+            <input
+              name="date"
+              type="date"
               className="input w-full text-gray-800 input-bordered"
             />
             <input

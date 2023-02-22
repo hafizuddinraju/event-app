@@ -8,8 +8,11 @@ const bookingsCateSchema = new Schema({
     availability: String,
     email: String,
     product_id: String,
+    optionals: String,
+    event_name: String,
+    event_Date: String
 });
 
-const bookingsData = models.bookings || model("bookings", bookingsCateSchema);
+const bookingsData = models.bookingsevent || model("bookingsevent", bookingsCateSchema);
 
 export default bookingsData;

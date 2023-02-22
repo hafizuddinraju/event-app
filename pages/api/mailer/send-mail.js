@@ -2,6 +2,7 @@
 import nodemailer from "nodemailer";
 
 export default async function (req, res) {
+    
     const { name, email, message } = req.body
 
     const PrivEmail = process.env.USER_EMAIL
@@ -17,22 +18,23 @@ export default async function (req, res) {
 
 
     const mail = {
-        from: `${email}`,
-        to: PrivEmail,
-        subject: `New Mail From ${name}`,
-        text: `${name} Wrote: ${message}`,
+        from: PrivEmail,
+        to: `${email}`,
+        subject: `Payment Successful !!`,
+        text: `Your payment Successful. Event Name ${name} and Transaction_Id : ${message}
+        `
     }
     try {
         await transporter.sendMail(mail, function (err, data) {
             if (err) {
-                console.log(err, "some error");
+                res.status(404).json(err, "some error");
             } else (
-                console.log(data, 'successful')
+                res.status(200).json(data, 'successful')
             )
         })
     } catch (err) {
-        res.status(500).json({ err: 'error found' })
-        console.log(err)
+        res.status(500).json({ error: err })
+       
     }
 
 }
