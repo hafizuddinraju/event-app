@@ -77,9 +77,9 @@ const Signup = () => {
 
 
     return (
-        <div className='flex h-screen justify-center flex-col md:flex-row lg:flex-row items-center gap-4'>
+        <div className='flex mt-5 h-screen justify-around w-9/12 mx-auto md:flex-row lg:flex-row items-center gap-4'>
             <div>
-                <img className='h-[450px]' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
+                <img className='h-[450px] w-full' src="https://i.ibb.co/XxqDcj2/Mobile-login-pana.png" alt="" />
             </div>
             <div>
                 <div className='flex justify-center items-center rounded-lg '>
