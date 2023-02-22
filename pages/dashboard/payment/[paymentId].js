@@ -28,7 +28,7 @@ const userPaymentPage = () => {
     return (
         <div className="py-32 flex justify-around h-screen">
             <div>
-                <h2 className="font-bold text-3xl mb-4">Payment For </h2>
+                <h2 className="font-bold text-3xl mb-4">Payment For <span className="text-sky-500">{getEventPayment?.event_name}</span></h2>
                 <div className="flex items-center gap-3 justify-center">
 
                

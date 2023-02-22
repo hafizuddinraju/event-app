@@ -6,6 +6,7 @@ import { useState } from 'react';
 import swal from 'sweetalert';
 import { AuthContext } from '../../context/AuthProvider';
 import { getEvent, updateSubCategory } from '../../lib/helperSubCategory';
+import { postMailer } from '../../lib/mailerHelper';
 import { postPaymentIssueHelper, updateBookingPayment } from '../../lib/paymentIssueHelper';
 
 const CheckOutForm = ({booking}) => {
@@ -96,7 +97,7 @@ useEffect(() => {
           console.log(paymentIntent, "this is payment")
 
           const paymentInfo ={
-                
+            eventName:booking?.event_name,
                 userEmail : user?.email,
                 eventId : booking?._id,
                 price : booking?.price,
@@ -117,6 +118,14 @@ useEffect(() => {
                 button: "Done!",
               });
               router.push('/dashboard/myOrders')
+              const dataEvent = {
+                name:booking?.event_name,
+                email:user?.email,
+                message:paymentIntent.id
+              }
+              const mail = await postMailer(dataEvent)
+             
+              
 
             }
            }

@@ -56,7 +56,7 @@ const DashboardItems = () => {
               paymentEvent?.map(p =>{
                 return(
                   <div key={p._id} className='mb-6'>
-                   <p className='  text-center text-sky-500 font-semibold'>{p?.eventId} </p>
+                   <p className='  text-center text-sky-500 font-semibold'>{p?.eventName} </p>
                   <div className='mt-10 mx-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 lg:gap-6'>
                     {
                       p?.eventUpdate >=10?
