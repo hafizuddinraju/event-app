@@ -92,6 +92,21 @@
   font-weight: bold;
   transition: all linear .5s ease-in-out;
  }
+ .custom-css-delete-event{
+  position: relative;
+  transition: all linear .5s ease-in-out;
+ }
+ .custom-css-delete-event:hover::after{
+  content: "Delete Event";
+  position: absolute;
+  top: -0px;
+  z-index: 222;
+  width: 200px;
+  color: red;
+  left:-0px;
+  font-weight: bold;
+  transition: all linear .5s ease-in-out;
+ }
  /* end of the css */
 
  * {
