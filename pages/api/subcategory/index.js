@@ -1,6 +1,7 @@
 import {
   getSubCategory,
   postEvent,
+  updateSubAvailability,
 } from "../../../databaseConnection/controllerSubCategory";
 import connectMongo from "../../../databaseConnection/database";
 
@@ -20,8 +21,11 @@ export default async function handler(req, res) {
     case "POST":
       postEvent(req, res);
       break;
+    case "PUT":
+      updateSubAvailability(req, res);
+      break;
     default:
-      res.setHeader("Allow", ["GET", "POST"]);
+      res.setHeader("Allow", ["GET", "POST", "PUT"]);
       res.status(405).end(`Method ${method} Not Allow`);
       break;
   }

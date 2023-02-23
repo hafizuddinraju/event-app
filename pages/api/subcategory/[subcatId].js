@@ -1,4 +1,4 @@
-import { getSingleSubCategory } from "../../../databaseConnection/controllerSubCategory";
+import { getSingleSubCategory, updateSubAvailability } from "../../../databaseConnection/controllerSubCategory";
 import connectMongo from "../../../databaseConnection/database";
 
 export default async function handler(req, res) {
@@ -12,9 +12,9 @@ export default async function handler(req, res) {
         case "GET":
             getSingleSubCategory(req, res);
             break;
-        // case 'PUT':
-        //     putRoom(req, res)
-        //     break;
+            case "PUT":
+                updateSubAvailability(req, res);
+                break;
         // case 'DELETE':
         //     deleteRoom(req, res)
         //     break;
