@@ -26,4 +26,4 @@ This is our Group Project. We try to different UI design in this project. First 
 
 Our project Live:[https://event-app-pi.vercel.app/](https://event-app-pi.vercel.app/)
 
-Admin : raju2@gmail.com pass: Raj12345$
+Admin login : raju2@gmail.com pass: Raj12345$
