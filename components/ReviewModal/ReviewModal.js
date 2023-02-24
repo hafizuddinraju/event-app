@@ -48,7 +48,7 @@ const ReviewModal = ({productId}) => {
 
         addReview(review).then(res => {
                 console.log(res)
-                router.push('/');
+                router.push('/dashboard');
             }).catch(error=>{
             console.log(error)})
         };
