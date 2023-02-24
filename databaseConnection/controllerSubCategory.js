@@ -67,3 +67,21 @@ export const postEvent= async(req, res)=> {
       res.status(404).json({ error: "Error While Updating the Data...!" });
     }
   }
+  export const updateSubAvailability = async(req, res)=> {
+    try {
+      
+        const { subcatId } = req.query;
+        const formData = req.body;
+
+      let doc = await subCategories.findByIdAndUpdate(subcatId, formData, {
+          new:true,
+          upsert:true
+      })
+     if(doc){
+      res.status(200).json(doc);
+     }
+     
+    } catch (error) {
+      res.status(404).json({ error: "Error While Updating the Data...!" });
+    }
+  }

@@ -165,6 +165,17 @@ const LayoutDashboard = ({ children }) => {
                 <h3 className="text-white hover:text-gray-100">Payment Event</h3>
               </div>
               </Link>
+              <Link href='/dashboard/allEvent'>
+              <div className={`${styles.nav_option} ${styles.option1}`}>
+
+                <img
+                  src="https://i.ibb.co/Cs2bvXv/6.png"
+                  className={styles.nav_img}
+                  alt="report"
+                />
+                <h3 className="text-white hover:text-gray-100">All Event</h3>
+              </div>
+              </Link>
 
 
             </div>

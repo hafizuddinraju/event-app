@@ -113,6 +113,7 @@ const myOrders = () => {
 
                 <tbody>
                   {orderData?.map((book) => {
+                    const isPaid = book?.availability === "paid";
                     return (
                       <tr
                         key={book._id}
@@ -165,9 +166,9 @@ const myOrders = () => {
                           <label 
                           htmlFor={user ? "review-modal" : router.push("/login")} 
                           className="btn btn-sm bg-[#1E2772] hover:bg-sky-500 border-none normal-case"
-                          onClick={() => handleReview(book.product_id)}
+                          onClick={() => isPaid && handleReview(book.product_id)}
                           >
-                            Add Review
+                            {isPaid ? "Add Review" : "Unavailable"}
                           </label>
                         </td>
                         <td className="px-6 py-4">
